@@ -163,10 +163,10 @@ export default function Footer() {
                   Call Us
                 </p>
                 <a
-                  href="tel:+919999999999"
+                  href="tel:#"
                   className="text-gray-300 transition-colors hover:text-amber-500"
                 >
-                  +91 99999 99999
+                  +91-11-41417725, +91-11-41417825
                 </a>
               </div>
 
@@ -175,10 +175,11 @@ export default function Footer() {
                   Email Us
                 </p>
                 <a
-                  href="mailto:info@yourbrand.com"
+                  href="mailto:info@resolvinyls.com"
                   className="text-gray-300 transition-colors hover:text-amber-500"
                 >
-                  info@yourbrand.com
+                 info@resolvinyls.com
+
                 </a>
               </div>
 
@@ -203,7 +204,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 py-6 text-center text-xs text-gray-500 md:flex-row md:text-left lg:px-8">
 
           <p>
-            © {new Date().getFullYear()} YOURBRAND. All Rights Reserved.
+            © {new Date().getFullYear()} Resol Industries. All Rights Reserved.
           </p>
 
           <div className="flex justify-center gap-6 md:justify-end">
