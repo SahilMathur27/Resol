@@ -17,13 +17,13 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 export default function Home() {
   return (
    <>
-  <Main/> 
-   
+  {/* <Main/>  */}
+     <Cta/>
 <Scroll/>
     {/* <About/>
    {/* <WhyChooseUs/> */} 
    <ProductsSection/>
-    <Cta/>
+  
    <Industry/>
    <Capability/>
   
