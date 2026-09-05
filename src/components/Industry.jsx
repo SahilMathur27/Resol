@@ -98,10 +98,10 @@ export default function IndustriesSlider() {
             transition={{ duration: 0.7 }}
             className="max-w-2xl"
           >
-            <div className="mb-5 flex items-center gap-3">
+            <div className="mb-3 flex items-center gap-3">
               <span className="h-[2px] w-10 bg-amber-500" />
 
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber-600">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#D4A017]">
                 Industries We Serve
               </span>
             </div>
@@ -109,7 +109,7 @@ export default function IndustriesSlider() {
             <h2 className="text-4xl font-bold leading-tight text-[#1d1d1d] md:text-5xl lg:text-6xl">
               Materials that power
               <br />
-              <span className="text-amber-600">every industry.</span>
+              <span className="text-[#D4A017]">every industry.</span>
             </h2>
           </motion.div>
 

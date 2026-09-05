@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Capability from "@/components/Capability";
+import CounterSection from "@/components/Counter";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
@@ -23,6 +24,7 @@ export default function Home() {
     {/* <About/>
    {/* <WhyChooseUs/> */} 
    <ProductsSection/>
+   <CounterSection/>
   
    <Industry/>
    <Capability/>

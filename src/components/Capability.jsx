@@ -149,10 +149,6 @@ export default function Capa() {
               </p>
             </div>
           </div>
-
-          <p className="mt-8 font-[var(--font-lexend-deca)] text-sm text-gray-400">
-            Scroll to explore our commitments ↓
-          </p>
         </div>
 
         {/* ================= RIGHT SIDE - STACK CARDS ================= */}
