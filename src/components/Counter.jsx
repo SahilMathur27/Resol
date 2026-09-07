@@ -1,5 +1,6 @@
 "use client";
-
+import { FaIndustry, FaUsers, FaBusinessTime } from "react-icons/fa6";
+import { GrResources } from "react-icons/gr";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -8,25 +9,25 @@ const counters = [
     number: 10,
     suffix: "+",
     title: "Industries Served",
-    icon: "◈",
+    icon: FaIndustry,
   },
   {
     number: 30,
     suffix: "+",
     title: "Resource Strength",
-    icon: "✦",
+    icon: GrResources,
   },
   {
     number: 25,
     suffix: "+",
     title: "Years in Business",
-    icon: "◌",
+    icon:FaBusinessTime,
   },
   {
     number: 1500,
     suffix: "+",
     title: "Strong Customer Base",
-    icon: "◎",
+    icon: FaUsers,
   },
 ];
 
@@ -62,9 +63,9 @@ function CountUp({ end, suffix = "" }) {
   );
 }
 
-export default function CounterSection() {
+export default function Counter() {
   return (
-    <section className="bg-[#f5f3ef] py-14 md:py-20">
+    <section className="bg-[#f5f3ef] py-8 md:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -107,8 +108,8 @@ export default function CounterSection() {
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full border-[18px] border-[#b08d57]/10 transition-transform duration-500 group-hover:scale-125" />
 
               {/* Icon */}
-              <div className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#1c1c1c] text-xl text-[#d4af6a] md:h-14 md:w-14 md:text-2xl">
-                {item.icon}
+              <div className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-gray-200 text-xl text-[#d4af6a] md:h-14 md:w-14 md:text-2xl">
+                <item.icon />
               </div>
 
               {/* Number */}

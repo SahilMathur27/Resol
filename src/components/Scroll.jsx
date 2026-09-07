@@ -155,7 +155,7 @@ export default function Scroll() {
                   About Resol Industries
                 </span>
 
-                <h2 className="mt-4 text-4xl font-bold leading-tight text-[#111111] md:text-5xl">
+                <h2 className="mt-3 text-4xl font-bold leading-tight text-[#111111] md:text-5xl">
                   PVC Resin &amp;
                   <br />
                   Calcium Carbonate
@@ -202,25 +202,6 @@ export default function Scroll() {
                       ✓
                     </span>
                     Trusted Global Network
-                  </div>
-                </div>
-
-                {/* PROGRESS BAR */}
-                <div className="mt-8">
-                  <div className="mb-3 flex items-center justify-between text-sm font-semibold text-[#111111]">
-                    <span>Reliable Supply Solutions</span>
-
-                    <span className="text-[#D4A017]">100%</span>
-                  </div>
-
-                  <div className="h-2.5 w-full overflow-hidden rounded-full bg-[#E6DED0]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      transition={{ duration: 1.5 }}
-                      viewport={{ once: true }}
-                      className="h-full rounded-full bg-[#D4A017]"
-                    />
                   </div>
                 </div>
               </div>

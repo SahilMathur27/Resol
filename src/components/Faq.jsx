@@ -149,7 +149,7 @@ export default function Map() {
         >
           {/* Main Image */}
           <img
-            src="/industry (3).webp"
+            src="/pro.webp"
             alt="Megha Systems Toilet Cubicle Solutions"
             className="absolute inset-0 h-full w-full object-cover"
           />

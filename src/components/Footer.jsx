@@ -208,19 +208,8 @@ export default function Footer() {
           </p>
 
           <div className="flex justify-center gap-6 md:justify-end">
-            <Link
-              href="/privacy-policy"
-              className="transition-colors hover:text-amber-500"
-            >
-              Privacy Policy
-            </Link>
-
-            <Link
-              href="/terms-conditions"
-              className="transition-colors hover:text-amber-500"
-            >
-              Terms & Conditions
-            </Link>
+            <h2 className="text-xs">Website Designed By Inquiry Bazaar Pvt. Ltd. 
+              <Link className="text-white cursor-pointer px-2" href="https://inquirybazaar.com/">B2B Marketplace</Link></h2>
           </div>
 
         </div>

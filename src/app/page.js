@@ -1,5 +1,7 @@
 import About from "@/components/About";
 import Capability from "@/components/Capability";
+import Categories from "@/components/Categories";
+import Counter from "@/components/Counter";
 import CounterSection from "@/components/Counter";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
@@ -18,14 +20,14 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 export default function Home() {
   return (
    <>
-  {/* <Main/>  */}
-     <Cta/>
-<Scroll/>
+   <Main/>  
+     {/* <Cta/> */}
+      <Scroll/>
     {/* <About/>
    {/* <WhyChooseUs/> */} 
+   <Categories/>
+   <Counter/>
    <ProductsSection/>
-   <CounterSection/>
-  
    <Industry/>
    <Capability/>
   
