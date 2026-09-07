@@ -17,7 +17,7 @@ const capabilities = [
     title: "Trusted Importing Network",
     description:
       "We work with an established network of international sources to bring high-quality industrial materials to businesses across the Indian market.",
-    image: "/industry (3).webp",
+    image: "/Polystyrene.webp",
   },
   {
     number: "03",

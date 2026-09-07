@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const services = [
   {
@@ -49,10 +50,7 @@ function ServiceCard({ service, index, progress }) {
     [1, 0.88 + index * 0.02]
   );
 
-  const position =
-    index % 2 === 0
-      ? "mr-auto"
-      : "ml-auto";
+  const position = index % 2 === 0 ? "mr-auto" : "ml-auto";
 
   return (
     <motion.div
@@ -99,10 +97,10 @@ export default function Capa() {
       className="relative bg-white py-24 lg:py-15"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 lg:grid-cols-2 lg:gap-20">
-        
-        {/* ================= LEFT SIDE - STICKY CONTENT ================= */}
+
+        {/* ================= LEFT SIDE ================= */}
         <div className="lg:sticky lg:top-28 lg:h-fit">
-          
+
           {/* Small Tag */}
           <span className="font-[var(--font-lexend-deca)] text-sm font-semibold uppercase tracking-[3px] text-[#D4A017]">
             Our Commitment
@@ -120,35 +118,47 @@ export default function Capa() {
           <div className="mt-7 h-1 w-20 rounded-full bg-[#D4A017]" />
 
           {/* Description */}
-          <p className="mt-7 max-w-xl font-[var(--font-lexend-deca)] text-base leading-8 text-gray-600 md:text-lg">
+          <p className="mt-4 max-w-xl font-[var(--font-lexend-deca)] text-base leading-8 text-gray-600 md:text-lg">
             At Resol Industries, we are committed to providing reliable
             industrial materials through quality-focused sourcing, consistent
             product standards, dependable service and strong business
             relationships.
           </p>
 
-          {/* Small Stats */}
-          <div className="mt-10 grid max-w-lg grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-              <h3 className="font-[var(--font-outfit)] text-3xl font-bold text-[#D4A017]">
-                20+
-              </h3>
+          {/* ================= IMAGE ================= */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
+            className="relative mt-6 h-[280px] w-full max-w-xl overflow-hidden rounded-3xl md:h-[350px]"
+          >
+            <Image
+              src="/Polystyrene.webp"
+              alt="Resol Industries - Quality and Reliability"
+              fill
+              priority={false}
+              className="object-cover transition-transform duration-700 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
 
-              <p className="mt-1 font-[var(--font-lexend-deca)] text-sm text-gray-500">
-                Years of Experience
-              </p>
-            </div>
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
 
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-              <h3 className="font-[var(--font-outfit)] text-3xl font-bold text-[#D4A017]">
-                India
-              </h3>
-
-              <p className="mt-1 font-[var(--font-lexend-deca)] text-sm text-gray-500">
-                Reliable Supply Network
-              </p>
-            </div>
-          </div>
+          
+          </motion.div>
         </div>
 
         {/* ================= RIGHT SIDE - STACK CARDS ================= */}
@@ -167,3 +177,5 @@ export default function Capa() {
     </section>
   );
 }
+
+
