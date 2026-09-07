@@ -9,7 +9,7 @@ import "swiper/css/effect-fade";
 
 const bannerImages = [
   "/banner (21).webp",
-   "/banner (21).webp",
+   "/Polystyrene banner.webp",
 ];
 
 export default function Hero() {
@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="mx-auto max-w-[1600px] px-0 py-0 md:px-8 lg:px-0">
         
         {/* ONLY IMAGE SLIDER */}
-        <div className="relative w-full overflow-hidden rounded-[30px]">
+        <div className="relative w-full overflow-hidden rounded-[10px]">
           <Swiper
             modules={[Navigation, Autoplay, EffectFade]}
             slidesPerView={1}
@@ -29,7 +29,7 @@ export default function Hero() {
               crossFade: true,
             }}
             autoplay={{
-              delay: 5000,
+              delay: 3000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -41,7 +41,7 @@ export default function Hero() {
           >
             {bannerImages.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-full">
+                <div className="relative top-0 w-full">
                   <img
                     src={image}
                     alt={`Industrial Chemical Banner ${index + 1}`}

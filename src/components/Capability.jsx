@@ -9,13 +9,13 @@ const services = [
     title: "Quality-Focused Sourcing",
     description:
       "We work with established international sources to bring reliable industrial materials to the Indian market.",
-    bg: "bg-[#102533]",
+    bg: "bg-[#D4A017]",
   },
   {
     title: "Consistent Product Standards",
     description:
       "We focus on maintaining consistent quality across our range to meet the requirements of different industrial applications.",
-    bg: "bg-[#D4A017]",
+    bg: "bg-[#6B6B6B]",
   },
   {
     title: "Diverse Product Portfolio",
@@ -33,7 +33,7 @@ const services = [
     title: "Strong Business Relationships",
     description:
       "We value long-term relationships with our customers and international suppliers, built on trust, transparency, and mutual growth.",
-    bg: "bg-[#163b4d]",
+    bg: "bg-[#808080]",
   },
   {
     title: "Reliable Import",

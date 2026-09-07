@@ -31,7 +31,7 @@ const capabilities = [
     title: "Reliable Supply Solutions",
     description:
       "We focus on consistent product quality, dependable supply and transparent business practices while building long-term customer relationships.",
-    image: "/industry (3).webp",
+    image: "/pro.webp",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Scroll() {
                 {/* TOP IMAGE */}
                 <div className="absolute right-6 top-6 h-[330px] w-[75%] overflow-hidden rounded-[22px]">
                   <Image
-                    src="/industry (3).webp"
+                    src="/factory (1).webp"
                     alt="Resol Industries"
                     fill
                     className="object-cover"
