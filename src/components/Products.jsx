@@ -95,7 +95,7 @@ Our Products </span>
             slidesPerView: 2,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 4,
           },
         }}
         className="products-swiper !pb-16"

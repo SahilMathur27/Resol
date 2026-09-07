@@ -14,8 +14,9 @@ import ProductsSection from "@/components/Products";
 import Scroll from "@/components/Scroll";
 import Smooth from "@/components/Smooth";
 import Testimonials from "@/components/Testimonials";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import WhyChooseUs from "@/components/OurBrands";
 import OurTeam from "@/components/OurTeam";
+import OurBrands from "@/components/OurBrands";
 
 
 export default function Home() {
@@ -24,15 +25,13 @@ export default function Home() {
    <Main/>  
      {/* <Cta/> */}
       <Scroll/>
-    {/* 
-   {/* <WhyChooseUs/> */} 
    <Categories/>
    <Counter/>
    <ProductsSection/>
    <Industry/>
    <Capability/>
    <OurTeam/>
-  
+  <OurBrands/>
    <Testimonials/>
    <Faq/>
    <Smooth/>

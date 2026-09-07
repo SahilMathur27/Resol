@@ -37,3 +37,48 @@ p {
   font-family: var(--font-lexend-deca);
   font-size: 14px;
 }
+
+
+/* Testimonials Style  */
+
+        .testimonial-slider {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .testimonial-slider .swiper-wrapper {
+          align-items: stretch;
+        }
+
+        .testimonial-slider .swiper-slide {
+          width: 100% !important;
+          height: auto;
+          flex-shrink: 0;
+        }
+
+        .testimonial-slider .swiper-pagination {
+          position: absolute;
+          bottom: 0 !important;
+          left: 0 !important;
+          width: 100%;
+          text-align: left;
+        }
+
+        .testimonial-slider .swiper-pagination-bullet {
+          width: 7px;
+          height: 7px;
+          margin: 0 4px !important;
+          border-radius: 20px;
+          background: #17253a;
+          opacity: 0.2;
+          transition: all 0.3s ease;
+        }
+
+        .testimonial-slider
+          .swiper-pagination-bullet-active {
+          width: 30px;
+          background: #b08d57;
+          opacity: 1;
+        }
+
+      

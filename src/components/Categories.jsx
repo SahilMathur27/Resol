@@ -80,27 +80,98 @@ export default function Categories() {
               className="group cursor-pointer"
             >
               {/* Image Card */}
-              <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#ded8cf] bg-white shadow-[0_8px_25px_rgba(0,0,0,0.06)]">
-
+              <div
+                className="
+                  relative
+                  h-[260px]
+                  overflow-hidden
+                  rounded-2xl
+                  border border-[#ded8cf]
+                  bg-white
+                  shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+                  sm:h-[300px]
+                  lg:h-[360px]
+                "
+              >
                 <Image
                   src={category.image}
                   alt={category.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-700
+                    ease-out
+                    group-hover:scale-110
+                  "
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/10 transition-all duration-500 group-hover:bg-black/35" />
+                {/* Image Highlight */}
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    from-black/65
+                    via-black/10
+                    to-transparent
+                    transition-all
+                    duration-500
+                    group-hover:from-black/75
+                  "
+                />
+
+                {/* Shine Effect */}
+                <div
+                  className="
+                    absolute
+                    -left-[120%]
+                    top-0
+                    h-full
+                    w-[70%]
+                    rotate-[15deg]
+                    bg-white/15
+                    blur-xl
+                    transition-all
+                    duration-1000
+                    group-hover:left-[120%]
+                  "
+                />
 
                 {/* Category Name */}
                 <div className="absolute inset-x-0 bottom-0 p-4">
-                  <div className="rounded-xl bg-white/95 px-3 py-3 text-center shadow-lg backdrop-blur-sm transition-all duration-500 group-hover:bg-[#b08d57]">
-                    <h3 className="text-sm font-semibold text-[#1c1c1c] transition-colors duration-500 group-hover:text-white md:text-base">
+                  <div
+                    className="
+                      rounded-xl
+                      border border-white/30
+                      bg-white/95
+                      px-3
+                      py-3
+                      text-center
+                      shadow-lg
+                      backdrop-blur-sm
+                      transition-all
+                      duration-500
+                      group-hover:border-[#b08d57]
+                      group-hover:bg-[#b08d57]
+                    "
+                  >
+                    <h3
+                      className="
+                        text-sm
+                        font-semibold
+                        text-[#1c1c1c]
+                        transition-colors
+                        duration-500
+                        group-hover:text-white
+                        md:text-base
+                      "
+                    >
                       {category.name}
                     </h3>
                   </div>
                 </div>
-
               </div>
             </motion.div>
           ))}
@@ -110,4 +181,3 @@ export default function Categories() {
     </section>
   );
 }
-

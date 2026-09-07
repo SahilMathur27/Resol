@@ -31,7 +31,7 @@ const capabilities = [
     title: "Reliable Supply Solutions",
     description:
       "We focus on consistent product quality, dependable supply and transparent business practices while building long-term customer relationships.",
-    image: "/pro.webp",
+    image: "/.webp",
   },
 ];
 
