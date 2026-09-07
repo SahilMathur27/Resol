@@ -9,16 +9,16 @@ import "swiper/css/effect-fade";
 
 const bannerImages = [
   "/banner (21).webp",
-   "/Polystyrene banner.webp",
+  "/Polystyrene banner.webp",
+  "/banner 3 (7).webp",
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f7f5ef]">
-      <div className="mx-auto max-w-[1600px] px-0 py-0 md:px-8 lg:px-0">
-        
-        {/* ONLY IMAGE SLIDER */}
-        <div className="relative w-full overflow-hidden rounded-[10px]">
+    <section className="relative m-0 w-full overflow-hidden bg-[#f7f5ef] p-0 mt-27">
+      <div className="m-0 w-full max-w-[1600px] p-0">
+        {/* IMAGE SLIDER */}
+        <div className="relative m-0 w-full overflow-hidden rounded-[10px] p-0 leading-[0]">
           <Swiper
             modules={[Navigation, Autoplay, EffectFade]}
             slidesPerView={1}
@@ -37,15 +37,15 @@ export default function Hero() {
               nextEl: ".banner-next",
               prevEl: ".banner-prev",
             }}
-            className="w-full"
+            className="m-0 w-full p-0"
           >
             {bannerImages.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className="relative top-0 w-full">
+              <SwiperSlide key={index} className="m-0 p-0">
+                <div className="relative m-0 w-full p-0">
                   <img
                     src={image}
                     alt={`Industrial Chemical Banner ${index + 1}`}
-                    className="block h-auto w-full object-cover"
+                    className="m-0 block h-auto w-full align-middle object-cover"
                   />
                 </div>
               </SwiperSlide>
@@ -94,8 +94,8 @@ export default function Hero() {
             →
           </button>
         </div>
-
       </div>
     </section>
   );
 }
+

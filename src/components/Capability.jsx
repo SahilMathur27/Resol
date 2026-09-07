@@ -15,31 +15,31 @@ const services = [
     title: "Consistent Product Standards",
     description:
       "We focus on maintaining consistent quality across our range to meet the requirements of different industrial applications.",
-    bg: "bg-[#6B6B6B]",
+    bg: "bg-[#1C1C1C]",
   },
   {
     title: "Diverse Product Portfolio",
     description:
       "Our product range includes PVC Resin, Calcium Carbonate, EVA Resin, PET Resin, Plasticizers, and other industrial materials.",
-    bg: "bg-[#1f2d3d]",
+    bg: "bg-[#D4A017]",
   },
   {
     title: "Customer-Focused Approach",
     description:
       "We understand the specific requirements of our customers and work to provide suitable products with dependable service.",
-    bg: "bg-[#b8860b]",
+    bg: "bg-[#1C1C1C]",
   },
   {
     title: "Strong Business Relationships",
     description:
       "We value long-term relationships with our customers and international suppliers, built on trust, transparency, and mutual growth.",
-    bg: "bg-[#808080]",
+    bg: "bg-[#D4A017]",
   },
   {
     title: "Reliable Import",
     description:
       "With our established importing and distribution network, we serve customers across India with a dependable supply of industrial materials.",
-    bg: "bg-[#8f6b0a]",
+    bg: "bg-[#1C1C1C]",
   },
 ];
 

@@ -20,34 +20,9 @@ const productLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#111827] text-white">
+    <footer className="relative overflow-hidden bg-[#010205] text-white">
 
       {/* Top CTA */}
-      <div className="border-b border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-10 md:flex-row md:items-center lg:px-8">
-
-          <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-amber-500">
-              Let's Work Together
-            </p>
-
-            <h2 className="text-2xl font-semibold md:text-3xl">
-              Looking for quality industrial raw materials?
-            </h2>
-          </div>
-
-          <Link
-            href="/contact-us"
-            className="group flex items-center gap-4 bg-amber-500 px-7 py-4 text-sm font-bold uppercase tracking-wider text-[#111827] transition-all duration-300 hover:bg-white"
-          >
-            Get In Touch
-            <span className="text-xl transition-transform duration-300 group-hover:translate-x-2">
-              →
-            </span>
-          </Link>
-
-        </div>
-      </div>
 
       {/* Background Decoration */}
       <div className="pointer-events-none absolute -right-32 top-32 h-96 w-96 rounded-full border border-white/[0.04]" />

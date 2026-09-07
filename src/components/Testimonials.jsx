@@ -51,7 +51,7 @@ quote:
 ];
 
 export default function Testimonials() {
-return ( <section className="relative overflow-hidden bg-[#FFF9D8] py-10 md:py-13">
+return ( <section className="relative overflow-hidden bg-[#EEEEEE] py-10 md:py-13">
 {/* Background Pattern */} <div className="absolute inset-0 opacity-[0.035]">
 <div
 className="h-full w-full"

@@ -13,15 +13,15 @@ const categories = [
     image: "/pvc resin cate.webp",
   },
   {
-    name: "EVA Resin",
+    name: "Citric Acid",
     image: "/pvc resin cate.webp",
   },
   {
-    name: "PET Resin",
+    name: "Plasticizers",
     image: "/pvc resin cate.webp",
   },
   {
-    name: "PET Resin",
+    name: "Melamine",
     image: "/pvc resin cate.webp",
   },
 ];

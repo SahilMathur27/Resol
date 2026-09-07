@@ -14,43 +14,31 @@ import "swiper/css/pagination";
 const products = [
 {
 title: "PVC Resin",
-description:
-"High-quality PVC resin suitable for pipes, fittings, profiles and various industrial applications.",
 image: "/pvc resin.webp",
 link: "/products/pvc-resin",
 },
 {
 title: "EVA Resin",
-description:
-"Premium Ethylene Vinyl Acetate resin known for flexibility, durability and excellent performance.",
 image: "/pvc resin.webp",
 link: "/products/eva-resin",
 },
 {
 title: "Polyethylene (PE)",
-description:
-"Versatile polyethylene resin suitable for packaging, films, containers and industrial applications.",
 image: "/pvc resin.webp",
 link: "/products/polyethylene",
 },
 {
 title: "Polypropylene (PP)",
-description:
-"Strong and lightweight polypropylene material with excellent durability and chemical resistance.",
 image: "/pvc resin.webp",
 link: "/products/polypropylene",
 },
 {
 title: "Polystyrene",
-description:
-"Reliable polystyrene resin ideal for packaging, disposable products and industrial applications.",
 image: "/pvc resin.webp",
 link: "/products/polystyrene",
 },
 {
 title: "POE",
-description:
-"High-performance Polyolefin Elastomer offering excellent flexibility and impact resistance.",
 image: "/pvc resin.webp",
 link: "/products/poe",
 },
@@ -152,14 +140,11 @@ Our Products </span>
                 {/* GOLD LINE */}
                 <div className="my-4 h-[3px] w-12 bg-[#D4A017] transition-all duration-500 group-hover:w-24" />
 
-                <p className="text-sm leading-7 text-[#5F5A52]">
-                  {product.description}
-                </p>
 
                 {/* BUTTON */}
                 <Link
                   href={product.link}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:gap-4 hover:bg-[#D4A017] hover:text-black"
+                  className="mt-2 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:gap-4 hover:bg-[#D4A017] hover:text-black"
                 >
                   Read More
                   <span className="text-lg">→</span>
