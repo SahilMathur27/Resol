@@ -330,7 +330,7 @@ export default function Footer() {
 
               <div
                 className="
-                  mb-7
+                  mb-2
                   flex
                   items-center
                   justify-between
@@ -338,19 +338,6 @@ export default function Footer() {
               >
 
                 <div>
-
-                  <p
-                    className="
-                      mb-2
-                      text-xs
-                      font-semibold
-                      uppercase
-                      tracking-[0.25em]
-                      text-[#D4A017]
-                    "
-                  >
-                    Our Presence
-                  </p>
 
                   <h3
                     className="
