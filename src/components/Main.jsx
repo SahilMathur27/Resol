@@ -29,8 +29,8 @@ const banners = [
     image: "/resol6.webp",
     eyebrow: "INDUSTRIAL MATERIALS",
     eyebrow2: "BUILT FOR PERFORMANCE",
-    title: "PVC RESIN",
-    highlight: "(PVC)",
+    title: "PVC",
+    highlight: "RESIN",
     description: "RELIABLE RAW MATERIAL",
     description2: "FOR INDUSTRIAL APPLICATIONS",
     features: [
