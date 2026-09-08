@@ -6,23 +6,23 @@ import { motion } from "framer-motion";
 const categories = [
   {
     name: "PVC Resin",
-    image: "/pvc resin cate.webp",
+    image: "/pet resin.webp",
   },
   {
     name: "Calcium Carbonate",
-    image: "/pvc resin cate.webp",
+    image: "/Calcium carbonate.webp",
   },
   {
     name: "Citric Acid",
-    image: "/pvc resin cate.webp",
+    image: "/Citric Acid.webp",
   },
   {
     name: "Plasticizers",
-    image: "/pvc resin cate.webp",
+    image: "/Plasticizers.webp",
   },
   {
     name: "Melamine",
-    image: "/pvc resin cate.webp",
+    image: "/Melamine-2 (1).webp",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function Categories() {
         </motion.div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-3">
           {categories.map((category, index) => (
             <motion.div
               key={category.name}
@@ -83,14 +83,14 @@ export default function Categories() {
               <div
                 className="
                   relative
-                  h-[260px]
+                  h-[230px]
                   overflow-hidden
                   rounded-2xl
                   border border-[#ded8cf]
                   bg-white
                   shadow-[0_10px_30px_rgba(0,0,0,0.08)]
                   sm:h-[300px]
-                  lg:h-[360px]
+                  lg:h-[300px]
                 "
               >
                 <Image
