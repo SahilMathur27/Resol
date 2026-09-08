@@ -138,10 +138,10 @@ className={`overflow-hidden bg-[#252b38] text-white transition-all duration-500 
         </Link>
 
         <Link
-          href="/articles"
+          href="/products/pvc-resin"
           className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
-          Articles
+          Products Page 
         </Link>
 
         <Link

@@ -358,7 +358,7 @@ export default function ProductPage() {
                 priority
                 className="
                   object-contain
-                  p-2
+                  p-2 rounded-3xl
                 "
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
