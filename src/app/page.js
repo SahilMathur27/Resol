@@ -35,7 +35,6 @@ export default function Home() {
    <Testimonials/>
    <Faq/>
    <Smooth/>
-   <Footer/>
    </>
   );
 }

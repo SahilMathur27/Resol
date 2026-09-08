@@ -1,6 +1,7 @@
 import { Outfit, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 const outfit = Outfit({
@@ -29,7 +30,12 @@ export default function RootLayout({ children }) {
         className={`${outfit.variable} ${lexendDeca.variable} antialiased`}
       >
         <Navbar/>
-        {children}</body>
+        {children}
+        <Footer/>
+        </body>
+       
     </html>
+    
   );
+   
 }
