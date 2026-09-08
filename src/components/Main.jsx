@@ -11,21 +11,6 @@ import "swiper/css/pagination";
 
 const banners = [
   {
-    image: "/resol1.webp",
-    eyebrow: "INDUSTRIAL MATERIALS",
-    eyebrow2: "BUILT FOR PERFORMANCE",
-    title: "PVC RESIN",
-    highlight: "(PVC)",
-    description: "RELIABLE RAW MATERIAL",
-    description2: "FOR INDUSTRIAL APPLICATIONS",
-    features: [
-      "HIGH PURITY",
-      "STABLE QUALITY",
-      "WIDE APPLICATIONS",
-      "DEPENDABLE SUPPLY",
-    ],
-  },
-  {
     image: "/reso4.webp",
     eyebrow: "TRUSTED POLYMERS",
     eyebrow2: "FOR A BRIGHTER TOMORROW",
@@ -41,11 +26,27 @@ const banners = [
     ],
   },
   {
+    image: "/resol6.webp",
+    eyebrow: "INDUSTRIAL MATERIALS",
+    eyebrow2: "BUILT FOR PERFORMANCE",
+    title: "PVC RESIN",
+    highlight: "(PVC)",
+    description: "RELIABLE RAW MATERIAL",
+    description2: "FOR INDUSTRIAL APPLICATIONS",
+    features: [
+      "HIGH PURITY",
+      "STABLE QUALITY",
+      "WIDE APPLICATIONS",
+      "DEPENDABLE SUPPLY",
+    ],
+  },
+
+  {
     image: "/resol3.webp",
     eyebrow: "ADVANCED POLYMER",
     eyebrow2: "FOR MODERN INDUSTRIES",
     title: "POLYSTYRENE",
-    highlight: "(PS)",
+    highlight: "(PE)",
     description: "CONSISTENT MATERIAL",
     description2: "FOR MULTIPLE APPLICATIONS",
     features: [
@@ -104,7 +105,7 @@ export default function Hero() {
                   />
 
                   {/* MULTI-LAYER GRADIENT OVERLAY */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#f7f5ef]/95 via-[#f7f5ef]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#f7f5ef]/100 via-[#f7f5ef]/30 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
                   {/* DECORATIVE GOLD ACCENT */}
@@ -119,10 +120,10 @@ export default function Hero() {
                       <div className="mb-4 sm:mb-5">
                         <div className="flex items-center gap-4">
                           <div className="flex flex-col">
-                            <p className="text-[11px] font-medium uppercase tracking-[5px] text-[#3e3e3e] sm:text-xs">
+                            <p className="text-[11px] font-medium uppercase tracking-[1px] text-[#3e3e3e] sm:text-xs">
                               {banner.eyebrow}
                             </p>
-                            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[5px] text-[#3e3e3e] sm:text-xs">
+                            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[1px] text-[#3e3e3e] sm:text-xs">
                               {banner.eyebrow2}
                             </p>
                           </div>
@@ -139,10 +140,10 @@ export default function Hero() {
 
                       {/* DESCRIPTION */}
                       <div className="mt-5 sm:mt-6">
-                        <p className="text-[11px] font-semibold uppercase tracking-[5px] text-[#444] sm:text-xs">
+                        <p className="text-[11px] font-semibold uppercase tracking-[1px] text-[#444] sm:text-xs">
                           {banner.description}
                         </p>
-                        <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[5px] text-[#444] sm:text-xs">
+                        <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[1px] text-[#444] sm:text-xs">
                           {banner.description2}
                         </p>
                       </div>

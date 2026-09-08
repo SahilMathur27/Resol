@@ -82,9 +82,9 @@ export default function Map() {
                     onClick={() =>
                       setOpenIndex(isOpen ? -1 : index)
                     }
-                    className="flex w-full items-center justify-between gap-5 px-7 py-7 text-left transition hover:bg-white md:px-8"
+                    className="flex w-full items-center justify-between gap-5 px-4 py-5 text-left transition hover:bg-white md:px-6"
                   >
-                    <span className="text-xl font-semibold tracking-wide text-[#26354a] md:text-2xl">
+                    <span className="text-xl font-semibold tracking-wide text-[#26354a] md:text-[18px]">
                       {faq.question}
                     </span>
 
@@ -92,8 +92,8 @@ export default function Map() {
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl font-bold text-white transition duration-300 ${
                         isOpen
-                          ? "bg-[#0f514c]"
-                          : "bg-[#174d4a]"
+                          ? "bg-[#051615]"
+                          : "bg-[#041414]"
                       }`}
                     >
                       {isOpen ? "−" : "+"}

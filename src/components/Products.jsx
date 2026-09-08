@@ -82,7 +82,7 @@ export default function ProductsSection() {
           className="relative products-slider-wrapper"
         >
 
-          {/* LEFT ARROW - OUTSIDE */}
+          {/* ================= LEFT ARROW ================= */}
           <button
             className="products-prev absolute left-[-22px] top-[42%] z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-xl font-bold text-[#D4A017] shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#D4A017] hover:text-black lg:flex"
             aria-label="Previous products"
@@ -90,7 +90,7 @@ export default function ProductsSection() {
             ←
           </button>
 
-          {/* RIGHT ARROW - OUTSIDE */}
+          {/* ================= RIGHT ARROW ================= */}
           <button
             className="products-next absolute right-[-22px] top-[42%] z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-xl font-bold text-[#D4A017] shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#D4A017] hover:text-black lg:flex"
             aria-label="Next products"
@@ -98,6 +98,7 @@ export default function ProductsSection() {
             →
           </button>
 
+          {/* ================= SWIPER ================= */}
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={24}
@@ -127,6 +128,7 @@ export default function ProductsSection() {
             {products.map((product, index) => (
               <SwiperSlide key={product.title}>
 
+                {/* ================= PRODUCT CARD ================= */}
                 <div className="group h-full overflow-hidden rounded-[22px] bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
 
                   {/* ================= IMAGE ================= */}
@@ -138,7 +140,7 @@ export default function ProductsSection() {
                       fill
                       priority={index < 3}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-contain p-3 transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
                     {/* SOFT OVERLAY */}
@@ -186,6 +188,7 @@ export default function ProductsSection() {
           {/* ================= CUSTOM SWIPER CSS ================= */}
           <style jsx global>{`
 
+            /* SLIDER WRAPPER */
             .products-slider-wrapper {
               padding-left: 28px;
               padding-right: 28px;
@@ -223,8 +226,9 @@ export default function ProductsSection() {
               display: none !important;
             }
 
-            /* MOBILE */
+            /* MOBILE + TABLET */
             @media (max-width: 1023px) {
+
               .products-slider-wrapper {
                 padding-left: 0;
                 padding-right: 0;
@@ -236,11 +240,17 @@ export default function ProductsSection() {
               }
             }
 
-            /* MOBILE IMAGE */
+            /* MOBILE */
             @media (max-width: 639px) {
+
               .products-swiper .swiper-slide {
                 height: auto;
               }
+
+              .products-swiper .swiper-slide > div {
+                width: 100%;
+              }
+
             }
 
           `}</style>
