@@ -29,7 +29,7 @@ const categories = [
 export default function Categories() {
   return (
     <section className="bg-[#f5f3ef] py-8 md:py-12">
-      <div className="mx-auto max-w-7xl px-1 sm:px-6">
+      <div className="mx-auto max-w-7xl px-1">
 
         {/* Heading */}
         <motion.div

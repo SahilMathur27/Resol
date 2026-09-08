@@ -47,7 +47,7 @@ const products = [
 export default function ProductsSection() {
   return (
     <section className="bg-[#F8F5EE] py-12 md:py-10 lg:py-14">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="mx-auto max-w-7xl">
 
         {/* ================= HEADING ================= */}
         <motion.div
@@ -158,9 +158,6 @@ export default function ProductsSection() {
                   {/* ================= CONTENT ================= */}
                   <div className="p-6">
 
-                    <span className="text-xs font-semibold uppercase tracking-[3px] text-[#D4A017]">
-                      Premium Polymer
-                    </span>
 
                     <h3 className="mt-3 text-2xl font-bold text-black transition-colors duration-300 group-hover:text-[#D4A017]">
                       {product.title}
