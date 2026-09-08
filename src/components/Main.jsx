@@ -124,7 +124,7 @@ export default function Hero() {
                       inset-0
                       bg-gradient-to-r
                       from-[#f7f5ef]/95
-                      via-[#f7f5ef]/75
+                      via-[#f7f5ef]/45
                       to-transparent
                     "
                   />
