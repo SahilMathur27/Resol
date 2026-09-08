@@ -17,7 +17,6 @@ import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/OurBrands";
 import OurTeam from "@/components/OurTeam";
 import OurBrands from "@/components/OurBrands";
-import Marque from "@/components/Marque";
 
 
 export default function Home() {
@@ -30,7 +29,6 @@ export default function Home() {
    <Counter/>
    <ProductsSection/>
    <Industry/>
-   <Marque/>
    <Capability/>
    <OurTeam/>
   <OurBrands/>

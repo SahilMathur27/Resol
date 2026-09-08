@@ -73,9 +73,9 @@ export default function Testimonials() {
         >
           <div className="flex items-center gap-3">
 
-            <span className="h-[2px] w-10 bg-[#b08d57]" />
+            <span className="h-[2px] w-10 bg-[#D4A017]" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.28em] text-[#a27d45]">
+            <span className="text-xs font-bold uppercase tracking-[0.28em] text-[#D4A017]">
               Client Testimonials
             </span>
 
@@ -85,7 +85,7 @@ export default function Testimonials() {
 
             Trusted by businesses.
             
-            <span className="block text-[#b08d57]">
+            <span className="block text-[#D4A017]">
               Valued by our clients.
             </span>
 
@@ -115,7 +115,7 @@ export default function Testimonials() {
 
             {/* Image Frame */}
 
-            <div className="relative overflow-hidden rounded-[28px] border border-[#d7c29c] bg-white p-1">
+            <div className="relative overflow-hidden rounded-[28px] border border-[#D4A017] bg-white p-1">
 
               <div className="relative aspect-[4/4.4] overflow-hidden rounded-[24px]">
 
@@ -142,7 +142,7 @@ export default function Testimonials() {
 
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#f5eee1]">
 
-                        <span className="text-xl text-[#b08d57]">
+                        <span className="text-xl text-[#D4A017]">
                           ◆
                         </span>
 
@@ -151,7 +151,7 @@ export default function Testimonials() {
 
                       <div>
 
-                        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b08d57]">
+                        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#D4A017]">
                           Featured Material
                         </p>
 
@@ -178,7 +178,7 @@ export default function Testimonials() {
 
             {/* Decorative Border */}
 
-            <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-[28px] border border-[#b08d57]/30" />
+            <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-[28px] border border-[#D4A017]/30" />
 
 
             {/* Floating Number */}

@@ -98,7 +98,7 @@ export default function Counter() {
             <div className="flex items-center gap-3">
               <span className="h-[1px] w-10 bg-[#b08d57]" />
 
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#a27d45]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#D4A017]">
                 Our Strength
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function Counter() {
           <div>
             <h2 className="max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-[#1c1c1c] sm:text-4xl md:text-5xl">
               Numbers that speak for our
-              <span className="ml-2 text-[#b08d57]">
+              <span className="ml-2 text-[#D4A017]">
                 journey.
               </span>
             </h2>
