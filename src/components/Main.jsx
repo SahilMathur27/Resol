@@ -74,7 +74,7 @@ export default function Hero() {
             effect="fade"
             fadeEffect={{ crossFade: true }}
             autoplay={{
-              delay: 5000,
+              delay: 2000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}

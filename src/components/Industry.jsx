@@ -152,7 +152,7 @@ export default function IndustriesSlider() {
           spaceBetween={24}
           slidesPerView={1}
           autoplay={{
-            delay: 3500,
+            delay: 2500,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
