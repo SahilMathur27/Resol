@@ -28,7 +28,7 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="bg-[#f5f3ef] py-8 md:py-12">
+    <section className="bg-[#f5f3ef] py-6 md:py-10">
       <div className="mx-auto max-w-7xl px-1">
 
         {/* Heading */}
@@ -153,8 +153,8 @@ export default function Categories() {
                       backdrop-blur-sm
                       transition-all
                       duration-500
-                      group-hover:border-[#b08d57]
-                      group-hover:bg-[#b08d57]
+                      group-hover:border-[#D4A017]
+                      group-hover:bg-[#D4A017]
                     "
                   >
                     <h3
