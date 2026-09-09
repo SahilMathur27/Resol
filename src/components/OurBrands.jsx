@@ -2,118 +2,125 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
 const brands = [
   {
     logo: "/astrallogo.webp",
-    name: "PVC Resin",
+    name: "Astral",
   },
   {
     logo: "/nilkamal-ltd.webp",
-    name: "Calcium Carbonate",
+    name: "Nilkamal",
   },
   {
     logo: "/prince-pipes-fittings.webp",
-    name: "EVA Resin",
+    name: "Prince Pipes",
   },
   {
     logo: "/cosmo-films.webp",
-    name: "PET Resin",
+    name: "Cosmo Films",
   },
-   {
+  {
     logo: "/finolex-industries.webp",
-    name: "PET Resin",
+    name: "Finolex Industries",
   },
-   {
+  {
     logo: "/uflex-ltd.webp",
-    name: "PET Resin",
+    name: "UFlex",
   },
 ];
 
 export default function OurBrands() {
   return (
-    <section className="relative overflow-hidden bg-[#f5f4ef] py-12 md:py-16">
+    <section className="relative overflow-hidden bg-[#f5f4ef] py-11 md:py-13">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-
         <div className="relative">
 
           <Swiper
-            modules={[Navigation, Autoplay]}
+            modules={[Autoplay]}
             loop={true}
-            speed={800}
-            spaceBetween={14}
-            slidesPerView={2}
+            loopAdditionalSlides={brands.length}
+            speed={10000}
+            spaceBetween={18}
+            slidesPerView={4}
+            allowTouchMove={true}
             autoplay={{
-              delay: 2500,
+              delay: 0,
               disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            navigation={{
-              nextEl: ".brand-next",
-              prevEl: ".brand-prev",
+              pauseOnMouseEnter: false,
             }}
             breakpoints={{
               640: {
                 slidesPerView: 3,
-                spaceBetween: 18,
+                spaceBetween: 20,
               },
               1024: {
                 slidesPerView: 5,
-                spaceBetween: 20,
+                spaceBetween: 22,
               },
             }}
-            className="!overflow-visible"
+            className="!overflow-hidden !pb-2"
           >
             {brands.map((brand, index) => (
               <SwiperSlide key={index}>
                 <div
                   className="
-                    group relative
-                    flex h-[135px]
-                    items-center justify-center
+                    group
+                    relative
+                    flex
+                    h-[145px]
+                    w-full
+                    items-center
+                    justify-center
                     overflow-hidden
                     rounded-2xl
-                    border border-black/[0.07]
+                    border
+                    border-black/[0.07]
                     bg-white
                     px-2
+                    py-2
                     shadow-sm
-                    transition-all duration-500
+                    transition-all
+                    duration-500
                     hover:-translate-y-1
                     hover:border-[#D4A017]/50
                     hover:shadow-lg
                   "
                 >
-                  {/* Gold Top Accent */}
+                  {/* GOLD TOP ACCENT */}
                   <span
                     className="
-                      absolute left-1/2 top-0
-                      h-[3px] w-0
+                      absolute
+                      left-1/2
+                      top-0
+                      h-[3px]
+                      w-0
                       -translate-x-1/2
                       bg-[#D4A017]
-                      transition-all duration-500
-                      group-hover:w-16
+                      transition-all
+                      duration-500
+                      group-hover:w-20
                     "
                   />
 
-                  {/* LOGO ONLY */}
+                  {/* LOGO */}
                   <Image
                     src={brand.logo}
                     alt={brand.name}
-                    width={200}
+                    width={100}
                     height={100}
+                    priority={index < 5}
                     className="
-                      h-auto
-                      max-h-[100px]
-                      w-auto
-                      max-w-[200px]
-                      object-contain
+                      h-10
+                      w-40
+                   
+                      object-cover
                       transition-transform
                       duration-500
-                      group-hover:scale-110
+                      group-hover:scale-105
                     "
                   />
                 </div>
@@ -125,23 +132,38 @@ export default function OurBrands() {
           <button
             className="
               brand-prev
-              absolute left-0 top-1/2 z-20
-              flex h-9 w-9
+              absolute
+              left-0
+              top-1/2
+              z-20
+              flex
+              h-9
+              w-9
               -translate-x-1/2
               -translate-y-1/2
-              items-center justify-center
+              items-center
+              justify-center
               rounded-full
-              border border-black/10
+              border
+              border-black/10
               bg-white
-              text-lg text-[#303030]
+              text-lg
+              text-[#303030]
               shadow-md
-              transition-all duration-300
+              transition-all
+              duration-100
               hover:scale-110
               hover:bg-[#D4A017]
               hover:text-white
-              md:h-10 md:w-10
+              md:h-10
+              md:w-10
             "
             aria-label="Previous"
+            onClick={() => {
+              document
+                .querySelector(".swiper")
+                ?.swiper.slidePrev();
+            }}
           >
             ←
           </button>
@@ -150,29 +172,43 @@ export default function OurBrands() {
           <button
             className="
               brand-next
-              absolute right-0 top-1/2 z-20
-              flex h-9 w-9
+              absolute
+              right-0
+              top-1/2
+              z-20
+              flex
+              h-9
+              w-9
               translate-x-1/2
               -translate-y-1/2
-              items-center justify-center
+              items-center
+              justify-center
               rounded-full
-              border border-black/10
+              border
+              border-black/10
               bg-white
-              text-lg text-[#303030]
+              text-lg
+              text-[#303030]
               shadow-md
-              transition-all duration-300
+              transition-all
+              duration-300
               hover:scale-110
               hover:bg-[#D4A017]
               hover:text-white
-              md:h-10 md:w-10
+              md:h-10
+              md:w-10
             "
             aria-label="Next"
+            onClick={() => {
+              document
+                .querySelector(".swiper")
+                ?.swiper.slideNext();
+            }}
           >
             →
           </button>
 
         </div>
-
       </div>
     </section>
   );
