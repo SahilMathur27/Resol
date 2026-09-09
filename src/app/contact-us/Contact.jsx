@@ -1,5 +1,6 @@
 "use client";
 
+import Popup from "@/components/Popup";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -759,49 +760,6 @@ export default function ContactUs() {
                 </div>
 
 
-                {/* SUBJECT */}
-
-                <div>
-
-                  <label
-                    className="
-                      mb-2
-                      block
-                      text-xs
-                      font-bold
-                      uppercase
-                      tracking-wider
-                      text-[#6D675D]
-                    "
-                  >
-                    Subject
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="What can we help you with?"
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-[#DED7C8]
-                      bg-white
-                      px-4
-                      py-3.5
-                      text-sm
-                      text-[#252119]
-                      outline-none
-                      transition-all
-                      placeholder:text-[#AAA398]
-                      focus:border-[#D4A017]
-                      focus:ring-4
-                      focus:ring-[#D4A017]/10
-                    "
-                  />
-
-                </div>
-
-
                 {/* MESSAGE */}
 
                 <div>
@@ -1505,6 +1463,8 @@ function FormField({
       />
 
     </div>
+    
   );
+ 
 }
 

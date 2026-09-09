@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Popup from "./Popup";
 
 export default function Navbar() {
+
+   const [quoteOpen, setQuoteOpen] = useState(false);
 const [isScrolled, setIsScrolled] = useState(false);
 const [isMenuOpen, setIsMenuOpen] = useState(false);
 const [search, setSearch] = useState("");
@@ -200,13 +203,22 @@ className={`overflow-hidden bg-[#252b38] text-white transition-all duration-500 
       </form>
 
       {/* CTA */}
-      <Link
+      <button onClick={() => setQuoteOpen(true)}
         href="/contact"
-        className="hidden shrink-0 items-center gap-2 rounded-xl bg-[#f6bd35] px-6 py-3 text-sm font-bold text-[#26364f] transition hover:bg-[#e9ae20] lg:flex"
+        className="hidden shrink-0 items-center gap-2 rounded-xl bg-[#f6bd35] 
+        px-6 py-3 text-sm font-bold text-[#26364f] transition hover:bg-[#e9ae20] 
+        lg:flex"
       >
         Get a Quote
         <span className="text-xl">→</span>
-      </Link>
+      </button>
+
+  
+
+<Popup
+        isOpen={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+      />
 
       {/* MOBILE MENU BUTTON */}
       <button

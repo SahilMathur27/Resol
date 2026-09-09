@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 
 const banners = [
     {
-    image: "/resol6.webp",
+    image: "/resol7.webp",
     eyebrow: "INDUSTRIAL MATERIALS",
     eyebrow2: "BUILT FOR PERFORMANCE",
     title: "PVC",
