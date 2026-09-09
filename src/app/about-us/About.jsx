@@ -736,6 +736,7 @@ export default function AboutUs() {
               </div>
 
               {/* VALUES */}
+{/* STATS */}
 
               <motion.div
                 variants={staggerContainer}
@@ -744,70 +745,23 @@ export default function AboutUs() {
                 viewport={{
                   once: true,
                 }}
-                className="mt-8 grid grid-cols-2 gap-3"
+                className="mt-8 grid grid-cols-3 gap-3"
               >
 
-                {[
-                  "Quality",
-                  "Reliability",
-                  "Integrity",
-                  "Customer Satisfaction",
-                ].map((item) => (
+                <Stat
+                  number="2005"
+                  label="Founded"
+                />
 
-                  <motion.div
-                    key={item}
-                    variants={fadeUp}
-                    whileHover={{
-                      y: -4,
-                      scale: 1.02,
-                    }}
-                    className="
-                      flex
-                      cursor-default
-                      items-center
-                      gap-2
-                      rounded-xl
-                      border
-                      border-[#E7DFD0]
-                      bg-[#FAF9F4]
-                      px-3
-                      py-3
-                      transition-shadow
-                      duration-300
-                      hover:shadow-md
-                    "
-                  >
+                <Stat
+                  number="20+"
+                  label="Years Experience"
+                />
 
-                    <div
-                      className="
-                        flex
-                        h-6
-                        w-6
-                        flex-shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-[#D4A017]
-                        text-white
-                      "
-                    >
-                      <FaCheck size={10} />
-                    </div>
-
-                    <span
-                      className="
-                        text-xs
-                        font-bold
-                        text-[#403A31]
-                        sm:text-sm
-                      "
-                    >
-                      {item}
-                    </span>
-
-                  </motion.div>
-
-                ))}
+                <Stat
+                  number="Pan India"
+                  label="Market Reach"
+                />
 
               </motion.div>
 
@@ -819,158 +773,231 @@ export default function AboutUs() {
 
       </section>
 
-
-      {/* Counter Sections  */}
-
-
-      <Counter/>
-
       {/* =====================================================
           OUR BUSINESS
       ====================================================== */}
 
       <section
+  className="
+    relative
+    z-10
+    overflow-hidden
+    px-5
+    py-16
+    md:px-8
+    md:py-20
+  "
+>
+  {/* =====================================================
+      PARALLAX BACKGROUND
+  ====================================================== */}
+
+  <div className="absolute inset-0 -z-20">
+    <motion.div
+      initial={{ scale: 1.08 }}
+      whileInView={{ scale: 1 }}
+      transition={{
+        duration: 1.5,
+        ease: "easeOut",
+      }}
+      viewport={{ once: true }}
+      className="absolute inset-0"
+    >
+      <img
+        src="/Calcium carbonate.webp"
+        alt=""
         className="
-          relative
-          z-10
-          bg-[#FAF9F4]
-          px-5
-          py-13
-          md:px-8
-          md:py-15
+          h-full
+          w-full
+          object-cover
+          object-center
+        "
+      />
+    </motion.div>
+  </div>
+
+
+  {/* =====================================================
+      BLACK OVERLAY
+  ====================================================== */}
+
+  <div
+    className="
+      absolute
+      inset-0
+      -z-10
+      bg-black/75
+    "
+  />
+
+
+  {/* =====================================================
+      GOLD PARALLAX GLOW
+  ====================================================== */}
+
+  <motion.div
+    animate={{
+      y: [0, -25, 0],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="
+      pointer-events-none
+      absolute
+      -right-32
+      top-20
+      -z-10
+      h-[400px]
+      w-[400px]
+      rounded-full
+      bg-[#D4A017]/10
+      blur-[120px]
+    "
+  />
+
+
+  <div className="relative mx-auto max-w-7xl">
+
+    {/* =================================================
+        HEADING + CONTENT
+    ================================================= */}
+
+    <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+
+      {/* HEADING */}
+
+      <motion.div
+        variants={fadeLeft}
+        initial="hidden"
+        whileInView="show"
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+      >
+
+        <SectionLabel text="Our Business" />
+
+        <h2
+          className="
+            mt-5
+            text-3xl
+            font-bold
+            leading-tight
+            text-white
+            md:text-5xl
+          "
+        >
+          Connecting Global
+
+          <span className="block text-[#D4A017]">
+            Sources With India.
+          </span>
+        </h2>
+
+      </motion.div>
+
+
+      {/* CONTENT */}
+
+      <motion.div
+        variants={fadeRight}
+        initial="hidden"
+        whileInView="show"
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        className="
+          space-y-6
+          text-base
+          leading-6
+          text-gray-300
         "
       >
 
-        <div className="mx-auto max-w-7xl">
+        <p>
+          Our business is built around international sourcing and
+          the import of industrial materials for the Indian market.
+          We work with established global sources to maintain a
+          diverse product portfolio and dependable availability.
+        </p>
 
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <p>
+          Our products are marketed under the{" "}
+          <span className="font-semibold text-white">
+            Resol Industries brand
+          </span>
+          , allowing us to build a consistent presence in the
+          Indian market while maintaining our focus on product
+          quality and customer requirements.
+        </p>
 
-            {/* HEADING */}
+        <p>
+          With operations serving customers across India, we
+          continue to expand our product portfolio and strengthen
+          our market presence through responsible business
+          practices and long-term partnerships.
+        </p>
 
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="show"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-            >
+      </motion.div>
 
-              <SectionLabel text="Our Business" />
+    </div>
 
-              <h2
-                className="
-                  mt-5
-                  text-3xl
-                  font-bold
-                  leading-tight
-                  md:text-5xl
-                "
-              >
-                Connecting Global
 
-                <span className="block text-[#C28E0B]">
-                  Sources With India.
-                </span>
-              </h2>
+    {/* =================================================
+        BUSINESS CARDS
+    ================================================= */}
 
-            </motion.div>
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{
+        once: true,
+        amount: 0.15,
+      }}
+      className="
+        mt-14
+        grid
+        gap-4
+        sm:grid-cols-2
+        lg:grid-cols-4
+      "
+    >
 
-            {/* CONTENT */}
+      <BusinessCard
+        icon={<FaGlobe />}
+        title="Global Sourcing"
+        text="Established international sourcing networks."
+      />
 
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="show"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              className="
-                space-y-6
-                text-base
-                leading-8
-                text-[#6D675D]
-              "
-            >
+      <BusinessCard
+        icon={<FaIndustry />}
+        title="Industrial Materials"
+        text="Diverse materials for multiple industries."
+      />
 
-              <p>
-                Our business is built around international sourcing and
-                the import of industrial materials for the Indian market.
-                We work with established global sources to maintain a
-                diverse product portfolio and dependable availability.
-              </p>
+      <BusinessCard
+        icon={<FaHandshake />}
+        title="Long-Term Partners"
+        text="Relationships built on reliability and trust."
+      />
 
-              <p>
-                Our products are marketed under the{" "}
-                <span className="font-semibold text-[#29241B]">
-                  Resol Industries brand
-                </span>
-                , allowing us to build a consistent presence in the
-                Indian market while maintaining our focus on product
-                quality and customer requirements.
-              </p>
+      <BusinessCard
+        icon={<FaLocationDot />}
+        title="Pan-India Reach"
+        text="Serving customers across India."
+      />
 
-              <p>
-                With operations serving customers across India, we
-                continue to expand our product portfolio and strengthen
-                our market presence through responsible business
-                practices and long-term partnerships.
-              </p>
+    </motion.div>
 
-            </motion.div>
+  </div>
 
-          </div>
-
-          {/* BUSINESS CARDS */}
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{
-              once: true,
-              amount: 0.15,
-            }}
-            className="
-              mt-14
-              grid
-              gap-4
-              sm:grid-cols-2
-              lg:grid-cols-4
-            "
-          >
-
-            <BusinessCard
-              icon={<FaGlobe />}
-              title="Global Sourcing"
-              text="Established international sourcing networks."
-            />
-
-            <BusinessCard
-              icon={<FaIndustry />}
-              title="Industrial Materials"
-              text="Diverse materials for multiple industries."
-            />
-
-            <BusinessCard
-              icon={<FaHandshake />}
-              title="Long-Term Partners"
-              text="Relationships built on reliability and trust."
-            />
-
-            <BusinessCard
-              icon={<FaLocationDot />}
-              title="Pan-India Reach"
-              text="Serving customers across India."
-            />
-
-          </motion.div>
-
-        </div>
-
-      </section>
+</section>
 
     {/* Our Teams  */}
 
@@ -1389,10 +1416,10 @@ export default function AboutUs() {
           overflow-hidden
           bg-[#17130B]
           px-5
-          py-20
+          py-12
           text-white
           md:px-8
-          md:py-28
+          md:py-15
         "
       >
 
@@ -1522,7 +1549,7 @@ export default function AboutUs() {
 
                   <h3
                     className="
-                      mt-5 text-[16px]
+                      mt-5 text-[20px]
                   
                       font-bold
                       text-white
@@ -1531,186 +1558,9 @@ export default function AboutUs() {
                     {item.title}
                   </h3>
 
-                  <p
-                    className="
-                      mt-2
-                      text-xs
-                      leading-6
-                      text-white/45
-                    "
-                  >
-                    {item.text}
-                  </p>
-
                 </motion.div>
 
               ))}
-
-            </motion.div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* =====================================================
-          OUR FOCUS
-      ====================================================== */}
-
-      <section
-        className="
-          relative
-          z-10
-          bg-white
-          px-5
-          py-20
-          md:px-8
-          md:py-28
-        "
-      >
-
-        <div className="mx-auto max-w-7xl">
-
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-
-            {/* CONTENT */}
-
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="show"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-            >
-
-              <SectionLabel text="Our Focus" />
-
-              <h2
-                className="
-                  mt-5
-                  text-3xl
-                  font-bold
-                  leading-tight
-                  md:text-5xl
-                "
-              >
-                Growing With Our
-
-                <span className="block text-[#C28E0B]">
-                  Customers & Partners.
-                </span>
-              </h2>
-
-              <div
-                className="
-                  mt-7
-                  space-y-5
-                  text-base
-                  leading-7
-                  text-[#6D675D]
-                "
-              >
-
-                <p>
-                  As Resol Industries continues to grow, our focus
-                  remains on expanding our product portfolio,
-                  strengthening our sourcing network, and creating
-                  long-term value for our customers and business
-                  partners.
-                </p>
-
-                <p>
-                  We aim to build on our experience while continuing
-                  to deliver{" "}
-                  <span className="font-semibold text-[#29241B]">
-                    reliable imported products, consistent quality,
-                    and professional service
-                  </span>{" "}
-                  to industries across India.
-                </p>
-
-              </div>
-
-              {/* STATS */}
-
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{
-                  once: true,
-                }}
-                className="mt-8 grid grid-cols-3 gap-3"
-              >
-
-                <Stat
-                  number="2005"
-                  label="Founded"
-                />
-
-                <Stat
-                  number="20+"
-                  label="Years Experience"
-                />
-
-                <Stat
-                  number="Pan India"
-                  label="Market Reach"
-                />
-
-              </motion.div>
-
-            </motion.div>
-
-            {/* IMAGE */}
-
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="show"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              className="
-                relative
-                min-h-[380px]
-                overflow-hidden
-                rounded-[28px]
-                bg-[#F1EBDD]
-                shadow-[0_20px_60px_rgba(50,40,20,0.08)]
-                md:min-h-[500px]
-              "
-            >
-
-              <motion.div
-                initial={{
-                  scale: 1.1,
-                }}
-                whileInView={{
-                  scale: 1,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 1.2,
-                  ease,
-                }}
-                className="absolute inset-0"
-              >
-
-                <Image
-                  src="/About/about (10).webp"
-                  alt="Resol Industries Business"
-                  fill
-                  className="object-cover"
-                />
-
-              </motion.div>
 
             </motion.div>
 
@@ -1730,9 +1580,9 @@ export default function AboutUs() {
           z-10
           bg-[#FAF9F4]
           px-5
-          pb-20
+          py-14
           md:px-8
-          md:pb-28
+          md:py-15
         "
       >
 
@@ -2021,7 +1871,7 @@ function BusinessCard({
       <h3
         className="
           mt-5
-          text-sm
+          text-[19px]
           font-bold
           text-[#211D15]
         "
@@ -2032,7 +1882,7 @@ function BusinessCard({
       <p
         className="
           mt-2
-          text-xs
+          text-
           leading-6
           text-[#777066]
         "

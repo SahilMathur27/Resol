@@ -166,7 +166,7 @@ export default function Footer() {
             MAIN FOOTER
         ====================================================== */}
 
-        <div className="relative mx-auto max-w-7xl px-5 py-16 md:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-7xl px-5 py-13 md:px-8 lg:py-15">
 
 
           {/* =================================================
@@ -195,7 +195,7 @@ export default function Footer() {
               gap-6
               border-b
               border-white/10
-              pb-8
+              pb-6
               lg:flex-row
               lg:items-end
               lg:justify-between
@@ -215,7 +215,7 @@ export default function Footer() {
                   src="/footerlogo.webp"
                   alt="Resol Industries Ltd."
                   className="
-                    w-[130px]
+                    w-[80px]
                     object-contain
                   "
                 />
@@ -225,8 +225,8 @@ export default function Footer() {
 
               <p
                 className="
-                  mt-3
-                  max-w-xl
+                  mt-2
+                  max-w-2xl
                   text-base
                   leading-5
                   text-gray-500
@@ -300,7 +300,7 @@ export default function Footer() {
               grid
               gap-14
               lg:grid-cols-[1.45fr_0.8fr]
-              lg:gap-20
+              lg:gap-15
             "
           >
 
@@ -330,7 +330,7 @@ export default function Footer() {
 
               <div
                 className="
-                  mb-2
+                  mb-1
                   flex
                   items-center
                   justify-between

@@ -67,6 +67,7 @@ export default function Popup({ isOpen, onClose }) {
             flex
             items-center
             justify-center
+            overflow-x-hidden
             bg-black/70
             px-3
             py-5
@@ -106,6 +107,7 @@ export default function Popup({ isOpen, onClose }) {
             className="
               relative
               flex
+              min-w-0
               max-h-[88vh]
               w-full
               max-w-4xl
@@ -160,9 +162,11 @@ export default function Popup({ isOpen, onClose }) {
                 relative
                 hidden
                 w-[38%]
+                min-w-0
                 overflow-hidden
                 bg-[#F5F0E4]
                 p-7
+                pt-18
                 lg:block
               "
             >
@@ -201,13 +205,13 @@ export default function Popup({ isOpen, onClose }) {
                 <img
                   src="/footerlogo.webp"
                   alt="Resol Industries Ltd."
-                  className="mb-7 w-[135px] object-contain"
+                  className="mb-7 w-[135px] max-w-full object-contain"
                 />
 
                 {/* LABEL */}
 
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="h-[2px] w-8 bg-[#D4A017]" />
+                  <span className="h-[2px] w-8 shrink-0 bg-[#D4A017]" />
 
                   <span
                     className="
@@ -232,8 +236,8 @@ export default function Popup({ isOpen, onClose }) {
                     text-[#171511]
                   "
                 >
-                  Get a 
-                  <span className="text-[#B8860B] px-2">
+                  Get a
+                  <span className="px-2 text-[#B8860B]">
                     Quote
                   </span>
                 </h2>
@@ -254,64 +258,9 @@ export default function Popup({ isOpen, onClose }) {
                   and competitive pricing.
                 </p>
 
-                {/* IMAGE */}
+                {/* BENEFITS */}
 
-                <div className="relative mt-auto pt-5">
-                  <div
-                    className="
-                      absolute
-                      bottom-0
-                      left-[-40px]
-                      h-28
-                      w-60
-                      rounded-full
-                      bg-[#D4A017]/20
-                      blur-sm
-                    "
-                  />
-
-                  <img
-                    src="/About/pvc resin cate.webp"
-                    alt="Industrial Materials"
-                    className="
-                      relative
-                      h-32
-                      w-full
-                      rounded-xl
-                      object-cover
-                      object-center
-                      opacity-95
-                      mix-blend-multiply
-                    "
-                  />
-
-                  <div
-                    className="
-                      absolute
-                      bottom-2
-                      right-2
-                      rotate-[-5deg]
-                      text-right
-                    "
-                  >
-                    <p
-                      className="
-                        text-base
-                        font-semibold
-                        italic
-                        leading-5
-                        text-[#171511]
-                      "
-                    >
-                      Your
-                      <br />
-                      Industrial
-                      <br />
-                      Partner
-                    </p>
-
-                    <div className="ml-auto mt-1 h-[2px] w-12 bg-[#D4A017]" />
-                  </div>
+                <div className="mt-auto space-y-4">
                 </div>
               </div>
             </div>
@@ -323,8 +272,11 @@ export default function Popup({ isOpen, onClose }) {
             <div
               className="
                 relative
+                min-w-0
                 w-full
+                overflow-x-hidden
                 overflow-y-auto
+                overscroll-contain
                 bg-white
                 p-5
                 sm:p-6
@@ -348,14 +300,14 @@ export default function Popup({ isOpen, onClose }) {
                 "
               />
 
-              <div className="relative z-10">
+              <div className="relative z-10 min-w-0">
                 {/* MOBILE BRAND */}
 
                 <div className="mb-5 lg:hidden">
                   <img
                     src="/footerlogo.webp"
                     alt="Resol Industries Ltd."
-                    className="w-[125px]"
+                    className="w-[125px] max-w-full"
                   />
 
                   <div className="mt-4 h-[2px] w-8 bg-[#D4A017]" />
@@ -443,11 +395,11 @@ export default function Popup({ isOpen, onClose }) {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="mt-6"
+                  className="mt-6 min-w-0"
                 >
                   {/* ROW 1 */}
 
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="grid min-w-0 gap-4 md:grid-cols-2">
                     <FormInput
                       label="Your Name"
                       name="name"
@@ -471,7 +423,7 @@ export default function Popup({ isOpen, onClose }) {
 
                   {/* ROW 2 */}
 
-                  <div className="mt-4 grid gap-4 md:grid-cols-2">
+                  <div className="mt-4 grid min-w-0 gap-4 md:grid-cols-2">
                     <FormInput
                       label="Mobile Number"
                       name="mobile"
@@ -495,7 +447,7 @@ export default function Popup({ isOpen, onClose }) {
 
                   {/* MESSAGE */}
 
-                  <div className="mt-4">
+                  <div className="mt-4 min-w-0">
                     <label
                       className="
                         mb-1.5
@@ -510,7 +462,7 @@ export default function Popup({ isOpen, onClose }) {
                       Message
                     </label>
 
-                    <div className="relative">
+                    <div className="relative min-w-0">
                       <div
                         className="
                           pointer-events-none
@@ -531,7 +483,10 @@ export default function Popup({ isOpen, onClose }) {
                         onChange={handleChange}
                         placeholder="Tell us about your requirement..."
                         className="
+                          block
+                          min-w-0
                           w-full
+                          max-w-full
                           resize-none
                           rounded-xl
                           border
@@ -568,6 +523,7 @@ export default function Popup({ isOpen, onClose }) {
                       mt-5
                       flex
                       w-full
+                      max-w-full
                       items-center
                       justify-center
                       gap-2.5
@@ -619,10 +575,7 @@ export default function Popup({ isOpen, onClose }) {
                       text-gray-400
                     "
                   >
-                    <FaShieldHalved
-                      size={11}
-                      className="text-[#B8860B]"
-                    />
+
                   </div>
                 </form>
               </div>
@@ -633,7 +586,6 @@ export default function Popup({ isOpen, onClose }) {
     </AnimatePresence>
   );
 }
-
 
 /* ============================================================
    FORM INPUT
@@ -649,7 +601,7 @@ function FormInput({
   onChange,
 }) {
   return (
-    <div>
+    <div className="min-w-0">
       <label
         className="
           mb-1.5
@@ -664,7 +616,7 @@ function FormInput({
         {label}
       </label>
 
-      <div className="relative">
+      <div className="relative min-w-0">
         {/* ICON */}
 
         <div
@@ -690,8 +642,11 @@ function FormInput({
           onChange={onChange}
           placeholder={placeholder}
           className="
+            block
             h-12
+            min-w-0
             w-full
+            max-w-full
             rounded-xl
             border
             border-[#DDD6C8]
@@ -713,7 +668,6 @@ function FormInput({
   );
 }
 
-
 /* ============================================================
    BENEFIT
 ============================================================ */
@@ -724,7 +678,7 @@ function Benefit({
   description,
 }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex min-w-0 items-center gap-3">
       <div
         className="
           flex
@@ -742,7 +696,7 @@ function Benefit({
         {icon}
       </div>
 
-      <div>
+      <div className="min-w-0">
         <h4 className="text-xs font-bold text-[#171511]">
           {title}
         </h4>

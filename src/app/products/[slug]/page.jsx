@@ -216,10 +216,6 @@ export default function ProductPage() {
       </div>
 
       {/* =====================================================
-          PRODUCT HERO
-      ====================================================== */}
-
-      {/* =====================================================
     PRODUCT HERO
 ====================================================== */}
 
@@ -293,7 +289,7 @@ export default function ProductPage() {
                 src={image}
                 alt={`${product.name} ${index + 1}`}
                 fill
-                className="object-contain p-1"
+                className="object-contain p-1 "
                 sizes="72px"
               />
 
@@ -358,7 +354,7 @@ export default function ProductPage() {
                 priority
                 className="
                   object-contain
-                  p-2 rounded-3xl
+                  p-2 rounded-4xl
                 "
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
