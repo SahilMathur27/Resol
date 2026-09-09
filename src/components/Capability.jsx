@@ -96,7 +96,7 @@ export default function Capa() {
       ref={container}
       className="relative bg-white py-24 lg:py-15"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 lg:grid-cols-2 lg:gap-17">
 
         {/* ================= LEFT SIDE ================= */}
         <div className="lg:sticky lg:top-28 lg:h-fit">
@@ -107,7 +107,7 @@ export default function Capa() {
           </span>
 
           {/* Heading */}
-          <h2 className="mt-5 max-w-xl font-[var(--font-outfit)] text-4xl font-bold leading-[1.15] text-[#1f2d3d] md:text-5xl lg:text-[58px]">
+          <h2 className="mt-2 max-w-xl font-[var(--font-outfit)] text-4xl font-bold leading-[1.15] text-[#1f2d3d] md:text-5xl lg:text-[58px]">
             Commitment to{" "}
             <span className="text-[#D4A017]">
               Quality & Reliability
@@ -115,7 +115,7 @@ export default function Capa() {
           </h2>
 
           {/* Accent Line */}
-          <div className="mt-7 h-1 w-20 rounded-full bg-[#D4A017]" />
+          <div className="mt-4 h-1 w-20 rounded-full bg-[#D4A017]" />
 
           {/* Description */}
           <p className="mt-4 max-w-xl font-[var(--font-lexend-deca)] text-base leading-8 text-gray-600 md:text-lg">

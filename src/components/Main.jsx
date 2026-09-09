@@ -10,6 +10,21 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 const banners = [
+    {
+    image: "/resol6.webp",
+    eyebrow: "INDUSTRIAL MATERIALS",
+    eyebrow2: "BUILT FOR PERFORMANCE",
+    title: "PVC",
+    highlight: "RESIN",
+    description: "RELIABLE RAW MATERIAL",
+    description2: "FOR INDUSTRIAL APPLICATIONS",
+    features: [
+      "HIGH PURITY",
+      "STABLE QUALITY",
+      "WIDE APPLICATIONS",
+      "DEPENDABLE SUPPLY",
+    ],
+  },
   {
     image: "/reso4.webp",
     eyebrow: "TRUSTED POLYMERS",
@@ -23,21 +38,6 @@ const banners = [
       "CONSISTENT QUALITY",
       "VERSATILE APPLICATIONS",
       "TRUSTED PERFORMANCE",
-    ],
-  },
-  {
-    image: "/resol6.webp",
-    eyebrow: "INDUSTRIAL MATERIALS",
-    eyebrow2: "BUILT FOR PERFORMANCE",
-    title: "PVC",
-    highlight: "RESIN",
-    description: "RELIABLE RAW MATERIAL",
-    description2: "FOR INDUSTRIAL APPLICATIONS",
-    features: [
-      "HIGH PURITY",
-      "STABLE QUALITY",
-      "WIDE APPLICATIONS",
-      "DEPENDABLE SUPPLY",
     ],
   },
 

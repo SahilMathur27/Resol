@@ -846,53 +846,7 @@ export default function Footer() {
 
       </footer>
 
-
-      {/* =====================================================
-          FLOATING WHATSAPP
-      ====================================================== */}
-
-      <motion.a
-        href="https://wa.me/919810929486"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        initial={{
-          scale: 0,
-        }}
-        animate={{
-          scale: 1,
-        }}
-        transition={{
-          delay: 1,
-          type: "spring",
-          stiffness: 200,
-        }}
-        className="
-          fixed
-          bottom-20
-          right-5
-          z-50
-          flex
-          h-14
-          w-14
-          items-center
-          justify-center
-          rounded-full
-          bg-[#25D366]
-          text-white
-          shadow-[0_8px_30px_rgba(37,211,102,0.3)]
-          transition-all
-          duration-300
-          hover:scale-110
-          md:right-7
-        "
-      >
-
-        <FaWhatsapp size={31} />
-
-      </motion.a>
-
-
+      
       {/* =====================================================
           BACK TO TOP
       ====================================================== */}

@@ -79,7 +79,7 @@ export default function OurBrands() {
                     rounded-2xl
                     border border-black/[0.07]
                     bg-white
-                    px-5
+                    px-2
                     shadow-sm
                     transition-all duration-500
                     hover:-translate-y-1
@@ -103,13 +103,13 @@ export default function OurBrands() {
                   <Image
                     src={brand.logo}
                     alt={brand.name}
-                    width={180}
-                    height={90}
+                    width={200}
+                    height={100}
                     className="
                       h-auto
-                      max-h-[75px]
+                      max-h-[100px]
                       w-auto
-                      max-w-[170px]
+                      max-w-[200px]
                       object-contain
                       transition-transform
                       duration-500

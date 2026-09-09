@@ -125,35 +125,35 @@ className={`overflow-hidden bg-[#252b38] text-white transition-all duration-500 
       <nav className="hidden items-center gap-2 xl:flex">
         <Link
           href="/"
-          className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
           Home
         </Link>
 
         <Link
-          href="/about"
-          className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+          href="/about-us"
+          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
           About Us
         </Link>
 
         <Link
           href="/products/pvc-resin"
-          className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+          className=" rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
-          Products Page 
+         Products
         </Link>
 
         <Link
-          href="/projects"
-          className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+          href="/articles"
+          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
-          Projects
+          Articles
         </Link>
 
         <Link
-          href="/contact"
-          className="rounded-lg px-4 py-2 text-[16px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+          href="/contact-us"
+          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
           Contact Us
         </Link>

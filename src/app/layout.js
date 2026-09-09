@@ -2,6 +2,7 @@ import { Outfit, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FlotingAction";
 
 
 const outfit = Outfit({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
         <Footer/>
+        <FloatingActions/>
         </body>
        
     </html>
