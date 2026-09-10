@@ -1,259 +1,531 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { useRef } from 'react';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
 const industries = [
   {
     id: 1,
-    name: 'Footwear',
+    name: "Footwear",
     description:
-      'PVC Resin and Calcium Carbonate solutions for footwear manufacturing, soles, and related applications.',
-    image: '/footwear.webp',
+      "PVC Resin and Calcium Carbonate solutions for footwear manufacturing, soles, and related applications.",
+    image: "/footwear.webp",
   },
   {
     id: 2,
-    name: 'PVC Panels',
+    name: "PVC Panels",
     description:
-      'High-quality raw materials supporting the production of durable PVC panels and interior applications.',
-    image: '/pvc penal.webp',
+      "High-quality raw materials supporting the production of durable PVC panels and interior applications.",
+    image: "/pvc penal.webp",
   },
   {
     id: 3,
-    name: 'Adhesives',
+    name: "Adhesives",
     description:
-      'Specialized materials used in adhesive formulations for reliable bonding and consistent performance.',
-    image: '/Adhesives.webp',
+      "Specialized materials used in adhesive formulations for reliable bonding and consistent performance.",
+    image: "/Adhesives.webp",
   },
   {
     id: 4,
-    name: 'Textile',
+    name: "Textile",
     description:
-      'Raw materials supporting textile manufacturing, fabric coating, and a wide range of industrial processes.',
-    image: '/textile.webp',
+      "Raw materials supporting textile manufacturing, fabric coating, and a wide range of industrial processes.",
+    image: "/textile.webp",
   },
   {
     id: 5,
-    name: 'Pipes & Fittings',
+    name: "Pipes & Fittings",
     description:
-      'PVC Resin solutions for manufacturing pipes, fittings, and other durable PVC products.',
-    image: '/pipe.webp',
+      "PVC Resin solutions for manufacturing pipes, fittings, and other durable PVC products.",
+    image: "/pipe.webp",
   },
   {
     id: 6,
-    name: 'Packaging',
+    name: "Packaging",
     description:
-      'Reliable materials for flexible and rigid packaging applications across different industries.',
-    image: '/industry (3).webp',
+      "Reliable materials for flexible and rigid packaging applications across different industries.",
+    image: "/industry (3).webp",
   },
   {
     id: 7,
-    name: 'Plastics',
+    name: "Plastics",
     description:
-      'PVC Resin and Calcium Carbonate for a broad range of plastic manufacturing applications.',
-    image: '/pvc penal.webp',
+      "PVC Resin and Calcium Carbonate for a broad range of plastic manufacturing applications.",
+    image: "/pvc penal.webp",
   },
   {
     id: 8,
-    name: 'Paints & Coatings',
+    name: "Paints & Coatings",
     description:
-      'Quality materials for paints, coatings, surface finishing, and related industrial applications.',
-    image: '/paints (1).webp',
+      "Quality materials for paints, coatings, surface finishing, and related industrial applications.",
+    image: "/paints (1).webp",
   },
 ];
 
-export default function IndustriesSlider() {
-  const swiperRef = useRef(null);
+export default function IndustriesAccordion() {
+  const [active, setActive] = useState(0);
+
+  const activeIndustry = industries[active];
 
   return (
-    <section className="relative overflow-hidden bg-[#f7f7f5] py-10 md:py-13">
+    <section className="relative overflow-hidden bg-[#f3f3f1] py-10 md:py-12 lg:py-15">
 
-      {/* Background Decoration */}
-      <div className="absolute left-0 top-0 h-full w-full opacity-[0.035]">
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0">
+
         <div
-          className="h-full w-full"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
-              'radial-gradient(#000 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
+              "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg,#000 1px,transparent 1px)",
+            backgroundSize: "60px 60px",
           }}
         />
+
+        <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-[#D4A017]/10" />
+
+        <div className="absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full border border-[#D4A017]/10" />
+
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5">
+      <div className="relative mx-auto max-w-[1500px] px-5 md:px-8">
 
-        {/* Header */}
-        <div className="mb-12 flex flex-col justify-between gap-8 lg:mb-16 lg:flex-row lg:items-end">
+        {/* =====================================================
+            SECTION HEADER
+        ===================================================== */}
 
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-2xl"
-          >
-            <div className="mb-3 flex items-center gap-3">
-              <span className="h-[2px] w-10 bg-amber-500" />
-
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#D4A017]">
-                Industries We Serve
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-bold leading-tight text-[#1d1d1d] md:text-5xl lg:text-6xl">
-              Materials that power
-              <br />
-              <span className="text-[#D4A017]">every industry.</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="max-w-md"
-          >
-            <p className="text-base leading-8 text-gray-600">
-              We supply quality imported raw materials that support diverse
-              manufacturing sectors across India with reliable solutions for
-              multiple industrial applications.
-            </p>
-
-            {/* Navigation */}
-            <div className="mt-7 flex gap-3">
-              <button
-                onClick={() => swiperRef.current?.swiper.slidePrev()}
-                className="industry-prev flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-xl transition-all duration-300 hover:-translate-x-1 hover:border-amber-500 hover:bg-amber-500 hover:text-white"
-              >
-                ←
-              </button>
-
-              <button
-                onClick={() => swiperRef.current?.swiper.slideNext()}
-                className="industry-next flex h-12 w-12 items-center justify-center rounded-full bg-[#1d1d1d] text-xl text-white transition-all duration-300 hover:translate-x-1 hover:bg-amber-500"
-              >
-                →
-              </button>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Slider */}
-        <Swiper
-          ref={swiperRef}
-          modules={[Autoplay, Navigation]}
-          spaceBetween={24}
-          slidesPerView={1}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
           }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2.4,
-              spaceBetween: 24,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 28,
-            },
-          }}
-          className="industries-premium-slider !overflow-visible"
+          className="mb-14 md:mb-20"
         >
-          {industries.map((industry, index) => (
-            <SwiperSlide key={industry.id}>
 
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+          <div className="mb-5 flex items-center gap-4">
+
+            <motion.span
+              initial={{ width: 0 }}
+              whileInView={{ width: 50 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="h-[2px] bg-[#D4A017]"
+            />
+
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4A017]">
+              Industries We Serve
+            </span>
+
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
+
+            <h2 className="max-w-5xl overflow-hidden text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-[#171717] md:text-6xl lg:text-[82px]">
+
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
+                  duration: 0.9,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group relative h-[480px] cursor-pointer overflow-hidden rounded-[2px]"
+                className="block"
               >
+                Materials that power
+              </motion.span>
 
-                {/* Image */}
-                <Image
-                  src={industry.image}
-                  alt={industry.name}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="block text-[#D4A017]"
+              >
+                every industry.
+              </motion.span>
 
-                {/* Default Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-all duration-500 group-hover:from-black/90" />
+            </h2>
 
-                {/* Large Number */}
-                <span className="absolute right-5 top-3 text-7xl font-bold text-white/20 transition-all duration-500 group-hover:text-amber-400/30">
-                  {String(index + 1).padStart(2, '0')}
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="max-w-md text-sm leading-7 text-gray-600 md:text-base"
+            >
+              From footwear and plastics to pipes, packaging and coatings,
+              our imported raw materials support diverse manufacturing
+              applications across India.
+            </motion.p>
+
+          </div>
+
+        </motion.div>
+
+        {/* =====================================================
+            MAIN ACCORDION AREA
+        ===================================================== */}
+
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+
+          {/* =================================================
+              LEFT IMAGE
+          ================================================= */}
+
+          <div className="relative lg:sticky lg:top-24 lg:h-[650px]">
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="relative h-[420px] overflow-hidden bg-black md:h-[550px] lg:h-full"
+            >
+
+              <AnimatePresence mode="sync">
+
+                <motion.div
+                  key={activeIndustry.image}
+                  initial={{
+                    opacity: 0,
+                    scale: 1.08,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.98,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="absolute inset-0"
+                >
+
+                  <Image
+                    src={activeIndustry.image}
+                    alt={activeIndustry.name}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="object-cover"
+                  />
+
+                </motion.div>
+
+              </AnimatePresence>
+
+              {/* Dark Overlay */}
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
+
+              {/* Golden vertical line */}
+
+              <motion.div
+                initial={{ height: 0 }}
+                whileInView={{ height: "35%" }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: 0.4,
+                }}
+                className="absolute left-0 top-0 w-[3px] bg-[#D4A017]"
+              />
+
+              {/* Image Number */}
+
+              <div className="absolute left-6 top-6 md:left-8 md:top-8">
+
+                <span className="text-[90px] font-black leading-none tracking-[-0.08em] text-white/20 md:text-[120px]">
+                  {String(activeIndustry.id).padStart(2, "0")}
                 </span>
 
-                {/* Top Label */}
-                <div className="absolute left-6 top-6">
-                  <span className="border border-white/40 bg-black/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-                    Industry
+              </div>
+
+              {/* Image Bottom Content */}
+
+              <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 lg:p-10">
+
+                <div className="mb-4 flex items-center gap-3">
+
+                  <span className="h-[2px] w-10 bg-[#D4A017]" />
+
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/70">
+                    Current Industry
                   </span>
+
                 </div>
 
-                {/* Bottom Content */}
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8">
+                <AnimatePresence mode="wait">
 
-                  {/* Accent Line */}
-                  <div className="mb-5 h-[3px] w-12 bg-amber-500 transition-all duration-500 group-hover:w-20" />
+                  <motion.h3
+                    key={activeIndustry.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.45 }}
+                    className="text-3xl font-semibold tracking-tight text-white md:text-5xl"
+                  >
+                    {activeIndustry.name}
+                  </motion.h3>
 
-                  <h3 className="text-2xl font-semibold text-white md:text-3xl">
-                    {industry.name}
-                  </h3>
+                </AnimatePresence>
 
-                  {/* Hidden Content - Hover */}
-                  <div className="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
-                    <div className="overflow-hidden">
-                      <p className="mt-4 max-w-sm translate-y-5 text-sm leading-7 text-gray-300 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                        {industry.description}
-                      </p>
+              </div>
 
-                      <button className="mt-5 flex translate-y-5 items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-amber-400 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                        Explore Industry
-                        <span className="text-lg">→</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              {/* Corner Lines */}
 
-                {/* Border */}
-                <div className="pointer-events-none absolute inset-0 border border-white/10 transition-all duration-500 group-hover:border-amber-400/70" />
+              <div className="absolute bottom-6 right-6 h-14 w-14 border-b border-r border-[#D4A017]/70" />
 
-              </motion.div>
+            </motion.div>
 
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          </div>
 
-        {/* Bottom Progress Decoration */}
+          {/* =================================================
+              RIGHT ACCORDION
+          ================================================= */}
+
+          <div className="border-t border-[#222]/20">
+
+            {industries.map((industry, index) => {
+
+              const isActive = active === index;
+
+              return (
+                <motion.div
+                  key={industry.id}
+                  initial={{
+                    opacity: 0,
+                    y: 40,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    margin: "-50px",
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.06,
+                  }}
+                  className="border-b border-[#222]/20"
+                >
+
+                  {/* =========================================
+                      ACCORDION HEADER
+                  ========================================= */}
+
+                  <button
+                    onClick={() => setActive(index)}
+                    className="group flex w-full items-center gap-5 py-7 text-left md:py-8"
+                  >
+
+                    {/* Number */}
+
+                    <span
+                      className={`min-w-[45px] text-xs font-bold tracking-[0.15em] transition-colors duration-300 ${
+                        isActive
+                          ? "text-[#D4A017]"
+                          : "text-gray-400"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* Title */}
+
+                    <span
+                      className={`flex-1 text-3xl font-bold tracking-[-0.04em] transition-all duration-500 md:text-5xl lg:text-[40px] ${
+                        isActive
+                          ? "translate-x-2 text-[#171717]"
+                          : "text-[#555] group-hover:translate-x-2 group-hover:text-[#171717]"
+                      }`}
+                    >
+                      {industry.name}
+                    </span>
+
+                    {/* Arrow */}
+
+                    <span
+                      className={`relative flex h-11 w-11 shrink-0 items-center justify-center border transition-all duration-500 md:h-14 md:w-14 ${
+                        isActive
+                          ? "rotate-0 border-[#D4A017] bg-[#D4A017] text-black"
+                          : "border-gray-300 text-gray-400 group-hover:border-[#D4A017] group-hover:text-[#D4A017]"
+                      }`}
+                    >
+
+                      <motion.span
+                        animate={{
+                          rotate: isActive ? 45 : 0,
+                        }}
+                        transition={{
+                          duration: 0.4,
+                        }}
+                        className="text-xl"
+                      >
+                        ↗
+                      </motion.span>
+
+                    </span>
+
+                  </button>
+
+                  {/* =========================================
+                      ACCORDION CONTENT
+                  ========================================= */}
+
+                  <AnimatePresence initial={false}>
+
+                    {isActive && (
+
+                      <motion.div
+                        initial={{
+                          height: 0,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          height: "auto",
+                          opacity: 1,
+                        }}
+                        exit={{
+                          height: 0,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          height: {
+                            duration: 0.55,
+                            ease: [0.16, 1, 0.3, 1],
+                          },
+                          opacity: {
+                            duration: 0.3,
+                          },
+                        }}
+                        className="overflow-hidden"
+                      >
+
+                        <div className="grid gap-6 pb-8 pl-[65px] md:grid-cols-[1fr_auto] md:items-end md:gap-10 md:pb-10">
+
+                          <motion.p
+                            initial={{
+                              opacity: 0,
+                              y: 20,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              y: 0,
+                            }}
+                            transition={{
+                              delay: 0.15,
+                              duration: 0.5,
+                            }}
+                            className="max-w-xl text-sm leading-7 text-gray-600 md:text-base"
+                          >
+                            {industry.description}
+                          </motion.p>
+
+                          <motion.button
+                            initial={{
+                              opacity: 0,
+                              x: 20,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+                            transition={{
+                              delay: 0.2,
+                              duration: 0.5,
+                            }}
+                            className="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#171717]"
+                          >
+
+                            <span>
+                              Explore Industry
+                            </span>
+
+                            <span className="flex h-9 w-9 items-center justify-center border border-[#D4A017] text-[#D4A017] transition-all duration-300 group-hover:bg-[#D4A017] group-hover:text-black">
+                              →
+                            </span>
+
+                          </motion.button>
+
+                        </div>
+
+                      </motion.div>
+
+                    )}
+
+                  </AnimatePresence>
+
+                </motion.div>
+              );
+            })}
+
+          </div>
+
+        </div>
+
+        {/* =====================================================
+            BOTTOM LINE
+        ===================================================== */}
+
         <motion.div
           initial={{ width: 0 }}
-          whileInView={{ width: '100%' }}
+          whileInView={{ width: "100%" }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          className="mt-12 h-px bg-gray-300"
+          transition={{
+            duration: 1.2,
+            delay: 0.3,
+          }}
+          className="mt-16 h-px bg-[#222]/20"
         >
-          <div className="h-full w-1/4 bg-amber-500" />
+
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "22%" }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              delay: 0.8,
+            }}
+            className="h-full bg-[#D4A017]"
+          />
+
         </motion.div>
+
+        {/* Bottom Info */}
+
+        <div className="mt-5 flex items-center justify-between">
+
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+            Resol Industries
+          </span>
+
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+            08 Industries
+          </span>
+
+        </div>
 
       </div>
     </section>

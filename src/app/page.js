@@ -15,6 +15,7 @@ import OurTeam from "@/components/OurTeam";
 import OurBrands from "@/components/OurBrands";
 import BlendCursor from "@/components/Curser";
 import AboutUs from "@/components/About";
+import ProductsSection from "@/components/Products";
 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <Scroll/>
    <Categories/>
    <Counter/>
+   <ProductsSection/>
 
    <Industry/>
    <Capability/>
@@ -34,7 +36,7 @@ export default function Home() {
    <Testimonials/>
    <Faq/>
    <Smooth/>
-   <BlendCursor/>
+  
    </>
   );
 }
