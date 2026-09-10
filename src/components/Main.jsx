@@ -13,13 +13,6 @@ import "swiper/css/navigation";
    COLORS
 ============================================================ */
 
-const BLACK = "#111111";
-const DARK = "#1F1F1F";
-const DARK_GRAY = "#333333";
-const GRAY = "#666666";
-const MEDIUM_GRAY = "#999999";
-const LIGHT_GRAY = "#D6D6D6";
-const OFF_WHITE = "#F5F5F3";
 const WHITE = "#FFFFFF";
 
 /* ============================================================
@@ -36,7 +29,6 @@ const banners = [
     category: "POLYMER MATERIAL",
     video: null,
   },
-
   {
     image: "/pvc resin.webp",
     title: "CALCIUM",
@@ -46,7 +38,6 @@ const banners = [
     category: "INDUSTRIAL MINERAL",
     video: "/13753874_1280_720_25fps.mp4",
   },
-
   {
     image: "/pvc resin.webp",
     title: "POLYSTYRENE",
@@ -59,7 +50,7 @@ const banners = [
 ];
 
 /* ============================================================
-   SPLIT LETTER ANIMATION
+   ANIMATED WORD
 ============================================================ */
 
 function AnimatedWord({
@@ -118,12 +109,8 @@ function AnimatedWord({
 function AnimatedLine() {
   return (
     <motion.span
-      initial={{
-        width: 0,
-      }}
-      animate={{
-        width: 55,
-      }}
+      initial={{ width: 0 }}
+      animate={{ width: 55 }}
       transition={{
         duration: 0.8,
         delay: 0.35,
@@ -143,7 +130,6 @@ export default function Hero() {
 
   return (
     <section className="relative mt-20 w-full overflow-hidden bg-white">
-
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
@@ -163,22 +149,9 @@ export default function Hero() {
         }}
         className="w-full"
       >
-
         {banners.map((banner, index) => (
           <SwiperSlide key={index}>
-
-            <div
-              className="
-                relative
-                min-h-[650px]
-                w-full
-                overflow-hidden
-                bg-white
-                sm:min-h-[680px]
-                lg:min-h-[720px]
-                xl:min-h-[760px]
-              "
-            >
+            <div className="relative min-h-[650px] w-full overflow-hidden bg-white sm:min-h-[680px] lg:min-h-[720px] xl:min-h-[760px]">
 
               {/* ==================================================
                   WHITE BACKGROUND
@@ -198,31 +171,14 @@ export default function Hero() {
                   duration: 1.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="
-                  absolute
-                  inset-0
-                  bg-gradient-to-br
-                  from-white
-                  via-[#F7F7F7]
-                  to-[#DCDCDC]
-                "
+                className="absolute inset-0 bg-gradient-to-br from-white via-[#F7F7F7] to-[#DCDCDC]"
               />
 
               {/* ==================================================
                   SOFT BACKGROUND LIGHT
               ================================================== */}
 
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  bg-gradient-to-br
-                  from-white
-                  via-transparent
-                  to-black/[0.06]
-                "
-              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-transparent to-black/[0.06]" />
 
               {/* ==================================================
                   VIDEO
@@ -249,29 +205,12 @@ export default function Hero() {
                     loop
                     playsInline
                     preload="auto"
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      h-full
-                      w-full
-                      object-cover
-                    "
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover"
                   >
-                    <source
-                      src={banner.video}
-                      type="video/mp4"
-                    />
+                    <source src={banner.video} type="video/mp4" />
                   </motion.video>
 
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      bg-white/65
-                    "
-                  />
+                  <div className="pointer-events-none absolute inset-0 bg-white/65" />
                 </>
               )}
 
@@ -279,20 +218,7 @@ export default function Hero() {
                   RIGHT SIDE GRADIENT
               ================================================== */}
 
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  right-0
-                  top-0
-                  h-full
-                  w-[65%]
-                  bg-gradient-to-l
-                  from-[#EEEEEE]
-                  via-transparent
-                  to-transparent
-                "
-              />
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-[65%] bg-gradient-to-l from-[#EEEEEE] via-transparent to-transparent" />
 
               {/* ==================================================
                   GIANT BACKGROUND TEXT
@@ -312,24 +238,7 @@ export default function Hero() {
                   duration: 1.3,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="
-                  pointer-events-none
-                  absolute
-                  right-[-2%]
-                  top-[3%]
-                  z-[1]
-                  select-none
-                  text-[140px]
-                  font-black
-                  uppercase
-                  leading-none
-                  tracking-[-12px]
-                  text-black/[0.045]
-                  sm:text-[210px]
-                  md:text-[250px]
-                  lg:text-[300px]
-                  xl:text-[360px]
-                "
+                className="pointer-events-none absolute right-[-2%] top-[3%] z-[1] select-none text-[140px] font-black uppercase leading-none tracking-[-12px] text-black/[0.045] sm:text-[210px] md:text-[250px] lg:text-[300px] xl:text-[360px]"
               >
                 {banner.title}
               </motion.div>
@@ -347,21 +256,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="
-                  pointer-events-none
-                  absolute
-                  right-[-160px]
-                  top-1/2
-                  z-[2]
-                  hidden
-                  h-[700px]
-                  w-[700px]
-                  -translate-y-1/2
-                  rounded-full
-                  border
-                  border-black/[0.07]
-                  lg:block
-                "
+                className="pointer-events-none absolute right-[-160px] top-1/2 z-[2] hidden h-[700px] w-[700px] -translate-y-1/2 rounded-full border border-black/[0.07] lg:block"
               />
 
               {/* ==================================================
@@ -377,21 +272,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="
-                  pointer-events-none
-                  absolute
-                  right-[-70px]
-                  top-1/2
-                  z-[2]
-                  hidden
-                  h-[550px]
-                  w-[550px]
-                  -translate-y-1/2
-                  rounded-full
-                  border
-                  border-black/[0.10]
-                  lg:block
-                "
+                className="pointer-events-none absolute right-[-70px] top-1/2 z-[2] hidden h-[550px] w-[550px] -translate-y-1/2 rounded-full border border-black/[0.10] lg:block"
               />
 
               {/* ==================================================
@@ -407,41 +288,14 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="
-                  pointer-events-none
-                  absolute
-                  right-[11%]
-                  top-1/2
-                  z-[2]
-                  hidden
-                  h-[390px]
-                  w-[390px]
-                  -translate-y-1/2
-                  rounded-full
-                  border
-                  border-black/[0.06]
-                  lg:block
-                "
+                className="pointer-events-none absolute right-[11%] top-1/2 z-[2] hidden h-[390px] w-[390px] -translate-y-1/2 rounded-full border border-black/[0.06] lg:block"
               />
 
               {/* ==================================================
                   BACKGROUND SHADOW
               ================================================== */}
 
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-[-15%]
-                  right-[12%]
-                  z-[2]
-                  h-[420px]
-                  w-[420px]
-                  rounded-full
-                  bg-black/[0.08]
-                  blur-[120px]
-                "
-              />
+              <div className="pointer-events-none absolute bottom-[-15%] right-[12%] z-[2] h-[420px] w-[420px] rounded-full bg-black/[0.08] blur-[120px]" />
 
               {/* ==================================================
                   LEFT BLACK PANEL
@@ -461,28 +315,10 @@ export default function Hero() {
                   duration: 1.05,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="
-                  absolute
-                  left-[2%]
-                  top-[4%]
-                  z-10
-                  h-[92%]
-                  w-[58%]
-                  overflow-hidden
-                  rounded-[3px]
-                  bg-[#111111]
-                  shadow-[30px_35px_90px_rgba(0,0,0,0.28)]
-                  sm:left-[3%]
-                  sm:w-[56%]
-                  lg:left-[5%]
-                  lg:w-[52%]
-                  xl:w-[50%]
-                "
+                className="absolute left-[2%] top-[4%] z-10 h-[92%] w-[58%] overflow-hidden rounded-[3px] bg-[#111111] shadow-[30px_35px_90px_rgba(0,0,0,0.28)] sm:left-[3%] sm:w-[56%] lg:left-[5%] lg:w-[52%] xl:w-[50%]"
               >
 
-                {/* ==================================================
-                    PANEL TOP CIRCLE
-                ================================================== */}
+                {/* PANEL TOP CIRCLE */}
 
                 <motion.div
                   animate={{
@@ -493,40 +329,14 @@ export default function Hero() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="
-                    pointer-events-none
-                    absolute
-                    right-[-120px]
-                    top-[-120px]
-                    h-[300px]
-                    w-[300px]
-                    rounded-full
-                    border-[45px]
-                    border-white/[0.045]
-                  "
+                  className="pointer-events-none absolute right-[-120px] top-[-120px] h-[300px] w-[300px] rounded-full border-[45px] border-white/[0.045]"
                 />
 
-                {/* ==================================================
-                    PANEL BOTTOM CIRCLE
-                ================================================== */}
+                {/* PANEL BOTTOM CIRCLE */}
 
-                <div
-                  className="
-                    pointer-events-none
-                    absolute
-                    bottom-[-100px]
-                    left-[-100px]
-                    h-[260px]
-                    w-[260px]
-                    rounded-full
-                    border-[40px]
-                    border-white/[0.04]
-                  "
-                />
+                <div className="pointer-events-none absolute bottom-[-100px] left-[-100px] h-[260px] w-[260px] rounded-full border-[40px] border-white/[0.04]" />
 
-                {/* ==================================================
-                    PANEL SMALL BOX
-                ================================================== */}
+                {/* PANEL SMALL BOX */}
 
                 <motion.div
                   animate={{
@@ -538,21 +348,10 @@ export default function Hero() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="
-                    pointer-events-none
-                    absolute
-                    right-[8%]
-                    bottom-[12%]
-                    h-10
-                    w-10
-                    border
-                    border-white/20
-                  "
+                  className="pointer-events-none absolute bottom-[12%] right-[8%] h-10 w-10 border border-white/20"
                 />
 
-                {/* ==================================================
-                    VERTICAL LINE
-                ================================================== */}
+                {/* VERTICAL LINE */}
 
                 <motion.div
                   initial={{
@@ -566,37 +365,16 @@ export default function Hero() {
                     delay: 0.3,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="
-                    absolute
-                    left-0
-                    top-[14%]
-                    w-[3px]
-                    bg-white
-                  "
+                  className="absolute left-0 top-[14%] w-[3px] bg-white"
                 />
 
                 {/* ==================================================
                     CONTENT
                 ================================================== */}
 
-                <div
-                  className="
-                    relative
-                    flex
-                    h-full
-                    flex-col
-                    justify-center
-                    px-8
-                    sm:px-10
-                    md:px-12
-                    lg:px-16
-                    xl:px-20
-                  "
-                >
+                <div className="relative flex h-full flex-col justify-center px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
 
-                  {/* ==================================================
-                      CATEGORY
-                  ================================================== */}
+                  {/* CATEGORY */}
 
                   <motion.div
                     initial={{
@@ -611,34 +389,16 @@ export default function Hero() {
                       duration: 0.6,
                       delay: 0.2,
                     }}
-                    className="
-                      mb-5
-                      flex
-                      items-center
-                      gap-4
-                    "
+                    className="mb-5 flex items-center gap-4"
                   >
-
                     <AnimatedLine />
 
-                    <span
-                      className="
-                        text-[9px]
-                        font-bold
-                        uppercase
-                        tracking-[3px]
-                        text-white/60
-                        sm:text-[10px]
-                      "
-                    >
+                    <span className="text-[9px] font-bold uppercase tracking-[3px] text-white/60 sm:text-[10px]">
                       {banner.category}
                     </span>
-
                   </motion.div>
 
-                  {/* ==================================================
-                      SLIDE NUMBER
-                  ================================================== */}
+                  {/* SLIDE NUMBER */}
 
                   <motion.div
                     initial={{
@@ -653,93 +413,45 @@ export default function Hero() {
                       duration: 0.5,
                       delay: 0.3,
                     }}
-                    className="
-                      mb-4
-                      flex
-                      items-center
-                      gap-3
-                    "
+                    className="mb-4 flex items-center gap-3"
                   >
-
-                    <span
-                      className="
-                        text-[11px]
-                        font-bold
-                        tracking-[2px]
-                        text-white
-                      "
-                    >
+                    <span className="text-[11px] font-bold tracking-[2px] text-white">
                       0{index + 1}
                     </span>
 
                     <span className="h-px w-8 bg-white/40" />
 
-                    <span
-                      className="
-                        text-[10px]
-                        font-medium
-                        tracking-[2px]
-                        text-white/40
-                      "
-                    >
+                    <span className="text-[10px] font-medium tracking-[2px] text-white/40">
                       0{banners.length}
                     </span>
-
                   </motion.div>
 
                   {/* ==================================================
                       HEADING
                   ================================================== */}
 
-<div
-  className="overflow-hidden"
-  style={{
-    perspective: "1000px",
-  }}
->
-  {/* MAIN HEADING */}
+                  <div
+                    className="overflow-hidden"
+                    style={{
+                      perspective: "1000px",
+                    }}
+                  >
+                    <AnimatedWord
+                      text={banner.title}
+                      delay={0.25}
+                      color="#FFFFFF"
+                      className="text-[48px] font-black uppercase leading-[0.82] tracking-[-3px] sm:text-[62px] md:text-[72px] lg:text-[82px] xl:text-[92px]"
+                    />
 
-  <AnimatedWord
-    text={banner.title}
-    delay={0.25}
-    color="#FFFFFF"
-    className="
-      text-[48px]
-      font-black
-      uppercase
-      leading-[0.82]
-      tracking-[-3px]
-      sm:text-[62px]
-      md:text-[72px]
-      lg:text-[82px]
-      xl:text-[92px]
-    "
-  />
+                    <AnimatedWord
+                      text={banner.highlight}
+                      delay={0.48}
+                      color="#D4A017"
+                      className="mt-2 text-[48px] font-black uppercase leading-[0.82] tracking-[-3px] sm:text-[62px] md:text-[72px] lg:text-[82px] xl:text-[92px]"
+                    />
+                  </div>
 
-  {/* GOLDEN HIGHLIGHT */}
-
-  <AnimatedWord
-    text={banner.highlight}
-    delay={0.48}
-    color="#D4A017"
-    className="
-      mt-2
-      text-[48px]
-      font-black
-      uppercase
-      leading-[0.82]
-      tracking-[-3px]
-      sm:text-[62px]
-      md:text-[72px]
-      lg:text-[82px]
-      xl:text-[92px]
-    "
-  />
-</div>
-
-                  {/* ==================================================
-                      UNDERLINE
-                  ================================================== */}
+                  {/* UNDERLINE */}
 
                   <motion.div
                     initial={{
@@ -753,16 +465,10 @@ export default function Hero() {
                       delay: 0.85,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="
-                      mt-7
-                      h-[3px]
-                      bg-white
-                    "
+                    className="mt-7 h-[3px] bg-white"
                   />
 
-                  {/* ==================================================
-                      DESCRIPTION
-                  ================================================== */}
+                  {/* DESCRIPTION */}
 
                   <motion.p
                     initial={{
@@ -777,24 +483,12 @@ export default function Hero() {
                       duration: 0.7,
                       delay: 0.95,
                     }}
-                    className="
-                      mt-6
-                      max-w-[450px]
-                      text-[11px]
-                      font-medium
-                      leading-5
-                      text-white/65
-                      sm:text-xs
-                      sm:leading-6
-                      md:text-sm
-                    "
+                    className="mt-6 max-w-[450px] text-[11px] font-medium leading-5 text-white/65 sm:text-xs sm:leading-6 md:text-sm"
                   >
                     {banner.description}
                   </motion.p>
 
-                  {/* ==================================================
-                      CTA
-                  ================================================== */}
+                  {/* CTA */}
 
                   <motion.div
                     initial={{
@@ -811,70 +505,19 @@ export default function Hero() {
                     }}
                     className="mt-7"
                   >
+                    <button className="group relative overflow-hidden bg-white px-7 py-3.5 text-[10px] font-bold uppercase tracking-[2px] text-[#111111] transition-all duration-500 hover:bg-[#D6D6D6] hover:shadow-[0_18px_40px_rgba(255,255,255,0.12)]">
 
-                    <button
-                      className="
-                        group
-                        relative
-                        overflow-hidden
-                        bg-white
-                        px-7
-                        py-3.5
-                        text-[10px]
-                        font-bold
-                        uppercase
-                        tracking-[2px]
-                        text-[#111111]
-                        transition-all
-                        duration-500
-                        hover:bg-[#D6D6D6]
-                        hover:shadow-[0_18px_40px_rgba(255,255,255,0.12)]
-                      "
-                    >
+                      <span className="absolute inset-0 translate-y-full bg-[#AAAAAA] transition-transform duration-500 group-hover:translate-y-0" />
 
-                      {/* HOVER */}
-
-                      <span
-                        className="
-                          absolute
-                          inset-0
-                          translate-y-full
-                          bg-[#AAAAAA]
-                          transition-transform
-                          duration-500
-                          group-hover:translate-y-0
-                        "
-                      />
-
-                      <span
-                        className="
-                          relative
-                          z-10
-                          flex
-                          items-center
-                          gap-5
-                        "
-                      >
-
+                      <span className="relative z-10 flex items-center gap-5">
                         Explore More
 
-                        <span
-                          className="
-                            text-base
-                            transition-transform
-                            duration-300
-                            group-hover:translate-x-2
-                          "
-                        >
+                        <span className="text-base transition-transform duration-300 group-hover:translate-x-2">
                           →
                         </span>
-
                       </span>
-
                     </button>
-
                   </motion.div>
-
                 </div>
               </motion.div>
 
@@ -900,27 +543,10 @@ export default function Hero() {
                   duration: 1.4,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="
-                  absolute
-                  left-[48%]
-                  top-1/2
-                  z-30
-                  w-[290px]
-                  -translate-y-1/2
-                  sm:left-[48%]
-                  sm:w-[390px]
-                  md:left-[47%]
-                  md:w-[470px]
-                  lg:left-[48%]
-                  lg:w-[540px]
-                  xl:left-[47%]
-                  xl:w-[620px]
-                "
+                className="absolute left-[48%] top-[20%] z-30 w-[290px] -translate-y-1/2] sm:left-[48%] sm:w-[390px] md:left-[47%] md:w-[470px] lg:left-[48%] lg:w-[540px] xl:left-[47%] xl:w-[620px]"
               >
 
-                {/* ==================================================
-                    PRODUCT GLOW
-                ================================================== */}
+                {/* PRODUCT GLOW */}
 
                 <motion.div
                   animate={{
@@ -932,23 +558,10 @@ export default function Hero() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="
-                    absolute
-                    left-1/2
-                    top-1/2
-                    h-[60%]
-                    w-[60%]
-                    -translate-x-1/2
-                    -translate-y-1/2
-                    rounded-full
-                    bg-white/80
-                    blur-[90px]
-                  "
+                  className="absolute left-1/2 top-1/2 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 blur-[90px]"
                 />
 
-                {/* ==================================================
-                    PRODUCT FLOAT
-                ================================================== */}
+                {/* PRODUCT FLOAT */}
 
                 <motion.div
                   animate={{
@@ -961,25 +574,15 @@ export default function Hero() {
                   }}
                   className="relative"
                 >
-
                   <Image
                     src={banner.image}
                     alt={`${banner.title} ${banner.highlight}`}
                     width={800}
                     height={800}
                     priority={index === 0}
-                    className="
-                      relative
-                      z-10
-                      h-auto
-                      w-full
-                      object-contain
-                      drop-shadow-[0_40px_40px_rgba(0,0,0,0.32)]
-                    "
+                    className="relative z-10 h-auto w-full object-contain drop-shadow-[0_40px_40px_rgba(0,0,0,0.32)]"
                   />
-
                 </motion.div>
-
               </motion.div>
 
               {/* ==================================================
@@ -1000,34 +603,13 @@ export default function Hero() {
                   duration: 0.7,
                   delay: 1,
                 }}
-                className="
-                  absolute
-                  right-5
-                  top-1/2
-                  z-40
-                  hidden
-                  -translate-y-1/2
-                  rotate-90
-                  items-center
-                  gap-3
-                  lg:flex
-                "
+                className="absolute right-5 top-1/2 z-40 hidden -translate-y-1/2 rotate-90 items-center gap-3 lg:flex"
               >
-
                 <span className="h-px w-12 bg-black/30" />
 
-                <span
-                  className="
-                    text-[9px]
-                    font-bold
-                    uppercase
-                    tracking-[3px]
-                    text-black/50
-                  "
-                >
+                <span className="text-[9px] font-bold uppercase tracking-[3px] text-black/50">
                   Resol Industries
                 </span>
-
               </motion.div>
 
               {/* ==================================================
@@ -1047,113 +629,45 @@ export default function Hero() {
                   duration: 0.8,
                   delay: 0.7,
                 }}
-                className="
-                  absolute
-                  left-[5%]
-                  top-7
-                  z-40
-                  hidden
-                  items-center
-                  gap-3
-                  lg:flex
-                "
+                className="absolute left-[5%] top-7 z-40 hidden items-center gap-3 lg:flex"
               >
-
                 <span className="h-px w-8 bg-black/30" />
 
-                <span
-                  className="
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[3px]
-                    text-black/40
-                  "
-                >
+                <span className="text-[8px] font-semibold uppercase tracking-[3px] text-black/40">
                   Industrial Materials
                 </span>
-
               </motion.div>
 
               {/* ==================================================
                   TOP RIGHT DOTS
               ================================================== */}
 
-              <div
-                className="
-                  absolute
-                  right-6
-                  top-7
-                  z-50
-                  flex
-                  items-center
-                  gap-2
-                  sm:right-10
-                  sm:top-9
-                "
-              >
-
+              <div className="absolute right-6 top-7 z-50 flex items-center gap-2 sm:right-10 sm:top-9">
                 {banners.map((_, dotIndex) => (
                   <motion.span
                     key={dotIndex}
                     animate={{
-                      width:
-                        activeIndex === dotIndex ? 28 : 7,
-                      opacity:
-                        activeIndex === dotIndex ? 1 : 0.35,
+                      width: activeIndex === dotIndex ? 28 : 7,
+                      opacity: activeIndex === dotIndex ? 1 : 0.35,
                     }}
                     transition={{
                       duration: 0.3,
                     }}
-                    className="
-                      block
-                      h-[5px]
-                      rounded-full
-                      bg-[#111111]
-                    "
+                    className="block h-[5px] rounded-full bg-[#111111]"
                   />
                 ))}
-
               </div>
 
               {/* ==================================================
                   BOTTOM PROGRESS
               ================================================== */}
 
-              <div
-                className="
-                  absolute
-                  bottom-7
-                  left-6
-                  z-50
-                  hidden
-                  items-center
-                  gap-4
-                  sm:flex
-                  sm:left-10
-                "
-              >
-
-                <span
-                  className="
-                    text-[11px]
-                    font-bold
-                    tracking-[2px]
-                    text-[#111111]
-                  "
-                >
+              <div className="absolute bottom-7 left-6 z-50 hidden items-center gap-4 sm:flex sm:left-10">
+                <span className="text-[11px] font-bold tracking-[2px] text-[#111111]">
                   0{index + 1}
                 </span>
 
-                <div
-                  className="
-                    h-[1px]
-                    w-16
-                    overflow-hidden
-                    bg-black/20
-                  "
-                >
-
+                <div className="h-[1px] w-16 overflow-hidden bg-black/20">
                   <motion.div
                     key={`progress-${activeIndex}`}
                     initial={{
@@ -1168,65 +682,25 @@ export default function Hero() {
                     }}
                     className="h-full bg-[#111111]"
                   />
-
                 </div>
 
-                <span
-                  className="
-                    text-[10px]
-                    font-medium
-                    tracking-[2px]
-                    text-black/40
-                  "
-                >
+                <span className="text-[10px] font-medium tracking-[2px] text-black/40">
                   0{banners.length}
                 </span>
-
               </div>
 
               {/* ==================================================
                   NAVIGATION
               ================================================== */}
 
-              <div
-                className="
-                  absolute
-                  bottom-6
-                  right-5
-                  z-50
-                  flex
-                  items-center
-                  gap-3
-                  sm:bottom-8
-                  sm:right-10
-                "
-              >
+              <div className="absolute bottom-6 right-5 z-50 flex items-center gap-3 sm:bottom-8 sm:right-10">
 
                 {/* PREVIOUS */}
 
                 <button
-                  className="
-                    pvc-prev
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-black/20
-                    bg-white/70
-                    text-sm
-                    text-black
-                    backdrop-blur-md
-                    transition-all
-                    duration-300
-                    hover:border-black
-                    hover:bg-black
-                    hover:text-white
-                    sm:h-11
-                    sm:w-11
-                  "
+                  type="button"
+                  aria-label="Previous slide"
+                  className="pvc-prev flex h-9 w-9 items-center justify-center rounded-full border border-black/20 bg-white/70 text-sm text-black backdrop-blur-md transition-all duration-300 hover:border-black hover:bg-black hover:text-white sm:h-11 sm:w-11"
                 >
                   ←
                 </button>
@@ -1234,77 +708,33 @@ export default function Hero() {
                 {/* NEXT */}
 
                 <button
-                  className="
-                    pvc-next
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-black/20
-                    bg-white/70
-                    text-sm
-                    text-black
-                    backdrop-blur-md
-                    transition-all
-                    duration-300
-                    hover:border-black
-                    hover:bg-black
-                    hover:text-white
-                    sm:h-11
-                    sm:w-11
-                  "
+                  type="button"
+                  aria-label="Next slide"
+                  className="pvc-next flex h-9 w-9 items-center justify-center rounded-full border border-black/20 bg-white/70 text-sm text-black backdrop-blur-md transition-all duration-300 hover:border-black hover:bg-black hover:text-white sm:h-11 sm:w-11"
                 >
                   →
                 </button>
-
               </div>
 
               {/* ==================================================
                   BOTTOM RIGHT MICRO TEXT
               ================================================== */}
 
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-8
-                  right-[14%]
-                  z-40
-                  hidden
-                  lg:block
-                "
-              >
-
-                <span
-                  className="
-                    text-[8px]
-                    font-medium
-                    uppercase
-                    tracking-[3px]
-                    text-black/30
-                  "
-                >
+              <div className="pointer-events-none absolute bottom-8 right-[14%] z-40 hidden lg:block">
+                <span className="text-[8px] font-medium uppercase tracking-[3px] text-black/30">
                   Quality • Reliability • Distribution
                 </span>
-
               </div>
-
             </div>
-
           </SwiperSlide>
         ))}
-
       </Swiper>
 
       {/* ============================================================
-          GLOBAL SWIPER CSS
+          SWIPER CSS
       ============================================================ */}
 
       <style jsx global>{`
-
         .swiper-slide {
           overflow: hidden;
         }
@@ -1319,18 +749,14 @@ export default function Hero() {
         }
 
         @media (max-width: 767px) {
-
           .pvc-prev,
           .pvc-next {
             width: 34px;
             height: 34px;
             font-size: 12px;
           }
-
         }
-
       `}</style>
-
     </section>
   );
 }

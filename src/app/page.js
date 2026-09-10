@@ -8,8 +8,6 @@ import Faq from "@/components/Faq";
 import Industry from "@/components/Industry";
 import ScrollExpand from "@/components/Main";
 import Main from "@/components/Main";
-
-import ProductsSection from "@/components/Products";
 import Scroll from "@/components/Scroll";
 import Smooth from "@/components/Smooth";
 import Testimonials from "@/components/Testimonials";
@@ -28,7 +26,7 @@ export default function Home() {
       <Scroll/>
    <Categories/>
    <Counter/>
-   <ProductsSection/>
+
    <Industry/>
    <Capability/>
    <OurTeam/>

@@ -6,328 +6,548 @@ import Link from "next/link";
 import Popup from "./Popup";
 
 export default function Navbar() {
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [search, setSearch] = useState("");
 
-   const [quoteOpen, setQuoteOpen] = useState(false);
-const [isScrolled, setIsScrolled] = useState(false);
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-const [search, setSearch] = useState("");
+  /* ============================================================
+     SCROLL EFFECT
+  ============================================================ */
 
-useEffect(() => {
-const handleScroll = () => {
-setIsScrolled(window.scrollY > 40);
-};
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
 
+    window.addEventListener("scroll", handleScroll);
 
-window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-return () => {
-  window.removeEventListener("scroll", handleScroll);
-};
+  /* ============================================================
+     MOBILE BODY LOCK
+  ============================================================ */
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-}, []);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
-const handleSearch = (e) => {
-e.preventDefault();
+  /* ============================================================
+     SEARCH
+  ============================================================ */
 
+  const handleSearch = (e) => {
+    e.preventDefault();
 
-if (search.trim()) {
-  window.location.href = `/search?q=${encodeURIComponent(search)}`;
-}
+    const value = search.trim();
 
+    if (!value) return;
 
-};
+    window.location.href = `/search?q=${encodeURIComponent(value)}`;
 
-const closeMenu = () => {
-setIsMenuOpen(false);
-};
+    setIsMenuOpen(false);
+  };
 
-return ( <header className="fixed left-0 top-0 z-[999] w-full">
-{/* ================= TOP BAR ================= */}
-<div
-className={`overflow-hidden bg-[#252b38] text-white transition-all duration-500 ${
-          isScrolled
-            ? "max-h-0 opacity-0"
-            : "max-h-[50px] opacity-100"
-        }`}
-> <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-2.5 lg:px-10">
+  /* ============================================================
+     CLOSE MENU
+  ============================================================ */
 
-      {/* Left Contact */}
-      <div className="flex items-center gap-5 text-sm">
-        <a
-          href="tel:+11-41417825"
-          className="flex items-center gap-2 text-gray-200 transition hover:text-[#f4c44e]"
-        >
-          <span className="text-lg text-[#f4c44e]">⌕</span>
-          +91-11-41417725, +91-11-41417825
-        </a>
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
-        <span className="hidden h-5 w-px bg-gray-500 sm:block" />
+  /* ============================================================
+     OPEN QUOTE
+  ============================================================ */
 
-        <a
-          href="mailto:info@resolvinyls.com
-"
-          className="hidden items-center gap-2 text-gray-200 transition hover:text-[#f4c44e] sm:flex"
-        >
-          <span className="text-lg text-[#f4c44e]">✉</span>
-          info@resolvinyls.com
+  const openQuote = () => {
+    setQuoteOpen(true);
+    setIsMenuOpen(false);
+  };
 
+  return (
+    <>
+      {/* ============================================================
+          HEADER
+      ============================================================ */}
 
-        </a>
-      </div>
+      <header className="fixed left-0 top-0 z-[999] w-full">
 
-      {/* Right Side */}
-      <div className="hidden items-center gap-4 text-sm lg:flex">
+        {/* ========================================================
+            TOP CONTACT BAR
+        ======================================================== */}
 
-        <span className="h-5 w-px bg-gray-500" />
-
-        <span>Follow On:</span>
-
-        <a href="#" className="hover:text-[#f4c44e]">
-          f
-        </a>
-
-        <a href="#" className="hover:text-[#f4c44e]">
-          𝕏
-        </a>
-
-        <a href="#" className="hover:text-[#f4c44e]">
-          ◎
-        </a>
-
-        <a href="#" className="hover:text-[#f4c44e]">
-          in
-        </a>
-      </div>
-    </div>
-  </div>
-
-  {/* ================= MAIN NAVBAR ================= */}
-  <div
-    className={`border-b border-gray-200 bg-white transition-all duration-500 ${
-      isScrolled ? "py-1 shadow-lg" : "py-3"
-    }`}
-  >
-    <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-5 lg:px-10">
-      
-      {/* LOGO */}
-      <Link href="/" className="relative block shrink-0">
-        <Image
-          src="/New-Project-6-e1775111050628.webp"
-          alt="Logo"
-          width={270}
-          height={130}
-          priority
-          className={`w-auto object-contain transition-all duration-500 ${
-            isScrolled ? "h-[42px]" : "h-[58px]"
+        <div
+          className={`overflow-hidden bg-[#111111] text-white transition-all duration-500 ${
+            isScrolled
+              ? "max-h-0 opacity-0"
+              : "max-h-[48px] opacity-100"
           }`}
-        />
-      </Link>
-
-      {/* DESKTOP MENU */}
-      <nav className="hidden items-center gap-2 xl:flex">
-        <Link
-          href="/"
-          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
         >
-          Home
-        </Link>
+          <div className="mx-auto flex h-[48px] max-w-[1500px] items-center justify-between px-5 lg:px-10 xl:px-14">
 
-        <Link
-          href="/about-us"
-          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+            {/* LEFT */}
+
+            <div className="flex items-center gap-6">
+
+              {/* PHONE */}
+
+              <a
+                href="tel:+911141417725"
+                className="group flex items-center gap-2 text-[12px] font-medium tracking-wide text-white/75 transition hover:text-[#D4A017]"
+              >
+                <span className="text-[#D4A017] transition-transform duration-300 group-hover:scale-110">
+                  ☎
+                </span>
+
+                <span>
+                  +91-11-41417725
+                </span>
+              </a>
+
+              <span className="hidden h-4 w-px bg-white/20 sm:block" />
+
+              {/* EMAIL */}
+
+              <a
+                href="mailto:info@resolvinyls.com"
+                className="group hidden items-center gap-2 text-[12px] font-medium tracking-wide text-white/75 transition hover:text-[#D4A017] sm:flex"
+              >
+                <span className="text-[#D4A017]">
+                  ✉
+                </span>
+
+                <span>
+                  info@resolvinyls.com
+                </span>
+              </a>
+            </div>
+
+            {/* RIGHT */}
+
+            <div className="hidden items-center gap-4 lg:flex">
+
+              <span className="text-[10px] uppercase tracking-[2px] text-white/40">
+                Follow Us
+              </span>
+
+              <span className="h-4 w-px bg-white/20" />
+
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="text-[12px] font-semibold text-white/60 transition hover:text-[#D4A017]"
+              >
+                f
+              </a>
+
+              <a
+                href="#"
+                aria-label="X"
+                className="text-[13px] font-medium text-white/60 transition hover:text-[#D4A017]"
+              >
+                𝕏
+              </a>
+
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="text-[15px] text-white/60 transition hover:text-[#D4A017]"
+              >
+                ◎
+              </a>
+
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="text-[12px] font-semibold text-white/60 transition hover:text-[#D4A017]"
+              >
+                in
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================
+            MAIN NAVBAR
+        ======================================================== */}
+
+        <div
+          className={`border-b border-black/10 bg-white/95 backdrop-blur-xl transition-all duration-500 ${
+            isScrolled
+              ? "py-1 shadow-[0_8px_35px_rgba(0,0,0,0.08)]"
+              : "py-2.5"
+          }`}
         >
-          About Us
-        </Link>
+          <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-5 px-5 lg:px-10 xl:px-14">
 
-        <Link
-          href="/products/pvc-resin"
-          className=" rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
+            {/* ====================================================
+                LOGO
+            ==================================================== */}
+
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="relative z-10 block shrink-0"
+            >
+              <Image
+                src="/New-Project-6-e1775111050628.webp"
+                alt="Resol Industries"
+                width={270}
+                height={130}
+                priority
+                className={`w-auto object-contain transition-all duration-500 ${
+                  isScrolled
+                    ? "h-[43px] sm:h-[46px]"
+                    : "h-[55px] sm:h-[62px]"
+                }`}
+              />
+            </Link>
+
+            {/* ====================================================
+                DESKTOP NAVIGATION
+            ==================================================== */}
+
+            <nav className="hidden items-center gap-1 xl:flex">
+
+              <NavItem
+                href="/"
+                label="Home"
+              />
+
+              <NavItem
+                href="/about-us"
+                label="About Us"
+              />
+
+              <NavItem
+                href="/products/pvc-resin"
+                label="Products"
+              />
+
+              <NavItem
+                href="/articles"
+                label="Articles"
+              />
+
+              <NavItem
+                href="/contact-us"
+                label="Contact Us"
+              />
+            </nav>
+
+            {/* ====================================================
+                DESKTOP RIGHT AREA
+            ==================================================== */}
+
+            <div className="hidden items-center gap-3 lg:flex">
+
+              {/* SEARCH */}
+
+              <form
+                onSubmit={handleSearch}
+                className="group flex h-[44px] w-[205px] items-center border border-black/15 bg-white transition-all duration-300 focus-within:border-[#D4A017] focus-within:shadow-[0_8px_25px_rgba(212,160,23,0.10)]"
+              >
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search..."
+                  aria-label="Search"
+                  className="h-full min-w-0 flex-1 bg-transparent px-4 text-[12px] font-medium text-[#111111] outline-none placeholder:text-black/35"
+                />
+
+                <button
+                  type="submit"
+                  aria-label="Submit search"
+                  className="flex h-full w-[44px] items-center justify-center text-black/45 transition duration-300 hover:text-[#D4A017]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-[17px] w-[17px]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <circle
+                      cx="11"
+                      cy="11"
+                      r="7"
+                      strokeWidth="1.7"
+                    />
+
+                    <path
+                      d="M16 16L21 21"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </button>
+              </form>
+
+              {/* QUOTE BUTTON */}
+
+              <button
+                type="button"
+                onClick={openQuote}
+                className="group relative flex h-[44px] shrink-0 items-center gap-4 overflow-hidden bg-[#D4A017] px-6 text-[11px] font-bold uppercase tracking-[1.5px] text-[#111111] transition-all duration-500 hover:bg-[#B8860B] hover:text-white"
+              >
+                <span className="relative z-10">
+                  Get a Quote
+                </span>
+
+                <span className="relative z-10 text-lg transition-transform duration-300 group-hover:translate-x-1.5">
+                  →
+                </span>
+              </button>
+            </div>
+
+            {/* ====================================================
+                MOBILE MENU BUTTON
+            ==================================================== */}
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={
+                isMenuOpen
+                  ? "Close menu"
+                  : "Open menu"
+              }
+              aria-expanded={isMenuOpen}
+              className="relative z-10 flex h-11 w-11 items-center justify-center border border-black/10 bg-white xl:hidden"
+            >
+              <span className="relative flex h-5 w-6 flex-col justify-between">
+
+                <span
+                  className={`block h-[2px] w-full bg-[#111111] transition-all duration-300 ${
+                    isMenuOpen
+                      ? "translate-y-[9px] rotate-45"
+                      : ""
+                  }`}
+                />
+
+                <span
+                  className={`block h-[2px] w-full bg-[#111111] transition-all duration-300 ${
+                    isMenuOpen
+                      ? "opacity-0"
+                      : "opacity-100"
+                  }`}
+                />
+
+                <span
+                  className={`block h-[2px] w-full bg-[#111111] transition-all duration-300 ${
+                    isMenuOpen
+                      ? "-translate-y-[9px] -rotate-45"
+                      : ""
+                  }`}
+                />
+
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* ========================================================
+            MOBILE MENU
+        ======================================================== */}
+
+        <div
+          className={`absolute left-0 top-full w-full overflow-hidden border-b border-black/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 xl:hidden ${
+            isMenuOpen
+              ? "visible max-h-[700px] opacity-100"
+              : "invisible max-h-0 opacity-0"
+          }`}
         >
-         Products
-        </Link>
+          <div className="px-5 pb-7 pt-5 sm:px-8">
 
-        <Link
-          href="/articles"
-          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
-        >
-          Articles
-        </Link>
+            {/* MOBILE SEARCH */}
 
-        <Link
-          href="/contact-us"
-          className="rounded-lg px-4 py-2 font-(--font-outfit) text-[21px] font-semibold text-[#26364f] transition hover:bg-gray-100 hover:text-[#0e5a52]"
-        >
-          Contact Us
-        </Link>
-      </nav>
+            <form
+              onSubmit={handleSearch}
+              className="mb-5 flex h-[48px] border border-black/15"
+            >
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search products..."
+                className="min-w-0 flex-1 bg-transparent px-4 text-sm text-black outline-none placeholder:text-black/35"
+              />
 
-      {/* SEARCH */}
-      <form
-        onSubmit={handleSearch}
-        className="hidden items-center overflow-hidden rounded-xl border border-gray-300 bg-white lg:flex"
-      >
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search..."
-          className="h-[48px] w-[180px] bg-transparent px-4 text-sm text-gray-700 outline-none"
-        />
+              <button
+                type="submit"
+                aria-label="Search"
+                className="flex w-[52px] items-center justify-center border-l border-black/10 text-black/60"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-[18px] w-[18px]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    strokeWidth="1.7"
+                  />
 
-        <button
-          type="submit"
-          className="flex h-[48px] w-[50px] items-center justify-center text-gray-600 transition hover:text-[#0e5a52]"
-          aria-label="Search"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-              strokeWidth="1.8"
-            />
-            <path
-              d="M16 16L21 21"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
-      </form>
+                  <path
+                    d="M16 16L21 21"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            </form>
 
-      {/* CTA */}
-      <button onClick={() => setQuoteOpen(true)}
-        href="/contact"
-        className="hidden shrink-0 items-center gap-2 rounded-xl bg-[#f6bd35] 
-        px-6 py-3 text-sm font-bold text-[#26364f] transition hover:bg-[#e9ae20] 
-        lg:flex"
-      >
-        Get a Quote
-        <span className="text-xl">→</span>
-      </button>
+            {/* MOBILE LINKS */}
 
-  
+            <nav className="flex flex-col">
 
-<Popup
+              <MobileNavItem
+                href="/"
+                label="Home"
+                onClick={closeMenu}
+              />
+
+              <MobileNavItem
+                href="/about-us"
+                label="About Us"
+                onClick={closeMenu}
+              />
+
+              <MobileNavItem
+                href="/products/pvc-resin"
+                label="Products"
+                onClick={closeMenu}
+              />
+
+              <MobileNavItem
+                href="/articles"
+                label="Articles"
+                onClick={closeMenu}
+              />
+
+              <MobileNavItem
+                href="/contact-us"
+                label="Contact Us"
+                onClick={closeMenu}
+              />
+            </nav>
+
+            {/* MOBILE QUOTE */}
+
+            <button
+              type="button"
+              onClick={openQuote}
+              className="group mt-6 flex w-full items-center justify-center gap-4 bg-[#D4A017] px-5 py-4 text-[11px] font-bold uppercase tracking-[2px] text-[#111111] transition duration-300 hover:bg-[#B8860B] hover:text-white"
+            >
+              <span>
+                Get a Quote
+              </span>
+
+              <span className="text-lg transition-transform duration-300 group-hover:translate-x-1.5">
+                →
+              </span>
+            </button>
+
+            {/* MOBILE CONTACT */}
+
+            <div className="mt-6 grid grid-cols-1 gap-3 border-t border-black/10 pt-5 sm:grid-cols-2">
+
+              <a
+                href="tel:+911141417725"
+                className="text-[11px] font-medium text-black/55 transition hover:text-[#D4A017]"
+              >
+                <span className="mb-1 block text-[9px] uppercase tracking-[2px] text-black/35">
+                  Call Us
+                </span>
+
+                +91-11-41417725
+              </a>
+
+              <a
+                href="mailto:info@resolvinyls.com"
+                className="text-[11px] font-medium text-black/55 transition hover:text-[#D4A017]"
+              >
+                <span className="mb-1 block text-[9px] uppercase tracking-[2px] text-black/35">
+                  Email Us
+                </span>
+
+                info@resolvinyls.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ============================================================
+          QUOTE POPUP
+      ============================================================ */}
+
+      <Popup
         isOpen={quoteOpen}
         onClose={() => setQuoteOpen(false)}
       />
+    </>
+  );
+}
 
-      {/* MOBILE MENU BUTTON */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 xl:hidden"
-        aria-label="Menu"
-      >
-        <span
-          className={`h-0.5 w-6 bg-[#26364f] transition-all duration-300 ${
-            isMenuOpen ? "translate-y-2 rotate-45" : ""
-          }`}
-        />
+/* ================================================================
+   DESKTOP NAV ITEM
+================================================================ */
 
-        <span
-          className={`h-0.5 w-6 bg-[#26364f] transition-all duration-300 ${
-            isMenuOpen ? "opacity-0" : ""
-          }`}
-        />
+function NavItem({ href, label }) {
+  return (
+    <Link
+      href={href}
+      className="group relative px-4 py-4 font-(--font-outfit) text-[15px] font-semibold tracking-[0.2px] text-[#111111] transition-colors duration-300 hover:text-[#D4A017]"
+    >
+      <span>
+        {label}
+      </span>
 
-        <span
-          className={`h-0.5 w-6 bg-[#26364f] transition-all duration-300 ${
-            isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-          }`}
-        />
-      </button>
-    </div>
-  </div>
+      <span className="absolute bottom-[7px] left-4 h-[2px] w-0 bg-[#D4A017] transition-all duration-300 group-hover:w-[calc(100%-32px)]" />
+    </Link>
+  );
+}
 
-  {/* ================= MOBILE MENU ================= */}
-  <div
-    className={`overflow-hidden bg-white shadow-lg transition-all duration-500 xl:hidden ${
-      isMenuOpen
-        ? "max-h-[600px] opacity-100"
-        : "max-h-0 opacity-0"
-    }`}
-  >
-    <div className="px-5 py-5">
+/* ================================================================
+   MOBILE NAV ITEM
+================================================================ */
 
-      {/* Mobile Search */}
-      <form
-        onSubmit={handleSearch}
-        className="mb-4 flex overflow-hidden rounded-xl border border-gray-300"
-      >
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search..."
-          className="w-full px-4 py-3 outline-none"
-        />
+function MobileNavItem({
+  href,
+  label,
+  onClick,
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="group flex items-center justify-between border-b border-black/10 py-[17px] text-[14px] font-semibold text-[#111111] transition-colors duration-300 hover:text-[#D4A017]"
+    >
+      <span>
+        {label}
+      </span>
 
-        <button type="submit" className="px-4">
-          🔍
-        </button>
-      </form>
-
-      {/* Mobile Navigation */}
-      <nav className="flex flex-col">
-        <Link
-          href="/"
-          onClick={closeMenu}
-          className="border-b border-gray-100 py-4 font-semibold text-[#26364f]"
-        >
-          Home
-        </Link>
-
-        <Link
-          href="/about"
-          onClick={closeMenu}
-          className="border-b border-gray-100 py-4 font-semibold text-[#26364f]"
-        >
-          About Us
-        </Link>
-
-        <Link
-          href="/articles"
-          onClick={closeMenu}
-          className="border-b border-gray-100 py-4 font-semibold text-[#26364f]"
-        >
-          Articles
-        </Link>
-
-        <Link
-          href="/projects"
-          onClick={closeMenu}
-          className="border-b border-gray-100 py-4 font-semibold text-[#26364f]"
-        >
-          Projects
-        </Link>
-
-        <Link
-          href="/contact"
-          onClick={closeMenu}
-          className="border-b border-gray-100 py-4 font-semibold text-[#26364f]"
-        >
-          Contact Us
-        </Link>
-
-        <Link
-          href="/contact"
-          onClick={closeMenu}
-          className="mt-5 rounded-xl bg-[#f6bd35] px-5 py-4 text-center font-bold text-[#26364f]"
-        >
-          Get a Quote →
-        </Link>
-      </nav>
-    </div>
-  </div>
-</header>
-
-);
+      <span className="text-lg font-light text-black/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#D4A017]">
+        →
+      </span>
+    </Link>
+  );
 }
