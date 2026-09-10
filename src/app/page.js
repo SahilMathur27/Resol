@@ -17,6 +17,8 @@ import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/OurBrands";
 import OurTeam from "@/components/OurTeam";
 import OurBrands from "@/components/OurBrands";
+import Cursor from "@/components/Curser";
+import BlendCursor from "@/components/Curser";
 
 
 export default function Home() {
@@ -35,6 +37,7 @@ export default function Home() {
    <Testimonials/>
    <Faq/>
    <Smooth/>
+   <BlendCursor/>
    </>
   );
 }
