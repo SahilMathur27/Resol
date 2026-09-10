@@ -11,7 +11,6 @@ import Main from "@/components/Main";
 import Scroll from "@/components/Scroll";
 import Smooth from "@/components/Smooth";
 import Testimonials from "@/components/Testimonials";
-import OurTeam from "@/components/OurTeam";
 import OurBrands from "@/components/OurBrands";
 import BlendCursor from "@/components/Curser";
 import AboutUs from "@/components/About";
@@ -31,7 +30,6 @@ export default function Home() {
 
    <Industry/>
    <Capability/>
-   {/* <OurTeam/> */}
   <OurBrands/>
    <Testimonials/>
    <Faq/>
