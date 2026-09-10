@@ -232,7 +232,7 @@ function ProductCard({ product, index }) {
     >
       {/* IMAGE */}
 
-      <div className="relative h-[245px] overflow-hidden bg-[#f3f3f1]">
+      <div className="relative h-[245px] overflow-hidden bg-white">
         <div
           className="
             absolute
@@ -817,22 +817,7 @@ export default function ProductsSection() {
                   p-8
                 "
               >
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="h-px w-10 bg-[#D4A017]" />
-
-                  <span
-                    className="
-                      font-['Lexend_Deca']
-                      text-[10px]
-                      uppercase
-                      tracking-[0.22em]
-                      text-white/60
-                    "
-                  >
-                    Resol Industries Ltd.
-                  </span>
-                </div>
-
+        
                 <h3
                   className="
                     max-w-sm
@@ -847,9 +832,6 @@ export default function ProductsSection() {
                   Materials that
                   <br />
 
-                  <span className="text-[#D4A017]">
-                    move industries.
-                  </span>
                 </h3>
 
                 <p

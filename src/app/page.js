@@ -31,7 +31,7 @@ export default function Home() {
 
    <Industry/>
    <Capability/>
-   <OurTeam/>
+   {/* <OurTeam/> */}
   <OurBrands/>
    <Testimonials/>
    <Faq/>

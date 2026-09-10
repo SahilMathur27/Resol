@@ -47,20 +47,20 @@ const industries = [
       "Reliable materials for flexible and rigid packaging applications across different industries.",
     image: "/industry (3).webp",
   },
-  {
-    id: 7,
-    name: "Plastics",
-    description:
-      "PVC Resin and Calcium Carbonate for a broad range of plastic manufacturing applications.",
-    image: "/pvc penal.webp",
-  },
-  {
-    id: 8,
-    name: "Paints & Coatings",
-    description:
-      "Quality materials for paints, coatings, surface finishing, and related industrial applications.",
-    image: "/paints (1).webp",
-  },
+  // {
+  //   id: 7,
+  //   name: "Plastics",
+  //   description:
+  //     "PVC Resin and Calcium Carbonate for a broad range of plastic manufacturing applications.",
+  //   image: "/pvc penal.webp",
+  // },
+  // {
+  //   id: 8,
+  //   name: "Paints & Coatings",
+  //   description:
+  //     "Quality materials for paints, coatings, surface finishing, and related industrial applications.",
+  //   image: "/paints (1).webp",
+  // },
 ];
 
 export default function IndustriesAccordion() {
@@ -337,7 +337,7 @@ export default function IndustriesAccordion() {
 
                   <button
                     onClick={() => setActive(index)}
-                    className="group flex w-full items-center gap-5 py-7 text-left md:py-8"
+                    className="group flex w-full items-center gap-5 py-7 text-left md:py-4"
                   >
 
                     {/* Number */}
@@ -355,7 +355,7 @@ export default function IndustriesAccordion() {
                     {/* Title */}
 
                     <span
-                      className={`flex-1 text-3xl font-bold tracking-[-0.04em] transition-all duration-500 md:text-5xl lg:text-[40px] ${
+                      className={`flex-1 text-3xl font-bold tracking-[-0.04em] transition-all duration-500 md:text-5xl lg:text-[35px] ${
                         isActive
                           ? "translate-x-2 text-[#171717]"
                           : "text-[#555] group-hover:translate-x-2 group-hover:text-[#171717]"
@@ -459,13 +459,8 @@ export default function IndustriesAccordion() {
                             className="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#171717]"
                           >
 
-                            <span>
-                              Explore Industry
-                            </span>
 
-                            <span className="flex h-9 w-9 items-center justify-center border border-[#D4A017] text-[#D4A017] transition-all duration-300 group-hover:bg-[#D4A017] group-hover:text-black">
-                              →
-                            </span>
+                  
 
                           </motion.button>
 
@@ -512,21 +507,6 @@ export default function IndustriesAccordion() {
           />
 
         </motion.div>
-
-        {/* Bottom Info */}
-
-        <div className="mt-5 flex items-center justify-between">
-
-          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
-            Resol Industries
-          </span>
-
-          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
-            08 Industries
-          </span>
-
-        </div>
-
       </div>
     </section>
   );
