@@ -15,6 +15,7 @@ import OurBrands from "@/components/OurBrands";
 import BlendCursor from "@/components/Curser";
 import AboutUs from "@/components/About";
 import ProductsSection from "@/components/Products";
+import OurTeam from "@/components/OurTeam";
 
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
    <Categories/>
    <Counter/>
    <ProductsSection/>
-
+<OurTeam/>
    <Industry/>
    <Capability/>
   <OurBrands/>
