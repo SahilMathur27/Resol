@@ -9,55 +9,53 @@ const products = [
   {
     number: "01",
     title: "PVC Resin",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/pvc-resin",
-    size: "large",
   },
   {
     number: "02",
     title: "EVA Resin",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/eva-resin",
-    size: "small",
   },
   {
     number: "03",
     title: "Polyethylene (PE)",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/polyethylene",
-    size: "small",
   },
   {
     number: "04",
     title: "Polypropylene (PP)",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/polypropylene",
-    size: "large",
   },
   {
     number: "05",
     title: "Polystyrene",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/polystyrene",
-    size: "large",
   },
   {
     number: "06",
     title: "POE",
+    category: "POLYMER MATERIAL",
     image: "/resol products.webp",
     link: "/products/poe",
-    size: "small",
   },
 ];
 
 function ProductItem({ product, index }) {
-  const isLarge = product.size === "large";
-
   return (
-    <motion.div
+    <motion.article
       initial={{
         opacity: 0,
-        y: 80,
+        y: 60,
       }}
       whileInView={{
         opacity: 1,
@@ -65,196 +63,132 @@ function ProductItem({ product, index }) {
       }}
       viewport={{
         once: true,
-        amount: 0.12,
+        amount: 0.15,
       }}
       transition={{
-        duration: 0.9,
-        delay: index * 0.08,
+        duration: 0.8,
+        delay: index * 0.07,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative"
+      className="group"
     >
       <Link href={product.link} className="block">
 
-        {/* =========================================
-            IMAGE
-        ========================================= */}
+        {/* IMAGE */}
 
         <div
-          className={`
+          className="
             relative
+            mx-auto
+            h-[280px]
+            w-full
             overflow-hidden
-            bg-[#E9E9E6]
-            ${isLarge
-              ? "h-[400px] sm:h-[500px] lg:h-[590px]"
-              : "h-[340px] sm:h-[430px] lg:h-[450px]"
-            }
-          `}
+            bg-[#F0F0ED]
+            sm:h-[330px]
+            lg:h-[360px]
+          "
         >
-
-          {/* IMAGE */}
 
           <Image
             src={product.image}
             alt={product.title}
             fill
             priority={index < 2}
-            sizes="(max-width: 1024px) 100vw, 60vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="
               object-cover
               transition-transform
-              duration-[1400ms]
+              duration-[1200ms]
               ease-[cubic-bezier(0.16,1,0.3,1)]
-              group-hover:scale-[1.07]
+              group-hover:scale-[1.06]
             "
           />
 
-          {/* DARK IMAGE GRADIENT */}
+          {/* LIGHT OVERLAY */}
 
           <div
             className="
-              pointer-events-none
               absolute
               inset-0
-              bg-gradient-to-t
-              from-black/65
-              via-black/5
-              to-transparent
-              opacity-70
-              transition-opacity
-              duration-700
-              group-hover:opacity-90
+              bg-black/0
+              transition-all
+              duration-500
+              group-hover:bg-black/10
             "
           />
 
-          {/* TOP LEFT NUMBER */}
+          {/* TOP NUMBER */}
 
           <div
             className="
               absolute
-              left-6
-              top-6
-              z-10
-              sm:left-8
-              sm:top-8
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <span className="h-px w-8 bg-[#D4A017] transition-all duration-500 group-hover:w-14" />
-
-              <span
-                className="
-                  text-[10px]
-                  font-semibold
-                  uppercase
-                  tracking-[4px]
-                  text-white
-                "
-              >
-                {product.number}
-              </span>
-            </div>
-          </div>
-
-          {/* LARGE EDITORIAL NUMBER */}
-
-          <div
-            className="
-              pointer-events-none
-              absolute
-              right-5
-              top-1/2
-              -translate-y-1/2
-              select-none
-              opacity-10
-              transition-all
-              duration-700
-              group-hover:opacity-20
-              group-hover:translate-x-[-8px]
-              sm:right-8
+              left-5
+              top-5
+              flex
+              items-center
+              gap-3
             "
           >
             <span
               className="
-                text-[130px]
-                font-black
-                leading-none
-                tracking-[-10px]
+                h-[2px]
+                w-8
+                bg-[#D4A017]
+                transition-all
+                duration-500
+                group-hover:w-14
+              "
+            />
+
+            <span
+              className="
+                text-[10px]
+                font-semibold
+                tracking-[4px]
                 text-white
-                sm:text-[180px]
+                drop-shadow-md
               "
             >
               {product.number}
             </span>
           </div>
 
-          {/* GOLD CORNER */}
+          {/* GOLD FRAME EFFECT */}
 
           <div
             className="
               pointer-events-none
               absolute
-              right-0
-              top-0
-              h-24
-              w-24
-              border-b
-              border-l
+              inset-4
+              border
               border-[#D4A017]
               opacity-0
-              translate-x-5
-              -translate-y-5
+              scale-[1.04]
               transition-all
               duration-700
-              group-hover:translate-x-0
-              group-hover:translate-y-0
+              group-hover:scale-100
               group-hover:opacity-100
             "
           />
 
-          {/* BOTTOM GOLD LINE */}
-
-          <div
-            className="
-              absolute
-              bottom-0
-              left-0
-              h-[3px]
-              w-0
-              bg-[#D4A017]
-              transition-all
-              duration-700
-              group-hover:w-full
-            "
-          />
-
-          {/* CENTER ARROW */}
+          {/* CENTER ACTION */}
 
           <div
             className="
               absolute
               left-1/2
               top-1/2
-              z-20
               flex
-              h-[72px]
-              w-[72px]
+              h-14
+              w-14
               -translate-x-1/2
               -translate-y-1/2
               scale-75
               items-center
               justify-center
-              border
-              border-[#D4A017]
-              bg-black
-              text-[24px]
-              text-[#D4A017]
+              bg-[#D4A017]
+              text-xl
+              text-black
               opacity-0
               transition-all
               duration-500
@@ -265,157 +199,117 @@ function ProductItem({ product, index }) {
             ↗
           </div>
 
-          {/* BOTTOM IMAGE LABEL */}
+          {/* BOTTOM LABEL */}
 
           <div
             className="
               absolute
-              bottom-6
-              left-6
-              right-6
-              z-10
-              sm:bottom-8
-              sm:left-8
-              sm:right-8
+              bottom-5
+              left-5
+              right-5
+              flex
+              items-end
+              justify-between
             "
           >
-            <div
+            <span
               className="
-                flex
-                items-end
-                justify-between
-                gap-5
+                text-[9px]
+                font-semibold
+                uppercase
+                tracking-[3px]
+                text-white
+                drop-shadow-md
               "
             >
+              Resol Industries
+            </span>
 
-              <div>
-                <span
-                  className="
-                    mb-2
-                    block
-                    text-[9px]
-                    font-semibold
-                    uppercase
-                    tracking-[3px]
-                    text-[#D4A017]
-                  "
-                >
-                  Polymer Material
-                </span>
-
-                <span
-                  className="
-                    block
-                    text-[12px]
-                    uppercase
-                    tracking-[2px]
-                    text-white/70
-                  "
-                >
-                  Industrial Grade
-                </span>
-              </div>
-
-              <span
-                className="
-                  hidden
-                  text-[9px]
-                  uppercase
-                  tracking-[3px]
-                  text-white/50
-                  sm:block
-                "
-              >
-                Resol Industries
-              </span>
-
-            </div>
+            <span
+              className="
+                text-[9px]
+                uppercase
+                tracking-[2px]
+                text-white/70
+              "
+            >
+              Industrial
+            </span>
           </div>
 
         </div>
 
 
-        {/* =========================================
-            PRODUCT INFORMATION
-        ========================================= */}
+        {/* PRODUCT INFO */}
 
-        <div className="relative">
+        <div
+          className="
+            relative
+            border-b
+            border-black/15
+            py-5
+          "
+        >
+
+          {/* ANIMATED GOLD LINE */}
+
+          <span
+            className="
+              absolute
+              bottom-[-1px]
+              left-0
+              h-[2px]
+              w-0
+              bg-[#D4A017]
+              transition-all
+              duration-700
+              group-hover:w-full
+            "
+          />
 
           <div
             className="
-              relative
               flex
-              items-start
+              items-center
               justify-between
-              gap-6
-              border-b
-              border-black/15
-              py-6
-              md:py-7
+              gap-5
             "
           >
 
-            {/* GOLD ACTIVE LINE */}
+            <div className="min-w-0">
 
-            <span
-              className="
-                absolute
-                bottom-[-1px]
-                left-0
-                h-[2px]
-                w-0
-                bg-[#D4A017]
-                transition-all
-                duration-700
-                group-hover:w-full
-              "
-            />
-
-            <div>
-
-              {/* CATEGORY */}
-
-              <div className="mb-3 flex items-center gap-3">
-
-                <span
-                  className="
-                    h-[2px]
-                    w-8
-                    bg-[#D4A017]
-                    transition-all
-                    duration-500
-                    group-hover:w-14
-                  "
-                />
-
+              <div
+                className="
+                  mb-2
+                  flex
+                  items-center
+                  gap-3
+                "
+              >
                 <span
                   className="
                     text-[9px]
                     font-semibold
                     uppercase
                     tracking-[3px]
-                    text-[#888]
+                    text-[#999]
                   "
                 >
-                  Polymer Material
+                  {product.category}
                 </span>
-
               </div>
-
-              {/* TITLE */}
 
               <h3
                 className="
-                  text-[28px]
+                  text-[25px]
                   font-medium
-                  leading-[0.95]
-                  tracking-[-1.5px]
+                  leading-none
+                  tracking-[-1.2px]
                   text-black
                   transition-colors
-                  duration-400
+                  duration-300
                   group-hover:text-[#D4A017]
-                  sm:text-[36px]
-                  md:text-[43px]
+                  sm:text-[30px]
                 "
               >
                 {product.title}
@@ -428,22 +322,20 @@ function ProductItem({ product, index }) {
 
             <div
               className="
-                mt-1
                 flex
-                h-11
-                w-11
+                h-10
+                w-10
                 shrink-0
                 items-center
                 justify-center
                 border
                 border-black/20
-                text-[18px]
+                text-[17px]
                 text-black
                 transition-all
                 duration-500
                 group-hover:border-[#D4A017]
                 group-hover:bg-[#D4A017]
-                group-hover:text-black
               "
             >
               <span
@@ -463,7 +355,7 @@ function ProductItem({ product, index }) {
         </div>
 
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
 
@@ -478,22 +370,22 @@ export default function ProductsSection() {
         py-20
         sm:py-24
         md:py-32
-        lg:py-40
+        lg:py-36
       "
     >
 
       {/* =========================================
-          BACKGROUND DETAILS
+          BACKGROUND
       ========================================= */}
 
       <div
         className="
           pointer-events-none
           absolute
-          right-[-180px]
-          top-[350px]
-          h-[550px]
-          w-[550px]
+          right-[-200px]
+          top-[300px]
+          h-[500px]
+          w-[500px]
           rounded-full
           bg-[#D4A017]/[0.035]
           blur-3xl
@@ -504,10 +396,10 @@ export default function ProductsSection() {
         className="
           pointer-events-none
           absolute
-          bottom-[400px]
-          left-[-220px]
-          h-[550px]
-          w-[550px]
+          bottom-[300px]
+          left-[-200px]
+          h-[450px]
+          w-[450px]
           rounded-full
           bg-black/[0.025]
           blur-3xl
@@ -519,7 +411,7 @@ export default function ProductsSection() {
         className="
           relative
           mx-auto
-          max-w-[1500px]
+          max-w-[1450px]
           px-5
           sm:px-8
           md:px-12
@@ -531,7 +423,7 @@ export default function ProductsSection() {
             HEADER
         ========================================= */}
 
-        <div className="mb-16 md:mb-24 lg:mb-28">
+        <div className="mb-16 md:mb-24">
 
           <div
             className="
@@ -543,7 +435,7 @@ export default function ProductsSection() {
             "
           >
 
-            {/* LEFT */}
+            {/* LEFT TEXT */}
 
             <motion.div
               initial={{
@@ -604,7 +496,7 @@ export default function ProductsSection() {
             </motion.div>
 
 
-            {/* RIGHT */}
+            {/* HEADING */}
 
             <div className="lg:col-span-8">
 
@@ -634,8 +526,6 @@ export default function ProductsSection() {
           </div>
 
 
-          {/* LINE */}
-
           <div
             className="
               mt-10
@@ -650,111 +540,57 @@ export default function ProductsSection() {
 
 
         {/* =========================================
-            PRODUCT GRID
+            PRODUCT SHOWCASE
         ========================================= */}
 
         <div
           className="
             grid
             grid-cols-1
-            gap-x-8
+            gap-x-10
             gap-y-20
-            md:gap-x-10
-            md:gap-y-28
-            lg:grid-cols-12
-            lg:gap-y-32
+            md:grid-cols-2
+            md:gap-y-24
+            lg:gap-x-14
+            lg:gap-y-28
           "
         >
 
-          {/* 01 */}
+          {products.map((product, index) => (
+            <div
+              key={product.number}
+              className={`
+                ${
+                  index === 1
+                    ? "lg:mt-[100px]"
+                    : ""
+                }
 
-          <div className="lg:col-span-7">
-            <ProductItem
-              product={products[0]}
-              index={0}
-            />
-          </div>
+                ${
+                  index === 3
+                    ? "lg:mt-[80px]"
+                    : ""
+                }
 
-
-          {/* 02 */}
-
-          <div
-            className="
-              lg:col-span-5
-              lg:mt-[150px]
-            "
-          >
-            <ProductItem
-              product={products[1]}
-              index={1}
-            />
-          </div>
-
-
-          {/* 03 */}
-
-          <div
-            className="
-              lg:col-span-5
-              lg:ml-[8%]
-            "
-          >
-            <ProductItem
-              product={products[2]}
-              index={2}
-            />
-          </div>
-
-
-          {/* 04 */}
-
-          <div
-            className="
-              lg:col-span-7
-              lg:mt-[120px]
-            "
-          >
-            <ProductItem
-              product={products[3]}
-              index={3}
-            />
-          </div>
-
-
-          {/* 05 */}
-
-          <div
-            className="
-              lg:col-span-7
-              lg:mt-[70px]
-            "
-          >
-            <ProductItem
-              product={products[4]}
-              index={4}
-            />
-          </div>
-
-
-          {/* 06 */}
-
-          <div
-            className="
-              lg:col-span-5
-              lg:mt-[220px]
-            "
-          >
-            <ProductItem
-              product={products[5]}
-              index={5}
-            />
-          </div>
+                ${
+                  index === 5
+                    ? "lg:mt-[100px]"
+                    : ""
+                }
+              `}
+            >
+              <ProductItem
+                product={product}
+                index={index}
+              />
+            </div>
+          ))}
 
         </div>
 
 
         {/* =========================================
-            BOTTOM CTA
+            BOTTOM STATEMENT
         ========================================= */}
 
         <motion.div
@@ -805,6 +641,7 @@ export default function ProductsSection() {
                 max-w-2xl
                 text-3xl
                 font-medium
+                leading-[1]
                 tracking-[-1.5px]
                 text-black
                 md:text-5xl
@@ -842,6 +679,7 @@ export default function ProductsSection() {
               md:mt-0
             "
           >
+
             View All Products
 
             <span
