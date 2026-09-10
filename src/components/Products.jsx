@@ -3,257 +3,545 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import AnimatedTitle from "@/components/AnimatedTitle";
 
 const products = [
   {
+    number: "01",
     title: "PVC Resin",
     image: "/resol products.webp",
     link: "/products/pvc-resin",
+    size: "large",
   },
   {
+    number: "02",
     title: "EVA Resin",
     image: "/resol products.webp",
     link: "/products/eva-resin",
+    size: "small",
   },
   {
+    number: "03",
     title: "Polyethylene (PE)",
     image: "/resol products.webp",
     link: "/products/polyethylene",
+    size: "small",
   },
   {
+    number: "04",
     title: "Polypropylene (PP)",
     image: "/resol products.webp",
     link: "/products/polypropylene",
+    size: "large",
   },
   {
+    number: "05",
     title: "Polystyrene",
     image: "/resol products.webp",
     link: "/products/polystyrene",
+    size: "large",
   },
   {
+    number: "06",
     title: "POE",
     image: "/resol products.webp",
     link: "/products/poe",
+    size: "small",
   },
 ];
 
+function ProductItem({ product, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.8,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className={`
+        group
+        relative
+        ${
+          product.size === "large"
+            ? "lg:col-span-7"
+            : "lg:col-span-5"
+        }
+      `}
+    >
+      <Link href={product.link} className="block">
+
+        {/* IMAGE AREA */}
+
+        <div
+          className={`
+            relative
+            overflow-hidden
+            bg-[#E8E7E3]
+            ${
+              product.size === "large"
+                ? "h-[390px] sm:h-[480px] lg:h-[560px]"
+                : "h-[330px] sm:h-[420px] lg:h-[430px]"
+            }
+          `}
+        >
+
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            priority={index < 2}
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="
+              object-cover
+              transition-transform
+              duration-[1200ms]
+              ease-[cubic-bezier(0.16,1,0.3,1)]
+              group-hover:scale-[1.08]
+            "
+          />
+
+          {/* IMAGE OVERLAY */}
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            className="
+              absolute
+              inset-0
+              bg-black/10
+              transition-opacity
+              duration-500
+            "
+          />
+
+          {/* NUMBER */}
+
+          <div className="absolute left-5 top-5 z-10 sm:left-7 sm:top-7">
+
+            <span
+              className="
+                text-xs
+                font-medium
+                tracking-[4px]
+                text-white
+                drop-shadow-md
+              "
+            >
+              {product.number}
+            </span>
+
+          </div>
+
+
+          {/* GOLD CORNER */}
+
+          <div
+            className="
+              absolute
+              right-0
+              top-0
+              h-20
+              w-20
+              border-b
+              border-l
+              border-[#D4A017]
+              opacity-0
+              transition-all
+              duration-500
+              group-hover:opacity-100
+            "
+          />
+
+          <div
+            className="
+              absolute
+              bottom-0
+              left-0
+              h-20
+              w-20
+              border-r
+              border-t
+              border-[#D4A017]
+              opacity-0
+              transition-all
+              duration-500
+              group-hover:opacity-100
+            "
+          />
+
+
+          {/* CENTER ARROW */}
+
+          <div
+            className="
+              absolute
+              left-1/2
+              top-1/2
+              flex
+              h-16
+              w-16
+              -translate-x-1/2
+              -translate-y-1/2
+              items-center
+              justify-center
+              border
+              border-[#D4A017]
+              bg-black
+              text-xl
+              text-[#D4A017]
+              opacity-0
+              scale-75
+              transition-all
+              duration-500
+              group-hover:scale-100
+              group-hover:opacity-100
+            "
+          >
+            ↗
+          </div>
+
+        </div>
+
+
+        {/* PRODUCT INFORMATION */}
+
+        <div className="relative">
+
+          <div className="flex items-start justify-between gap-5 border-b border-black/15 py-6 md:py-7">
+
+            <div>
+
+              <div className="mb-3 flex items-center gap-3">
+
+                <span className="h-[2px] w-8 bg-[#D4A017] transition-all duration-500 group-hover:w-14" />
+
+                <span className="text-[9px] font-semibold uppercase tracking-[3px] text-[#888]">
+                  Polymer Material
+                </span>
+
+              </div>
+
+              <h3
+                className="
+                  text-[27px]
+                  font-medium
+                  leading-none
+                  tracking-[-1.2px]
+                  text-black
+                  transition-colors
+                  duration-300
+                  group-hover:text-[#D4A017]
+                  sm:text-[34px]
+                  md:text-[40px]
+                "
+              >
+                {product.title}
+              </h3>
+
+            </div>
+
+
+            <div
+              className="
+                flex
+                h-11
+                w-11
+                shrink-0
+                items-center
+                justify-center
+                border
+                border-black/15
+                text-lg
+                text-black
+                transition-all
+                duration-500
+                group-hover:border-[#D4A017]
+                group-hover:bg-[#D4A017]
+              "
+            >
+              ↗
+            </div>
+
+          </div>
+
+        </div>
+
+      </Link>
+    </motion.div>
+  );
+}
+
+
 export default function ProductsSection() {
   return (
-    <section className="bg-[#F8F5EE] py-12 md:py-10 lg:py-14">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-white py-24 md:py-32 lg:py-40">
 
-        {/* ================= HEADING ================= */}
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute right-[-150px] top-[300px] h-[500px] w-[500px] rounded-full bg-[#D4A017]/[0.035] blur-3xl" />
+
+      <div className="pointer-events-none absolute left-[-200px] bottom-[300px] h-[500px] w-[500px] rounded-full bg-black/[0.025] blur-3xl" />
+
+
+      <div className="relative mx-auto max-w-[1450px] px-5 sm:px-8 md:px-12 lg:px-16">
+
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+
+        <div className="mb-20 md:mb-28 lg:mb-36">
+
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
+
+            {/* LEFT */}
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: -40,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.8,
+              }}
+              className="lg:col-span-4"
+            >
+
+              <div className="flex items-center gap-4">
+
+                <span className="h-[1px] w-14 bg-[#D4A017]" />
+
+                <span className="text-xs font-semibold uppercase tracking-[5px] text-[#D4A017]">
+                  03 — Products
+                </span>
+
+              </div>
+
+              <p className="mt-7 max-w-sm text-sm leading-7 text-[#666] md:text-base">
+                A dependable portfolio of polymer and industrial materials
+                supplied for demanding applications across India.
+              </p>
+
+            </motion.div>
+
+
+            {/* RIGHT */}
+
+            <div className="lg:col-span-8">
+
+              <AnimatedTitle
+                text="PRODUCTS"
+                highlight="BUILT FOR INDUSTRY"
+                delay={0.1}
+                duration={0.8}
+                letterDelay={0.035}
+                color="#111111"
+                highlightColor="#D4A017"
+                className="
+                  text-[48px]
+                  font-black
+                  uppercase
+                  leading-[0.86]
+                  tracking-[-3px]
+                  sm:text-[62px]
+                  md:text-[78px]
+                  lg:text-[94px]
+                  xl:text-[105px]
+                "
+              />
+
+            </div>
+
+          </div>
+
+
+          {/* HEADER LINE */}
+
+          <div className="mt-10 h-[1px] w-full bg-black/15 md:mt-14" />
+
+        </div>
+
+
+        {/* =====================================================
+            CREATIVE PRODUCT GRID
+        ===================================================== */}
+
+        <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:gap-x-10 md:gap-y-28 lg:grid-cols-12 lg:gap-y-36">
+
+          {/* =================================================
+              PRODUCT 01
+          ================================================= */}
+
+          <ProductItem
+            product={products[0]}
+            index={0}
+          />
+
+
+          {/* =================================================
+              PRODUCT 02
+          ================================================= */}
+
+          <div className="lg:col-span-5 lg:mt-[180px]">
+
+            <ProductItem
+              product={products[1]}
+              index={1}
+            />
+
+          </div>
+
+
+          {/* =================================================
+              PRODUCT 03
+          ================================================= */}
+
+          <div className="lg:col-span-5 lg:ml-[8%]">
+
+            <ProductItem
+              product={products[2]}
+              index={2}
+            />
+
+          </div>
+
+
+          {/* =================================================
+              PRODUCT 04
+          ================================================= */}
+
+          <div className="lg:col-span-7 lg:mt-[140px]">
+
+            <ProductItem
+              product={products[3]}
+              index={3}
+            />
+
+          </div>
+
+
+          {/* =================================================
+              PRODUCT 05
+          ================================================= */}
+
+          <div className="lg:col-span-7 lg:mt-[100px]">
+
+            <ProductItem
+              product={products[4]}
+              index={4}
+            />
+
+          </div>
+
+
+          {/* =================================================
+              PRODUCT 06
+          ================================================= */}
+
+          <div className="lg:col-span-5 lg:mt-[260px]">
+
+            <ProductItem
+              product={products[5]}
+              index={5}
+            />
+
+          </div>
+
+        </div>
+
+
+        {/* =====================================================
+            BOTTOM CTA
+        ===================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto mb-12 max-w-3xl text-center md:mb-16"
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="
+            mt-24
+            border-t
+            border-black/15
+            pt-10
+            md:mt-36
+            md:flex
+            md:items-end
+            md:justify-between
+          "
         >
-          <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-[4px] text-[#D4A017]">
-            Our Products
-          </span>
 
-          <h2 className="text-3xl font-bold text-black md:text-5xl">
-            Explore Our Premium Products
-          </h2>
+          <div>
 
-          <div className="mx-auto mt-5 h-[3px] w-16 bg-[#D4A017]" />
+            <span className="mb-4 block text-[10px] font-semibold uppercase tracking-[4px] text-[#D4A017]">
+              Explore Our Range
+            </span>
 
-          <p className="mt-5 text-base leading-7 text-[#5F5A52] md:text-lg">
-            Discover our range of high-quality polymer products designed for
-            diverse industrial applications.
-          </p>
+            <h3 className="max-w-2xl text-3xl font-medium tracking-[-1.5px] text-black md:text-5xl">
+              Materials that keep
+              <span className="text-[#D4A017]"> industry moving.</span>
+            </h3>
+
+          </div>
+
+
+          <Link
+            href="/products"
+            className="
+              group
+              mt-8
+              inline-flex
+              items-center
+              gap-5
+              bg-black
+              px-7
+              py-4
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[2px]
+              text-white
+              transition-all
+              duration-300
+              hover:bg-[#D4A017]
+              hover:text-black
+              md:mt-0
+            "
+          >
+
+            View All Products
+
+            <span className="text-lg transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+
+          </Link>
+
         </motion.div>
 
-        {/* ================= SLIDER AREA ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative products-slider-wrapper"
-        >
-
-          {/* ================= LEFT ARROW ================= */}
-          <button
-            className="products-prev absolute left-[-22px] top-[42%] z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-xl font-bold text-[#D4A017] shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#D4A017] hover:text-black lg:flex"
-            aria-label="Previous products"
-          >
-            ←
-          </button>
-
-          {/* ================= RIGHT ARROW ================= */}
-          <button
-            className="products-next absolute right-[-22px] top-[42%] z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-xl font-bold text-[#D4A017] shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#D4A017] hover:text-black lg:flex"
-            aria-label="Next products"
-          >
-            →
-          </button>
-
-          {/* ================= SWIPER ================= */}
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={24}
-            slidesPerView={1}
-            navigation={{
-              prevEl: ".products-prev",
-              nextEl: ".products-next",
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 4,
-              },
-            }}
-            className="products-swiper !pb-16"
-          >
-            {products.map((product, index) => (
-              <SwiperSlide key={product.title}>
-
-                {/* ================= PRODUCT CARD ================= */}
-                <div className="group h-full overflow-hidden rounded-[22px] bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-                  {/* ================= IMAGE ================= */}
-                  <div className="relative h-[250px] overflow-hidden bg-[#EEEEEB]">
-
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      priority={index < 3}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-
-                    {/* SOFT OVERLAY */}
-                    <div className="absolute inset-0 bg-black/5 transition-all duration-500 group-hover:bg-transparent" />
-
-                    {/* GOLD TOP LINE */}
-                    <div className="absolute left-0 top-0 z-10 h-1.5 w-full bg-[#D4A017]" />
-
-                    {/* NUMBER */}
-                    <div className="absolute left-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#D4A017]/60 bg-black text-sm font-bold text-[#D4A017] shadow-lg">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-                  </div>
-
-                  {/* ================= CONTENT ================= */}
-                  <div className="p-6">
-
-
-                    <h3 className="mt-3 text-2xl font-bold text-black transition-colors duration-300 group-hover:text-[#D4A017]">
-                      {product.title}
-                    </h3>
-
-                    {/* GOLD LINE */}
-                    <div className="my-4 h-[3px] w-12 bg-[#D4A017] transition-all duration-500 group-hover:w-24" />
-
-                    {/* BUTTON */}
-                    <Link
-                      href={product.link}
-                      className="mt-2 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:gap-4 hover:bg-[#D4A017] hover:text-black"
-                    >
-                      Read More
-                      <span className="text-lg">→</span>
-                    </Link>
-
-                  </div>
-                </div>
-
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* ================= CUSTOM SWIPER CSS ================= */}
-          <style jsx global>{`
-
-            /* SLIDER WRAPPER */
-            .products-slider-wrapper {
-              padding-left: 28px;
-              padding-right: 28px;
-            }
-
-            /* DESKTOP ARROWS */
-            .products-prev,
-            .products-next {
-              display: flex;
-            }
-
-            /* SWIPER PAGINATION */
-            .products-swiper .swiper-pagination {
-              bottom: 0 !important;
-            }
-
-            .products-swiper .swiper-pagination-bullet {
-              width: 9px;
-              height: 9px;
-              background: #000000;
-              opacity: 0.3;
-              transition: all 0.3s ease;
-            }
-
-            .products-swiper .swiper-pagination-bullet-active {
-              width: 28px;
-              border-radius: 10px;
-              background: #d4a017;
-              opacity: 1;
-            }
-
-            /* REMOVE DEFAULT SWIPER ARROWS */
-            .products-swiper .swiper-button-next,
-            .products-swiper .swiper-button-prev {
-              display: none !important;
-            }
-
-            /* MOBILE + TABLET */
-            @media (max-width: 1023px) {
-
-              .products-slider-wrapper {
-                padding-left: 0;
-                padding-right: 0;
-              }
-
-              .products-prev,
-              .products-next {
-                display: none !important;
-              }
-            }
-
-            /* MOBILE */
-            @media (max-width: 639px) {
-
-              .products-swiper .swiper-slide {
-                height: auto;
-              }
-
-              .products-swiper .swiper-slide > div {
-                width: 100%;
-              }
-
-            }
-
-          `}</style>
-
-        </motion.div>
       </div>
+
     </section>
   );
 }

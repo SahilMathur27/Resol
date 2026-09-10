@@ -11,6 +11,7 @@ const capabilities = [
     description:
       "Established in 2005, Resol Industries brings extensive experience in importing and distributing industrial materials across India.",
     image: "/industry (3).webp",
+    tag: "EXPERIENCE",
   },
   {
     number: "02",
@@ -18,6 +19,7 @@ const capabilities = [
     description:
       "We work with an established network of international sources to bring high-quality industrial materials to businesses across the Indian market.",
     image: "/Polystyrene.webp",
+    tag: "GLOBAL SOURCING",
   },
   {
     number: "03",
@@ -25,6 +27,7 @@ const capabilities = [
     description:
       "Our materials serve diverse industries including PVC pipes and fittings, footwear, flooring, packaging, plastics, adhesives, textiles and coatings.",
     image: "/industry (3).webp",
+    tag: "APPLICATIONS",
   },
   {
     number: "04",
@@ -32,6 +35,7 @@ const capabilities = [
     description:
       "We focus on consistent product quality, dependable supply and transparent business practices while building long-term customer relationships.",
     image: "/Polystyrene.webp",
+    tag: "RELIABILITY",
   },
 ];
 
@@ -53,9 +57,16 @@ export default function Scroll() {
 
     updateWidths();
 
+    const resizeObserver = new ResizeObserver(updateWidths);
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
     window.addEventListener("resize", updateWidths);
 
     return () => {
+      resizeObserver.disconnect();
       window.removeEventListener("resize", updateWidths);
     };
   }, []);
@@ -65,7 +76,10 @@ export default function Scroll() {
     offset: ["start start", "end end"],
   });
 
-  const scrollDistance = Math.max(containerWidth - viewportWidth, 0);
+  const scrollDistance = Math.max(
+    containerWidth - viewportWidth,
+    0
+  );
 
   const x = useTransform(
     scrollYProgress,
@@ -76,7 +90,7 @@ export default function Scroll() {
   return (
     <section
       ref={targetRef}
-      className="relative bg-[#F8F5EE]"
+      className="relative bg-[#F4F2EC] font-['Manrope']"
       style={{
         height: `${
           containerWidth
@@ -85,241 +99,235 @@ export default function Scroll() {
         }vh`,
       }}
     >
-      {/* STICKY HORIZONTAL SECTION */}
+      {/* =========================================================
+          STICKY AREA
+      ========================================================= */}
+
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+
+        {/* TOP PROGRESS LINE */}
+
+        <div className="absolute left-0 top-0 z-50 h-[3px] w-full bg-black/10">
+          <motion.div
+            style={{
+              scaleX: scrollYProgress,
+              transformOrigin: "left",
+            }}
+            className="h-full bg-[#D4A017]"
+          />
+        </div>
+
+        {/* SMALL SECTION LABEL */}
+
+        <div className="absolute left-6 top-7 z-40 flex items-center gap-4 lg:left-12">
+          <span className="h-[1px] w-10 bg-black/30" />
+
+          <span className="font-['Manrope'] text-[10px] font-bold uppercase tracking-[4px] text-black/50">
+            Resol Industries / About
+          </span>
+        </div>
+
+        {/* HORIZONTAL CONTENT */}
+
         <motion.div
           ref={containerRef}
           style={{ x }}
-          className="flex w-max items-center gap-5 px-5 lg:gap-8 lg:px-10"
+          className="flex h-full w-max items-center gap-0"
         >
-          {/* =========================================
-              ABOUT US SECTION
-          ========================================== */}
-          <div className="flex h-[600px] w-[92vw] shrink-0 overflow-hidden rounded-[30px] bg-[#FFFDF8] shadow-2xl lg:w-[1250px]">
-            <div className="grid h-full w-full lg:grid-cols-[0.9fr_1.1fr]">
-              {/* LEFT IMAGES */}
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative hidden h-full bg-[#EEE9DE] p-6 lg:block"
-              >
-                {/* EXPERIENCE CARD */}
-                <div className="absolute left-6 top-6 z-30 flex h-[175px] w-[175px] flex-col items-center justify-center rounded-[22px] bg-[#111111] text-center text-white shadow-2xl">
-                  <h3 className="text-5xl font-bold">
-                    20<span className="text-[#D4A017]">+</span>
-                  </h3>
 
-                  <p className="mt-3 text-base font-semibold leading-6">
-                    Years of
-                    <br />
-                    Experience
-                  </p>
-                </div>
+          {/* =====================================================
+              WHY CHOOSE INTRO
+          ====================================================== */}
 
-                {/* TOP IMAGE */}
-                <div className="absolute right-6 top-6 h-[330px] w-[75%] overflow-hidden rounded-[22px]">
-                  <Image
-                    src="/factory (1).webp"
-                    alt="Resol Industries"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+          <div className="relative flex h-screen w-[90vw] shrink-0 items-center bg-[#111111] px-8 md:w-[720px] md:px-16 lg:w-[800px] lg:px-20">
 
-                {/* GOLD DOTS */}
-                <div className="absolute left-8 top-[215px] grid grid-cols-7 gap-2">
-                  {Array.from({ length: 42 }).map((_, index) => (
-                    <span
-                      key={index}
-                      className="h-1.5 w-1.5 rounded-full bg-[#D4A017]"
-                    />
-                  ))}
-                </div>
+            {/* GOLD LINE */}
 
-                {/* BOTTOM IMAGE */}
-                <div className="absolute bottom-6 left-6 h-[280px] w-[78%] overflow-hidden rounded-[22px] border-[5px] border-[#FFFDF8] shadow-xl">
-                  <Image
-                    src="/industry (3).webp"
-                    alt="PVC Resin and Calcium Carbonate"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
+            <div className="absolute left-0 top-0 h-full w-[4px] bg-[#D4A017]" />
 
-              {/* RIGHT CONTENT */}
-              <div className="flex h-full flex-col justify-center overflow-y-auto p-7 md:p-10 lg:p-12">
-                <span className="text-sm font-bold uppercase tracking-[3px] text-[#D4A017]">
-                  About Resol Industries
+            {/* BACKGROUND TEXT */}
+
+            <div className="pointer-events-none absolute bottom-[-25px] right-[-20px] font-['Manrope'] text-[260px] font-extrabold leading-none tracking-[-25px] text-white/[0.025]">
+              02
+            </div>
+
+            <div className="relative z-10">
+
+              <div className="flex items-center gap-4">
+                <span className="h-[2px] w-10 bg-[#D4A017]" />
+
+                <span className="text-[10px] font-bold uppercase tracking-[4px] text-[#D4A017]">
+                  Our Difference
+                </span>
+              </div>
+
+              <h2 className="mt-8 font-['Manrope'] text-[54px] font-extrabold leading-[0.98] tracking-[-3px] text-white md:text-[70px]">
+
+                Why
+
+                <br />
+
+                <span className="text-[#D4A017]">
+                  Resol?
                 </span>
 
-                <h2 className="mt-3 text-4xl font-bold leading-tight text-[#111111] md:text-5xl">
-                  PVC Resin &amp;
-                  <br />
-                  Calcium Carbonate
-                </h2>
+              </h2>
 
-                <div className="mt-6 max-w-2xl space-y-4 text-sm leading-6 text-[#5F5A52] md:text-base md:leading-7">
-                  <p>
-                    Resol Industries Ltd. (RIL) is a trusted{" "}
-                    <span className="font-semibold text-[#111111]">
-                      PVC Resin importer
-                    </span>{" "}
-                    based in New Delhi, India. Established in 2005, we
-                    specialize in importing and distributing high-quality PVC
-                    Resin and Calcium Carbonate for a wide range of industrial
-                    applications across India.
-                  </p>
+              <p className="mt-9 max-w-[520px] text-[14px] leading-[2] text-white/55 md:text-[16px]">
+                We combine industry experience, trusted international
+                sourcing, quality-focused products and reliable supply
+                solutions to support businesses across diverse manufacturing
+                applications.
+              </p>
 
-                  <p>
-                    With an established international sourcing network, we
-                    import products from trusted sources and make them available
-                    to businesses across industries such as PVC pipes and
-                    fittings, footwear, PVC flooring, packaging, plastics,
-                    adhesives, textiles, paints &amp; coatings, and vinyl.
-                  </p>
+              <div className="mt-12 flex items-center gap-5">
 
-                  <p className="hidden xl:block">
-                    Our business is built on quality, reliability, and customer
-                    satisfaction with a focus on dependable supply and
-                    long-term business relationships.
-                  </p>
-                </div>
+                <span className="font-['Manrope'] text-[11px] font-bold uppercase tracking-[3px] text-white/35">
+                  Scroll to explore
+                </span>
 
-                {/* FEATURES */}
-                <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-center gap-3 font-semibold text-[#111111]">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4A017] text-sm font-bold text-black shadow-md">
-                      ✓
-                    </span>
-                    Quality &amp; Reliability
-                  </div>
+                <span className="h-[1px] w-20 bg-[#D4A017]" />
 
-                  <div className="flex items-center gap-3 font-semibold text-[#111111]">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4A017] text-sm font-bold text-black shadow-md">
-                      ✓
-                    </span>
-                    Trusted Global Network
-                  </div>
-                </div>
               </div>
+
             </div>
           </div>
 
-          {/* =========================================
-              WHY CHOOSE US INTRO
-          ========================================== */}
-          <div className="relative flex h-[600px] w-[88vw] shrink-0 flex-col justify-center overflow-hidden rounded-[30px] bg-[#111111] p-8 shadow-2xl md:p-14 lg:w-[680px] lg:p-16">
-            {/* GOLD DECORATIVE CIRCLES */}
-            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#D4A017]/40" />
+          {/* =====================================================
+              CAPABILITY PANELS
+          ====================================================== */}
 
-            <div className="absolute -bottom-32 -left-24 h-72 w-72 rounded-full border border-[#D4A017]/30" />
-
-            <span className="relative z-10 text-sm font-bold uppercase tracking-[3px] text-[#D4A017]">
-              Our Value
-            </span>
-
-            <h2 className="relative z-10 mt-5 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-              Why Choose
-              <br />
-              <span className="text-[#D4A017]">
-                Resol Industries
-              </span>
-            </h2>
-
-            <p className="relative z-10 mt-7 max-w-xl text-base leading-8 text-white/70 md:text-lg">
-              We combine industry experience, trusted international sourcing,
-              quality-focused products and reliable supply solutions to support
-              businesses across diverse manufacturing applications.
-            </p>
-
-            <div className="relative z-10 mt-8 h-1 w-24 rounded-full bg-[#D4A017]" />
-          </div>
-
-          {/* =========================================
-              CAPABILITY CARDS
-          ========================================== */}
-          {capabilities.map((item) => (
+          {capabilities.map((item, index) => (
             <div
               key={item.number}
-              className="group relative h-[600px] w-[85vw] shrink-0 overflow-hidden rounded-[30px] shadow-2xl sm:w-[520px]"
+              className="relative flex h-screen w-[88vw] shrink-0 items-center px-6 md:w-[650px] lg:w-[700px] lg:px-12"
             >
-              {/* IMAGE */}
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover transition duration-700 group-hover:scale-110"
-              />
 
-              {/* BLACK OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/10" />
+              {/* HUGE NUMBER */}
 
-              {/* GOLD TOP LINE */}
-              <div className="absolute left-0 top-0 z-10 h-1.5 w-full bg-[#D4A017]" />
-
-              {/* NUMBER */}
-              <span className="absolute right-7 top-7 z-10 text-6xl font-bold text-white/25">
+              <div className="pointer-events-none absolute bottom-[-25px] left-0 z-0 font-['Manrope'] text-[270px] font-extrabold leading-none tracking-[-25px] text-black/[0.045] md:text-[360px]">
                 {item.number}
-              </span>
+              </div>
 
-              {/* GOLD LINE */}
-              <div className="absolute left-8 top-12 z-10 h-[3px] w-16 bg-[#D4A017]" />
+              {/* IMAGE */}
 
-              {/* CONTENT */}
-              <div className="absolute bottom-0 left-0 z-10 w-full p-7 md:p-9">
-                <span className="text-sm font-bold tracking-[3px] text-[#D4A017]">
-                  WHY CHOOSE US
-                </span>
+              <div className="relative z-10 h-[70vh] w-full overflow-hidden">
 
-                <h3 className="mt-4 text-3xl font-bold leading-tight text-white">
-                  {item.title}
-                </h3>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition duration-1000 hover:scale-105"
+                />
 
-                <p className="mt-5 text-base leading-7 text-white/70">
-                  {item.description}
-                </p>
+                {/* IMAGE GRADIENT */}
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+                {/* TOP LABEL */}
+
+                <div className="absolute left-0 top-0 flex items-center gap-3 bg-[#D4A017] px-5 py-3">
+
+                  <span className="font-['Manrope'] text-[11px] font-extrabold text-black">
+                    {item.number}
+                  </span>
+
+                  <span className="h-3 w-[1px] bg-black/30" />
+
+                  <span className="text-[9px] font-bold uppercase tracking-[2px] text-black">
+                    {item.tag}
+                  </span>
+
+                </div>
+
+                {/* CONTENT */}
+
+                <div className="absolute bottom-0 left-0 w-full p-7 md:p-10">
+
+                  <div className="mb-5 h-[2px] w-14 bg-[#D4A017]" />
+
+                  <h3 className="max-w-[550px] font-['Manrope'] text-[34px] font-extrabold leading-[1.05] tracking-[-1.5px] text-white md:text-[44px]">
+
+                    {item.title}
+
+                  </h3>
+
+                  <p className="mt-5 max-w-[500px] text-[13px] leading-[1.9] text-white/65 md:text-[15px]">
+                    {item.description}
+                  </p>
+
+                </div>
+
               </div>
             </div>
           ))}
 
-          {/* =========================================
+          {/* =====================================================
               FINAL CTA
-          ========================================== */}
-          <div className="relative flex h-[600px] w-[85vw] shrink-0 flex-col justify-center overflow-hidden rounded-[30px] bg-[#D4A017] p-8 shadow-2xl md:p-14 sm:w-[520px]">
-            {/* DECORATION */}
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[20px] border-white/15" />
+          ====================================================== */}
 
-            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full border-[20px] border-black/10" />
+          <div className="relative flex h-screen w-[90vw] shrink-0 items-center bg-[#D4A017] px-8 md:w-[720px] md:px-16 lg:w-[850px] lg:px-20">
 
-            <span className="relative z-10 text-sm font-bold tracking-[3px] text-black/70">
-              RESOL INDUSTRIES LTD.
-            </span>
+            {/* GIANT NUMBER */}
 
-            <h2 className="relative z-10 mt-5 text-4xl font-bold leading-tight text-black md:text-5xl">
-              Quality Materials.
-              <br />
-              Reliable Partnerships.
-            </h2>
+            <div className="pointer-events-none absolute bottom-[-20px] right-[-20px] font-['Manrope'] text-[300px] font-extrabold leading-none tracking-[-30px] text-black/[0.06]">
+              06
+            </div>
 
-            <p className="relative z-10 mt-6 text-lg leading-8 text-black/70">
-              Building long-term relationships through dependable supply,
-              consistent quality and transparent business practices.
-            </p>
+            <div className="relative z-10">
 
-            <a
-              href="/contact"
-              className="relative z-10 mt-9 inline-flex w-fit items-center gap-3 rounded-full bg-black px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:scale-105 hover:bg-[#222222]"
-            >
-              Contact Us
+              <div className="flex items-center gap-4">
 
-              <span className="text-xl text-[#D4A017]">→</span>
-            </a>
+                <span className="h-[2px] w-12 bg-black/50" />
+
+                <span className="text-[10px] font-bold uppercase tracking-[4px] text-black/55">
+                  Resol Industries Ltd.
+                </span>
+
+              </div>
+
+              <h2 className="mt-8 max-w-[700px] font-['Manrope'] text-[50px] font-extrabold leading-[0.96] tracking-[-3px] text-black md:text-[70px]">
+
+                Quality
+
+                <br />
+
+                Materials.
+
+                <br />
+
+                <span className="text-white">
+                  Reliable
+                </span>
+
+                <br />
+
+                Partnerships.
+
+              </h2>
+
+              <p className="mt-8 max-w-[520px] text-[14px] leading-[1.9] text-black/60 md:text-[16px]">
+                Building long-term relationships through dependable supply,
+                consistent quality and transparent business practices.
+              </p>
+
+              <a
+                href="/contact"
+                className="mt-10 inline-flex items-center gap-5 bg-black px-8 py-4 font-['Manrope'] text-[13px] font-bold uppercase tracking-[2px] text-[#D4A017] transition duration-300 hover:bg-[#222222]"
+              >
+                Contact Us
+
+                <span className="text-lg">
+                  →
+                </span>
+              </a>
+
+            </div>
           </div>
+
         </motion.div>
       </div>
     </section>
   );
 }
+

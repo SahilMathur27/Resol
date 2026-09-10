@@ -5,26 +5,25 @@ import Counter from "@/components/Counter";
 import CounterSection from "@/components/Counter";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
-import Footer from "@/components/Footer";
 import Industry from "@/components/Industry";
 import ScrollExpand from "@/components/Main";
 import Main from "@/components/Main";
-import Navbar from "@/components/Navbar";
+
 import ProductsSection from "@/components/Products";
 import Scroll from "@/components/Scroll";
 import Smooth from "@/components/Smooth";
 import Testimonials from "@/components/Testimonials";
-import WhyChooseUs from "@/components/OurBrands";
 import OurTeam from "@/components/OurTeam";
 import OurBrands from "@/components/OurBrands";
-import Cursor from "@/components/Curser";
 import BlendCursor from "@/components/Curser";
+import AboutUs from "@/components/About";
 
 
 export default function Home() {
   return (
    <>
-   <Main/>  
+   <Main/> 
+   <AboutUs/> 
      {/* <Cta/> */}
       <Scroll/>
    <Categories/>

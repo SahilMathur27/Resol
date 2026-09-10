@@ -9,42 +9,49 @@ import { GrResources } from "react-icons/gr";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import AnimatedTitle from "@/components/AnimatedTitle";
+
+/* ============================================================
+   COUNTER DATA
+============================================================ */
+
 const counters = [
   {
     number: 10,
     suffix: "+",
     title: "Industries Served",
-    description: "Across diverse industrial sectors",
     icon: FaIndustry,
   },
   {
     number: 30,
     suffix: "+",
     title: "Resource Strength",
-    description: "Experienced & dedicated team",
     icon: GrResources,
   },
   {
     number: 25,
     suffix: "+",
     title: "Years in Business",
-    description: "Built on trust & experience",
     icon: FaBusinessTime,
   },
   {
     number: 1500,
     suffix: "+",
-    title: "Strong Customer Base",
-    description: "Long-term business relationships",
+    title: "Customer Base",
     icon: FaUsers,
   },
 ];
+
+/* ============================================================
+   COUNT UP
+============================================================ */
 
 function CountUp({ end, suffix = "" }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
+
     const duration = 1800;
     const incrementTime = 25;
     const totalSteps = duration / incrementTime;
@@ -72,172 +79,540 @@ function CountUp({ end, suffix = "" }) {
   );
 }
 
-export default function Counter() {
+/* ============================================================
+   SINGLE STAT
+============================================================ */
+
+function StatItem({ item, index }) {
+  const Icon = item.icon;
+
   return (
-    <section className="relative overflow-hidden bg-[#f5f3ef] py-10 md:py-15">
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.25,
+      }}
+      transition={{
+        duration: 0.75,
+        delay: index * 0.12,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="
+        group
+        relative
+        min-h-[290px]
+        overflow-hidden
+        border-b
+        border-white/10
+        px-5
+        py-8
+        sm:px-7
+        lg:min-h-[330px]
+        lg:border-b-0
+        lg:border-r
+        lg:px-8
+        xl:px-10
+      "
+    >
 
-      {/* ================= BACKGROUND ================= */}
+      {/* ======================================================
+          GIANT BACKGROUND NUMBER
+      ====================================================== */}
 
-      <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full border-[60px] border-[#b08d57]/5" />
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 40,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 1,
+          delay: 0.3 + index * 0.1,
+        }}
+        className="
+          pointer-events-none
+          absolute
+          -right-3
+          -top-8
+          select-none
+          text-[130px]
+          font-black
+          leading-none
+          tracking-[-10px]
+          text-white/[0.035]
+          transition-all
+          duration-700
+          group-hover:text-[#D4A017]/[0.09]
+          group-hover:scale-105
+        "
+      >
+        0{index + 1}
+      </motion.div>
 
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full border-[70px] border-[#b08d57]/5" />
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      {/* ======================================================
+          TOP META
+      ====================================================== */}
 
-        {/* ================= HEADING ================= */}
+      <div
+        className="
+          relative
+          z-10
+          flex
+          items-center
+          justify-between
+        "
+      >
+
+        <div className="flex items-center gap-3">
+
+          <motion.span
+            variants={{
+              rest: {
+                width: 22,
+              },
+              hover: {
+                width: 42,
+              },
+            }}
+            initial="rest"
+            whileHover="hover"
+            className="
+              h-[1px]
+              bg-[#D4A017]
+            "
+          />
+
+          <span
+            className="
+              text-[9px]
+              font-bold
+              uppercase
+              tracking-[3px]
+              text-white/35
+            "
+          >
+            0{index + 1}
+          </span>
+
+        </div>
+
+
+        {/* ICON */}
 
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-14 grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end"
+          whileHover={{
+            rotate: 8,
+            scale: 1.12,
+          }}
+          transition={{
+            duration: 0.3,
+          }}
+          className="
+            flex
+            h-10
+            w-10
+            items-center
+            justify-center
+            border
+            border-[#D4A017]/30
+            text-[#D4A017]
+            transition-colors
+            duration-500
+            group-hover:border-[#D4A017]
+            group-hover:bg-[#D4A017]
+            group-hover:text-black
+          "
         >
+          <Icon className="text-base" />
+        </motion.div>
 
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="h-[1px] w-10 bg-[#b08d57]" />
+      </div>
 
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#D4A017]">
-                Our Strength
-              </p>
-            </div>
-          </div>
 
-          <div>
-            <h2 className="max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-[#1c1c1c] sm:text-4xl md:text-5xl">
-              Numbers that speak for our
-              <span className="ml-2 text-[#D4A017]">
-                journey.
-              </span>
-            </h2>
-          </div>
+      {/* ======================================================
+          NUMBER
+      ====================================================== */}
 
+      <div className="relative z-10 mt-12">
+
+        <motion.div
+          whileHover={{
+            x: 6,
+          }}
+          transition={{
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="
+            text-[58px]
+            font-black
+            leading-none
+            tracking-[-4px]
+            text-[#D4A017]
+            sm:text-[68px]
+            lg:text-[72px]
+            xl:text-[80px]
+          "
+        >
+          <CountUp
+            end={item.number}
+            suffix={item.suffix}
+          />
         </motion.div>
 
 
-        {/* ================= COUNTERS ================= */}
+        {/* GOLD UNDERLINE */}
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-4">
+        <motion.div
+          initial={{
+            width: 0,
+          }}
+          whileInView={{
+            width: 55,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.6 + index * 0.1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="
+            mt-5
+            h-[2px]
+            bg-[#D4A017]
+          "
+        />
 
-          {counters.map((item, index) => {
-            const Icon = item.icon;
+      </div>
 
-            return (
-              <motion.div
-                key={item.title}
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
-                transition={{
-                  duration: 0.65,
-                  delay: index * 0.12,
-                }}
-                whileHover={{
-                  y: -10,
-                }}
-                className={`group relative overflow-hidden rounded-[24px] border border-[#ded8cf] bg-white ${
-                  index % 2 === 1
-                    ? "lg:translate-y-8"
-                    : ""
-                }`}
+
+      {/* ======================================================
+          TITLE + DESCRIPTION
+      ====================================================== */}
+
+      <div className="relative z-10 mt-7">
+
+        <h3
+          className="
+            text-[15px]
+            font-bold
+            uppercase
+            tracking-[1px]
+            text-white
+            sm:text-base
+          "
+        >
+          {item.title}
+        </h3>
+
+
+      </div>
+
+
+      {/* ======================================================
+          BOTTOM GOLD LINE
+      ====================================================== */}
+
+      <motion.div
+        initial={{
+          scaleX: 0,
+        }}
+        whileInView={{
+          scaleX: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.45 + index * 0.1,
+        }}
+        className="
+          absolute
+          bottom-0
+          left-0
+          h-[2px]
+          w-full
+          origin-left
+          bg-[#D4A017]
+          lg:hidden
+        "
+      />
+
+    </motion.div>
+  );
+}
+
+/* ============================================================
+   MAIN COUNTER
+============================================================ */
+
+export default function Counter() {
+  return (
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#0A0A0A]
+        py-20
+        text-white
+        md:py-12
+        lg:py-15
+      "
+    >
+
+      {/* ======================================================
+          BACKGROUND GRID
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          opacity-[0.035]
+        "
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              rgba(255,255,255,0.5) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(255,255,255,0.5) 1px,
+              transparent 1px
+            )
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+
+      {/* ======================================================
+          GOLDEN GLOW
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[180px]
+          top-[-180px]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-[#D4A017]/[0.06]
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -bottom-[200px]
+          left-[-150px]
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#D4A017]/[0.04]
+          blur-[120px]
+        "
+      />
+
+
+      {/* ======================================================
+          CONTAINER
+      ====================================================== */}
+
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-[1380px]
+          px-5
+          sm:px-8
+          lg:px-12
+        "
+      >
+
+        {/* ====================================================
+            HEADER
+        ==================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-10
+            border-b
+            border-white/10
+            pb-8
+            lg:grid-cols-[0.9fr_1.1fr]
+            lg:items-end
+            lg:pb-10
+          "
+        >
+
+          {/* LEFT */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -40,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+
+            <div className="flex items-center gap-4">
+
+              <span
+                className="
+                  h-[2px]
+                  w-12
+                  bg-[#D4A017]
+                "
+              />
+
+              <span
+                className="
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[4px]
+                  text-[#D4A017]
+                "
               >
+                Our Strength
+              </span>
 
-                {/* ================= GIANT BACKGROUND NUMBER ================= */}
-
-                <div className="pointer-events-none absolute -right-5 -top-5 select-none text-[100px] font-bold leading-none text-[#b08d57]/[0.06] transition-all duration-700 group-hover:scale-110 group-hover:text-[#b08d57]/[0.1] sm:text-[120px]">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+            </div>
 
 
-                {/* ================= TOP ACCENT ================= */}
+            <p
+              className="
+                mt-7
+                max-w-[320px]
+                text-[11px]
+                uppercase
+                leading-6
+                tracking-[2px]
+                text-white/30
+              "
+            >
+              Built through experience.
+              <br />
+              Strengthened through relationships.
+            </p>
 
-                <div className="absolute left-0 top-0 h-1 w-full bg-[#b08d57]/20">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 1,
-                      delay: 0.4 + index * 0.1,
-                    }}
-                    className="h-full bg-[#b08d57]"
-                  />
-                </div>
-
-
-                {/* ================= CONTENT ================= */}
-
-                <div className="relative flex min-h-[250px] flex-col p-5 sm:min-h-[290px] sm:p-7 md:p-8">
-
-                  {/* Icon + Number */}
-
-                  <div className="flex items-start justify-between">
-
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#b08d57]/30 bg-[#f8f4ec] text-[#b08d57] transition-all duration-500 group-hover:rotate-6 group-hover:bg-[#b08d57] group-hover:text-white sm:h-14 sm:w-14">
-                      <Icon className="text-lg sm:text-xl" />
-                    </div>
-
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aaa39a]">
-                      0{index + 1}
-                    </span>
-
-                  </div>
+          </motion.div>
 
 
-                  {/* NUMBER */}
+          {/* RIGHT */}
 
-                  <div className="mt-8">
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
 
-                    <h3 className="text-4xl font-bold tracking-tight text-[#1c1c1c] sm:text-5xl md:text-6xl">
-                      <CountUp
-                        end={item.number}
-                        suffix={item.suffix}
-                      />
-                    </h3>
+            {/* REUSABLE TITLE */}
 
-                    <div className="mt-4 h-[2px] w-8 bg-[#b08d57] transition-all duration-500 group-hover:w-14" />
+            <AnimatedTitle
+              text="NUMBERS THAT"
+              highlight="SPEAK FOR US"
+              delay={0.15}
+              duration={0.8}
+              letterDelay={0.035}
+              color="#FFFFFF"
+              highlightColor="#D4A017"
+              className="
+                text-[42px]
+                font-black
+                uppercase
+                leading-[0.88]
+                tracking-[-3px]
+                sm:text-[54px]
+                md:text-[64px]
+                lg:text-[76px]
+              "
+            />
 
-                  </div>
+          </motion.div>
+
+        </div>
 
 
-                  {/* TITLE */}
+        {/* ====================================================
+            STATS
+        ==================================================== */}
 
-                  <div className="mt-auto pt-6">
+        <div
+          className="
+            mt-10
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            lg:mt-14
+          "
+        >
 
-                    <h4 className="text-sm font-semibold text-[#252525] sm:text-base">
-                      {item.title}
-                    </h4>
-
-                    <p className="mt-1 max-w-[180px] text-xs leading-5 text-[#77736d] sm:text-sm">
-                      {item.description}
-                    </p>
-
-                  </div>
-
-
-                  {/* ================= SIDE LINE ================= */}
-
-                  <div className="absolute bottom-0 left-0 h-0 w-[3px] bg-[#b08d57] transition-all duration-500 group-hover:h-full" />
-
-                </div>
-
-              </motion.div>
-            );
-          })}
+          {counters.map((item, index) => (
+            <StatItem
+              key={item.title}
+              item={item}
+              index={index}
+            />
+          ))}
 
         </div>
 
       </div>
+
     </section>
   );
 }

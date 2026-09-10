@@ -9,8 +9,22 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const GOLD = "#D4A017";
-const ORANGE = "#D26D00";
+/* ============================================================
+   COLORS
+============================================================ */
+
+const BLACK = "#111111";
+const DARK = "#1F1F1F";
+const DARK_GRAY = "#333333";
+const GRAY = "#666666";
+const MEDIUM_GRAY = "#999999";
+const LIGHT_GRAY = "#D6D6D6";
+const OFF_WHITE = "#F5F5F3";
+const WHITE = "#FFFFFF";
+
+/* ============================================================
+   BANNERS
+============================================================ */
 
 const banners = [
   {
@@ -52,7 +66,7 @@ function AnimatedWord({
   text,
   className = "",
   delay = 0,
-  color = "#171717",
+  color = WHITE,
 }) {
   const letters = text.split("");
 
@@ -98,20 +112,24 @@ function AnimatedWord({
 }
 
 /* ============================================================
-   SMALL LINE ANIMATION
+   ANIMATED LINE
 ============================================================ */
 
 function AnimatedLine() {
   return (
     <motion.span
-      initial={{ width: 0 }}
-      animate={{ width: 55 }}
+      initial={{
+        width: 0,
+      }}
+      animate={{
+        width: 55,
+      }}
       transition={{
         duration: 0.8,
         delay: 0.35,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="block h-[2px] bg-[#D26D00]"
+      className="block h-[2px] bg-white"
     />
   );
 }
@@ -124,12 +142,13 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative mt-20 w-full overflow-hidden bg-[#c98505]">
+    <section className="relative mt-20 w-full overflow-hidden bg-white">
+
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
         loop={true}
-        speed={1200}
+        speed={1300}
         autoplay={{
           delay: 5200,
           disableOnInteraction: false,
@@ -144,31 +163,85 @@ export default function Hero() {
         }}
         className="w-full"
       >
+
         {banners.map((banner, index) => (
           <SwiperSlide key={index}>
+
             <div
               className="
                 relative
                 min-h-[650px]
                 w-full
                 overflow-hidden
-                bg-[#c98505]
+                bg-white
                 sm:min-h-[680px]
                 lg:min-h-[720px]
+                xl:min-h-[760px]
               "
             >
+
               {/* ==================================================
-                  BACKGROUND
+                  WHITE BACKGROUND
               ================================================== */}
 
-              {banner.video ? (
+              <motion.div
+                key={`background-${activeIndex}`}
+                initial={{
+                  scale: 1.08,
+                  opacity: 0,
+                }}
+                animate={{
+                  scale: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 1.2,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-br
+                  from-white
+                  via-[#F7F7F7]
+                  to-[#DCDCDC]
+                "
+              />
+
+              {/* ==================================================
+                  SOFT BACKGROUND LIGHT
+              ================================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-gradient-to-br
+                  from-white
+                  via-transparent
+                  to-black/[0.06]
+                "
+              />
+
+              {/* ==================================================
+                  VIDEO
+              ================================================== */}
+
+              {banner.video && (
                 <>
                   <motion.video
                     key={banner.video}
-                    initial={{ scale: 1.08 }}
-                    animate={{ scale: 1 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 1.08,
+                    }}
+                    animate={{
+                      opacity: 0.18,
+                      scale: 1,
+                    }}
                     transition={{
-                      duration: 7,
+                      duration: 1.5,
                       ease: "easeOut",
                     }}
                     autoPlay
@@ -177,6 +250,7 @@ export default function Hero() {
                     playsInline
                     preload="auto"
                     className="
+                      pointer-events-none
                       absolute
                       inset-0
                       h-full
@@ -190,62 +264,35 @@ export default function Hero() {
                     />
                   </motion.video>
 
-                  {/* VIDEO OVERLAY */}
                   <div
                     className="
+                      pointer-events-none
                       absolute
                       inset-0
-                      bg-gradient-to-br
-                      from-[#8b5600]/75
-                      via-[#c98505]/45
-                      to-[#5d3900]/80
-                    "
-                  />
-
-                  <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-black/10
-                    "
-                  />
-                </>
-              ) : (
-                <>
-                  <motion.div
-                    key={`bg-${activeIndex}`}
-                    initial={{
-                      scale: 1.15,
-                    }}
-                    animate={{
-                      scale: 1,
-                    }}
-                    transition={{
-                      duration: 7,
-                      ease: "easeOut",
-                    }}
-                    className="
-                      absolute
-                      inset-0
-                      bg-gradient-to-br
-                      from-[#e8b52c]
-                      via-[#cb8907]
-                      to-[#955900]
-                    "
-                  />
-
-                  <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-gradient-to-br
-                      from-white/5
-                      via-transparent
-                      to-black/20
+                      bg-white/65
                     "
                   />
                 </>
               )}
+
+              {/* ==================================================
+                  RIGHT SIDE GRADIENT
+              ================================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  right-0
+                  top-0
+                  h-full
+                  w-[65%]
+                  bg-gradient-to-l
+                  from-[#EEEEEE]
+                  via-transparent
+                  to-transparent
+                "
+              />
 
               {/* ==================================================
                   GIANT BACKGROUND TEXT
@@ -255,7 +302,7 @@ export default function Hero() {
                 key={`big-text-${activeIndex}`}
                 initial={{
                   opacity: 0,
-                  x: 100,
+                  x: 120,
                 }}
                 animate={{
                   opacity: 1,
@@ -268,18 +315,19 @@ export default function Hero() {
                 className="
                   pointer-events-none
                   absolute
-                  right-[-3%]
-                  top-[2%]
+                  right-[-2%]
+                  top-[3%]
                   z-[1]
                   select-none
-                  text-[150px]
+                  text-[140px]
                   font-black
                   uppercase
                   leading-none
                   tracking-[-12px]
-                  text-white/[0.08]
-                  sm:text-[220px]
-                  lg:text-[310px]
+                  text-black/[0.045]
+                  sm:text-[210px]
+                  md:text-[250px]
+                  lg:text-[300px]
                   xl:text-[360px]
                 "
               >
@@ -287,7 +335,67 @@ export default function Hero() {
               </motion.div>
 
               {/* ==================================================
-                  BIG CIRCLE
+                  OUTER CIRCLE
+              ================================================== */}
+
+              <motion.div
+                animate={{
+                  rotate: 360,
+                }}
+                transition={{
+                  duration: 55,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[-160px]
+                  top-1/2
+                  z-[2]
+                  hidden
+                  h-[700px]
+                  w-[700px]
+                  -translate-y-1/2
+                  rounded-full
+                  border
+                  border-black/[0.07]
+                  lg:block
+                "
+              />
+
+              {/* ==================================================
+                  INNER CIRCLE
+              ================================================== */}
+
+              <motion.div
+                animate={{
+                  rotate: -360,
+                }}
+                transition={{
+                  duration: 75,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[-70px]
+                  top-1/2
+                  z-[2]
+                  hidden
+                  h-[550px]
+                  w-[550px]
+                  -translate-y-1/2
+                  rounded-full
+                  border
+                  border-black/[0.10]
+                  lg:block
+                "
+              />
+
+              {/* ==================================================
+                  SMALL CIRCLE
               ================================================== */}
 
               <motion.div
@@ -302,88 +410,47 @@ export default function Hero() {
                 className="
                   pointer-events-none
                   absolute
-                  right-[-100px]
+                  right-[11%]
                   top-1/2
                   z-[2]
                   hidden
-                  h-[650px]
-                  w-[650px]
+                  h-[390px]
+                  w-[390px]
                   -translate-y-1/2
                   rounded-full
                   border
-                  border-white/10
-                  lg:block
-                "
-              />
-
-              <motion.div
-                animate={{
-                  rotate: -360,
-                }}
-                transition={{
-                  duration: 65,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="
-                  pointer-events-none
-                  absolute
-                  right-[-35px]
-                  top-1/2
-                  z-[2]
-                  hidden
-                  h-[520px]
-                  w-[520px]
-                  -translate-y-1/2
-                  rounded-full
-                  border
-                  border-white/[0.08]
+                  border-black/[0.06]
                   lg:block
                 "
               />
 
               {/* ==================================================
-                  GOLDEN GLOW
+                  BACKGROUND SHADOW
               ================================================== */}
 
               <div
                 className="
                   pointer-events-none
                   absolute
-                  right-[5%]
-                  top-[5%]
+                  bottom-[-15%]
+                  right-[12%]
                   z-[2]
-                  h-[500px]
-                  w-[500px]
+                  h-[420px]
+                  w-[420px]
                   rounded-full
-                  bg-[#f9d76b]/20
-                  blur-[110px]
-                "
-              />
-
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-[-20%]
-                  right-[15%]
-                  z-[2]
-                  h-[450px]
-                  w-[450px]
-                  rounded-full
-                  bg-[#f5bd28]/20
-                  blur-[110px]
+                  bg-black/[0.08]
+                  blur-[120px]
                 "
               />
 
               {/* ==================================================
-                  WHITE EDITORIAL PANEL
+                  LEFT BLACK PANEL
               ================================================== */}
 
               <motion.div
                 key={`panel-${activeIndex}`}
                 initial={{
-                  x: -150,
+                  x: -180,
                   opacity: 0,
                 }}
                 animate={{
@@ -391,7 +458,7 @@ export default function Hero() {
                   opacity: 1,
                 }}
                 transition={{
-                  duration: 1,
+                  duration: 1.05,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="
@@ -402,9 +469,9 @@ export default function Hero() {
                   h-[92%]
                   w-[58%]
                   overflow-hidden
-                  rounded-[4px]
-                  bg-[#f8f5ec]
-                  shadow-[20px_30px_70px_rgba(0,0,0,0.18)]
+                  rounded-[3px]
+                  bg-[#111111]
+                  shadow-[30px_35px_90px_rgba(0,0,0,0.28)]
                   sm:left-[3%]
                   sm:w-[56%]
                   lg:left-[5%]
@@ -412,37 +479,80 @@ export default function Hero() {
                   xl:w-[50%]
                 "
               >
-                {/* PANEL DECORATIVE SHAPE */}
+
+                {/* ==================================================
+                    PANEL TOP CIRCLE
+                ================================================== */}
+
+                <motion.div
+                  animate={{
+                    rotate: 360,
+                  }}
+                  transition={{
+                    duration: 60,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="
+                    pointer-events-none
+                    absolute
+                    right-[-120px]
+                    top-[-120px]
+                    h-[300px]
+                    w-[300px]
+                    rounded-full
+                    border-[45px]
+                    border-white/[0.045]
+                  "
+                />
+
+                {/* ==================================================
+                    PANEL BOTTOM CIRCLE
+                ================================================== */}
 
                 <div
                   className="
                     pointer-events-none
                     absolute
-                    right-[-100px]
-                    top-[-100px]
+                    bottom-[-100px]
+                    left-[-100px]
                     h-[260px]
                     w-[260px]
                     rounded-full
-                    border-[45px]
-                    border-[#D4A017]/10
+                    border-[40px]
+                    border-white/[0.04]
                   "
                 />
 
-                <div
+                {/* ==================================================
+                    PANEL SMALL BOX
+                ================================================== */}
+
+                <motion.div
+                  animate={{
+                    rotate: [0, 8, 0],
+                    opacity: [0.2, 0.5, 0.2],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className="
                     pointer-events-none
                     absolute
-                    bottom-[-80px]
-                    left-[-80px]
-                    h-[220px]
-                    w-[220px]
-                    rounded-full
-                    border-[35px]
-                    border-[#D26D00]/10
+                    right-[8%]
+                    bottom-[12%]
+                    h-10
+                    w-10
+                    border
+                    border-white/20
                   "
                 />
 
-                {/* VERTICAL LINE */}
+                {/* ==================================================
+                    VERTICAL LINE
+                ================================================== */}
 
                 <motion.div
                   initial={{
@@ -461,7 +571,7 @@ export default function Hero() {
                     left-0
                     top-[14%]
                     w-[3px]
-                    bg-[#D26D00]
+                    bg-white
                   "
                 />
 
@@ -483,7 +593,10 @@ export default function Hero() {
                     xl:px-20
                   "
                 >
-                  {/* CATEGORY */}
+
+                  {/* ==================================================
+                      CATEGORY
+                  ================================================== */}
 
                   <motion.div
                     initial={{
@@ -505,6 +618,7 @@ export default function Hero() {
                       gap-4
                     "
                   >
+
                     <AnimatedLine />
 
                     <span
@@ -512,16 +626,19 @@ export default function Hero() {
                         text-[9px]
                         font-bold
                         uppercase
-                        tracking-[2.5px]
-                        text-[#777]
+                        tracking-[3px]
+                        text-white/60
                         sm:text-[10px]
                       "
                     >
                       {banner.category}
                     </span>
+
                   </motion.div>
 
-                  {/* SMALL NUMBER */}
+                  {/* ==================================================
+                      SLIDE NUMBER
+                  ================================================== */}
 
                   <motion.div
                     initial={{
@@ -538,68 +655,98 @@ export default function Hero() {
                     }}
                     className="
                       mb-4
-                      text-[11px]
-                      font-bold
-                      tracking-[2px]
-                      text-[#999]
+                      flex
+                      items-center
+                      gap-3
                     "
                   >
-                    0{index + 1} / 0{banners.length}
+
+                    <span
+                      className="
+                        text-[11px]
+                        font-bold
+                        tracking-[2px]
+                        text-white
+                      "
+                    >
+                      0{index + 1}
+                    </span>
+
+                    <span className="h-px w-8 bg-white/40" />
+
+                    <span
+                      className="
+                        text-[10px]
+                        font-medium
+                        tracking-[2px]
+                        text-white/40
+                      "
+                    >
+                      0{banners.length}
+                    </span>
+
                   </motion.div>
 
                   {/* ==================================================
-                      MAIN HEADING
+                      HEADING
                   ================================================== */}
 
-                  <div
-                    className="overflow-hidden"
-                    style={{
-                      perspective: "1000px",
-                    }}
-                  >
-                    <AnimatedWord
-                      text={banner.title}
-                      delay={0.25}
-                      className="
-                        text-[48px]
-                        font-black
-                        uppercase
-                        leading-[0.82]
-                        tracking-[-3px]
-                        sm:text-[62px]
-                        md:text-[72px]
-                        lg:text-[82px]
-                        xl:text-[92px]
-                      "
-                    />
+<div
+  className="overflow-hidden"
+  style={{
+    perspective: "1000px",
+  }}
+>
+  {/* MAIN HEADING */}
 
-                    <AnimatedWord
-                      text={banner.highlight}
-                      delay={0.48}
-                      color={ORANGE}
-                      className="
-                        mt-2
-                        text-[48px]
-                        font-black
-                        uppercase
-                        leading-[0.82]
-                        tracking-[-3px]
-                        sm:text-[62px]
-                        md:text-[72px]
-                        lg:text-[82px]
-                        xl:text-[92px]
-                      "
-                    />
-                  </div>
+  <AnimatedWord
+    text={banner.title}
+    delay={0.25}
+    color="#FFFFFF"
+    className="
+      text-[48px]
+      font-black
+      uppercase
+      leading-[0.82]
+      tracking-[-3px]
+      sm:text-[62px]
+      md:text-[72px]
+      lg:text-[82px]
+      xl:text-[92px]
+    "
+  />
 
-                  {/* UNDERLINE */}
+  {/* GOLDEN HIGHLIGHT */}
+
+  <AnimatedWord
+    text={banner.highlight}
+    delay={0.48}
+    color="#D4A017"
+    className="
+      mt-2
+      text-[48px]
+      font-black
+      uppercase
+      leading-[0.82]
+      tracking-[-3px]
+      sm:text-[62px]
+      md:text-[72px]
+      lg:text-[82px]
+      xl:text-[92px]
+    "
+  />
+</div>
+
+                  {/* ==================================================
+                      UNDERLINE
+                  ================================================== */}
 
                   <motion.div
                     initial={{
                       width: 0,
                     }}
                     animate={{
-                      width: 100,
+                      width: 105,
                     }}
                     transition={{
                       duration: 0.9,
@@ -607,9 +754,9 @@ export default function Hero() {
                       ease: [0.16, 1, 0.3, 1],
                     }}
                     className="
-                      mt-6
+                      mt-7
                       h-[3px]
-                      bg-[#D4A017]
+                      bg-white
                     "
                   />
 
@@ -636,7 +783,7 @@ export default function Hero() {
                       text-[11px]
                       font-medium
                       leading-5
-                      text-[#444]
+                      text-white/65
                       sm:text-xs
                       sm:leading-6
                       md:text-sm
@@ -646,7 +793,7 @@ export default function Hero() {
                   </motion.p>
 
                   {/* ==================================================
-                      BUTTON
+                      CTA
                   ================================================== */}
 
                   <motion.div
@@ -664,34 +811,51 @@ export default function Hero() {
                     }}
                     className="mt-7"
                   >
+
                     <button
                       className="
                         group
                         relative
                         overflow-hidden
-                        bg-[#D26D00]
+                        bg-white
                         px-7
                         py-3.5
                         text-[10px]
                         font-bold
                         uppercase
-                        tracking-[1.8px]
-                        text-white
+                        tracking-[2px]
+                        text-[#111111]
                         transition-all
-                        duration-300
-                        hover:bg-[#b85c00]
-                        hover:shadow-[0_15px_35px_rgba(210,109,0,0.30)]
+                        duration-500
+                        hover:bg-[#D6D6D6]
+                        hover:shadow-[0_18px_40px_rgba(255,255,255,0.12)]
                       "
                     >
+
+                      {/* HOVER */}
+
+                      <span
+                        className="
+                          absolute
+                          inset-0
+                          translate-y-full
+                          bg-[#AAAAAA]
+                          transition-transform
+                          duration-500
+                          group-hover:translate-y-0
+                        "
+                      />
+
                       <span
                         className="
                           relative
                           z-10
                           flex
                           items-center
-                          gap-4
+                          gap-5
                         "
                       >
+
                         Explore More
 
                         <span
@@ -704,21 +868,13 @@ export default function Hero() {
                         >
                           →
                         </span>
+
                       </span>
 
-                      <span
-                        className="
-                          absolute
-                          inset-0
-                          -translate-x-full
-                          bg-white/15
-                          transition-transform
-                          duration-500
-                          group-hover:translate-x-0
-                        "
-                      />
                     </button>
+
                   </motion.div>
+
                 </div>
               </motion.div>
 
@@ -741,7 +897,7 @@ export default function Hero() {
                   rotate: 0,
                 }}
                 transition={{
-                  duration: 1.35,
+                  duration: 1.4,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="
@@ -761,15 +917,18 @@ export default function Hero() {
                   xl:w-[620px]
                 "
               >
-                {/* PRODUCT GLOW */}
+
+                {/* ==================================================
+                    PRODUCT GLOW
+                ================================================== */}
 
                 <motion.div
                   animate={{
                     scale: [1, 1.08, 1],
-                    opacity: [0.25, 0.4, 0.25],
+                    opacity: [0.25, 0.45, 0.25],
                   }}
                   transition={{
-                    duration: 4,
+                    duration: 4.5,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
@@ -782,12 +941,14 @@ export default function Hero() {
                     -translate-x-1/2
                     -translate-y-1/2
                     rounded-full
-                    bg-white/20
-                    blur-[70px]
+                    bg-white/80
+                    blur-[90px]
                   "
                 />
 
-                {/* PRODUCT */}
+                {/* ==================================================
+                    PRODUCT FLOAT
+                ================================================== */}
 
                 <motion.div
                   animate={{
@@ -800,6 +961,7 @@ export default function Hero() {
                   }}
                   className="relative"
                 >
+
                   <Image
                     src={banner.image}
                     alt={`${banner.title} ${banner.highlight}`}
@@ -812,14 +974,16 @@ export default function Hero() {
                       h-auto
                       w-full
                       object-contain
-                      drop-shadow-[0_40px_35px_rgba(0,0,0,0.35)]
+                      drop-shadow-[0_40px_40px_rgba(0,0,0,0.32)]
                     "
                   />
+
                 </motion.div>
+
               </motion.div>
 
               {/* ==================================================
-                  PRODUCT SIDE LABEL
+                  RIGHT VERTICAL LABEL
               ================================================== */}
 
               <motion.div
@@ -849,7 +1013,8 @@ export default function Hero() {
                   lg:flex
                 "
               >
-                <span className="h-px w-12 bg-white/50" />
+
+                <span className="h-px w-12 bg-black/30" />
 
                 <span
                   className="
@@ -857,79 +1022,98 @@ export default function Hero() {
                     font-bold
                     uppercase
                     tracking-[3px]
-                    text-white/70
+                    text-black/50
                   "
                 >
                   Resol Industries
                 </span>
+
               </motion.div>
 
               {/* ==================================================
-                  BOTTOM NAVIGATION
+                  TOP LEFT LABEL
+              ================================================== */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -30,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.7,
+                }}
+                className="
+                  absolute
+                  left-[5%]
+                  top-7
+                  z-40
+                  hidden
+                  items-center
+                  gap-3
+                  lg:flex
+                "
+              >
+
+                <span className="h-px w-8 bg-black/30" />
+
+                <span
+                  className="
+                    text-[8px]
+                    font-semibold
+                    uppercase
+                    tracking-[3px]
+                    text-black/40
+                  "
+                >
+                  Industrial Materials
+                </span>
+
+              </motion.div>
+
+              {/* ==================================================
+                  TOP RIGHT DOTS
               ================================================== */}
 
               <div
                 className="
                   absolute
-                  bottom-6
-                  right-5
+                  right-6
+                  top-7
                   z-50
                   flex
                   items-center
-                  gap-3
-                  sm:bottom-8
+                  gap-2
                   sm:right-10
+                  sm:top-9
                 "
               >
-                <button
-                  className="
-                    pvc-prev
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/30
-                    text-sm
-                    text-white
-                    transition-all
-                    duration-300
-                    hover:border-white
-                    hover:bg-white
-                    hover:text-black
-                    sm:h-11
-                    sm:w-11
-                  "
-                >
-                  ←
-                </button>
 
-                <button
-                  className="
-                    pvc-next
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/30
-                    text-sm
-                    text-white
-                    transition-all
-                    duration-300
-                    hover:border-white
-                    hover:bg-white
-                    hover:text-black
-                    sm:h-11
-                    sm:w-11
-                  "
-                >
-                  →
-                </button>
+                {banners.map((_, dotIndex) => (
+                  <motion.span
+                    key={dotIndex}
+                    animate={{
+                      width:
+                        activeIndex === dotIndex ? 28 : 7,
+                      opacity:
+                        activeIndex === dotIndex ? 1 : 0.35,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                    }}
+                    className="
+                      block
+                      h-[5px]
+                      rounded-full
+                      bg-[#111111]
+                    "
+                  />
+                ))}
+
               </div>
 
               {/* ==================================================
@@ -949,12 +1133,13 @@ export default function Hero() {
                   sm:left-10
                 "
               >
+
                 <span
                   className="
                     text-[11px]
                     font-bold
                     tracking-[2px]
-                    text-white
+                    text-[#111111]
                   "
                 >
                   0{index + 1}
@@ -965,9 +1150,10 @@ export default function Hero() {
                     h-[1px]
                     w-16
                     overflow-hidden
-                    bg-white/30
+                    bg-black/20
                   "
                 >
+
                   <motion.div
                     key={`progress-${activeIndex}`}
                     initial={{
@@ -980,8 +1166,9 @@ export default function Hero() {
                       duration: 5.2,
                       ease: "linear",
                     }}
-                    className="h-full bg-white"
+                    className="h-full bg-[#111111]"
                   />
+
                 </div>
 
                 <span
@@ -989,57 +1176,135 @@ export default function Hero() {
                     text-[10px]
                     font-medium
                     tracking-[2px]
-                    text-white/60
+                    text-black/40
                   "
                 >
                   0{banners.length}
                 </span>
+
               </div>
 
               {/* ==================================================
-                  TOP RIGHT DOTS
+                  NAVIGATION
               ================================================== */}
 
               <div
                 className="
                   absolute
-                  right-6
-                  top-7
+                  bottom-6
+                  right-5
                   z-50
                   flex
                   items-center
-                  gap-2
+                  gap-3
+                  sm:bottom-8
                   sm:right-10
-                  sm:top-9
                 "
               >
-                {banners.map((_, dotIndex) => (
-                  <motion.span
-                    key={dotIndex}
-                    animate={{
-                      width:
-                        activeIndex === dotIndex ? 28 : 7,
-                      opacity:
-                        activeIndex === dotIndex ? 1 : 0.4,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                    }}
-                    className="
-                      block
-                      h-[5px]
-                      rounded-full
-                      bg-white
-                    "
-                  />
-                ))}
+
+                {/* PREVIOUS */}
+
+                <button
+                  className="
+                    pvc-prev
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-black/20
+                    bg-white/70
+                    text-sm
+                    text-black
+                    backdrop-blur-md
+                    transition-all
+                    duration-300
+                    hover:border-black
+                    hover:bg-black
+                    hover:text-white
+                    sm:h-11
+                    sm:w-11
+                  "
+                >
+                  ←
+                </button>
+
+                {/* NEXT */}
+
+                <button
+                  className="
+                    pvc-next
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-black/20
+                    bg-white/70
+                    text-sm
+                    text-black
+                    backdrop-blur-md
+                    transition-all
+                    duration-300
+                    hover:border-black
+                    hover:bg-black
+                    hover:text-white
+                    sm:h-11
+                    sm:w-11
+                  "
+                >
+                  →
+                </button>
+
               </div>
+
+              {/* ==================================================
+                  BOTTOM RIGHT MICRO TEXT
+              ================================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-8
+                  right-[14%]
+                  z-40
+                  hidden
+                  lg:block
+                "
+              >
+
+                <span
+                  className="
+                    text-[8px]
+                    font-medium
+                    uppercase
+                    tracking-[3px]
+                    text-black/30
+                  "
+                >
+                  Quality • Reliability • Distribution
+                </span>
+
+              </div>
+
             </div>
+
           </SwiperSlide>
         ))}
+
       </Swiper>
 
+      {/* ============================================================
+          GLOBAL SWIPER CSS
+      ============================================================ */}
+
       <style jsx global>{`
+
         .swiper-slide {
           overflow: hidden;
         }
@@ -1054,14 +1319,18 @@ export default function Hero() {
         }
 
         @media (max-width: 767px) {
+
           .pvc-prev,
           .pvc-next {
             width: 34px;
             height: 34px;
             font-size: 12px;
           }
+
         }
+
       `}</style>
+
     </section>
   );
 }
