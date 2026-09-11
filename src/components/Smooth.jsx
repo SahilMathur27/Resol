@@ -1,8 +1,7 @@
-// components/LenisScroll.jsx
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import Lenis from '@studio-freight/lenis';
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
 
 export default function LenisScroll({ children }) {
   const lenisRef = useRef(null);
@@ -11,7 +10,7 @@ export default function LenisScroll({ children }) {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
+      orientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 2,
@@ -19,27 +18,20 @@ export default function LenisScroll({ children }) {
 
     lenisRef.current = lenis;
 
-    // Connect lenis to RAF
+    let animationFrameId;
+
     const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animationFrameId = requestAnimationFrame(raf);
     };
 
-    requestAnimationFrame(raf);
-
-    // Integrate with Next.js router
-    const handleRouteChange = () => {
-      lenis.scrollTo(0, { immediate: true });
-    };
+    animationFrameId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
       lenis.destroy();
     };
   }, []);
 
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 }

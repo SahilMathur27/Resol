@@ -97,7 +97,7 @@ function ServiceCard({ service, index, progress }) {
 
         {/* Content */}
         <div className="relative mt-7 max-w-2xl">
-          <h3 className="font-[var(--font-outfit)] text-3xl font-bold leading-[1.1] text-white md:text-[40px]">
+          <h3 className="font-[var(--font-outfit)] text-3xl font-bold leading-[1.1] text-white md:text-[35px]">
             {service.title}
           </h3>
 
@@ -129,7 +129,7 @@ export default function Capa() {
   return (
     <section
       ref={container}
-      className="relative bg-white py-20 md:py-24 lg:py-28"
+      className="relative bg-white py-13 md:py-13 lg:py-15"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
         {/* ================================================= */}
@@ -147,7 +147,7 @@ export default function Capa() {
           </div>
 
           {/* Heading */}
-          <h2 className="mt-5 max-w-xl font-[var(--font-outfit)] text-4xl font-bold leading-[1.08] tracking-tight text-[#1C1C1C] md:text-5xl lg:text-[58px]">
+          <h2 className="mt-5 max-w-xl font-[var(--font-outfit)] text-4xl font-bold leading-[1.08] tracking-tight text-[#1C1C1C] md:text-4xl lg:text-[55px]">
             Commitment to{" "}
             <span className="text-[#D4A017]">
               Quality & Reliability

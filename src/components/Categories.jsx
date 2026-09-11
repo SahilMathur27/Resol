@@ -10,34 +10,42 @@ import AnimatedTitle from "@/components/AnimatedTitle";
 const categories = [
   {
     number: "01",
-    name: "PVC Resin",
+    name: "Polymers",
     image: "/Adhesives.webp",
     description:
-      "High-quality PVC resin solutions for pipes, profiles, flooring and diverse industrial applications.",
+      "High-quality Polymers solutions for pipes, profiles, flooring and diverse industrial applications.",
+  },
+
+   {
+    number: "02",
+    name: "Pet Resin",
+    image: "/Adhesives.webp",
+    description:
+      "High-quality Polymers solutions for pipes, profiles, flooring and diverse industrial applications.",
   },
   {
-    number: "02",
+    number: "03",
     name: "Calcium Carbonate",
     image: "/Calcium carbonate.webp",
     description:
       "Reliable mineral filler material designed for improved processing, performance and cost efficiency.",
   },
   {
-    number: "03",
+    number: "04",
     name: "Citric Acid",
     image: "/Citric Acid.webp",
     description:
       "Versatile citric acid solutions suitable for industrial, food and specialty chemical applications.",
   },
   {
-    number: "04",
+    number: "05",
     name: "Plasticizers",
     image: "/Plasticizers.webp",
     description:
       "Performance-oriented plasticizers supporting flexibility, durability and processing requirements.",
   },
   {
-    number: "05",
+    number: "06",
     name: "Melamine",
     image: "/Melamine-2 (1).webp",
     description:
@@ -232,7 +240,7 @@ function CategoryRow({ category, index }) {
                 leading-none
                 tracking-[-2px]
                 sm:text-[42px]
-                xl:text-[50px]
+                xl:text-[45px]
               "
             >
               {category.name}
@@ -678,8 +686,8 @@ export default function Categories() {
             {/* REUSABLE TITLE */}
 
             <AnimatedTitle
-              text="PRODUCT"
-              highlight="CATEGORIES"
+              text="Products"
+              highlight="Caterories"
               delay={0.15}
               duration={0.8}
               letterDelay={0.04}
@@ -688,7 +696,6 @@ export default function Categories() {
               className="
                 text-[46px]
                 font-black
-                uppercase
                 leading-[0.86]
                 tracking-[-3px]
                 sm:text-[60px]
@@ -735,58 +742,6 @@ export default function Categories() {
               consistency, reliability and dependable performance.
             </p>
 
-
-            <div
-              className="
-                mt-7
-                flex
-                items-center
-                gap-5
-              "
-            >
-
-              <span
-                className="
-                  text-4xl
-                  font-black
-                  tracking-[-2px]
-                  text-[#111111]
-                "
-              >
-                05
-              </span>
-
-              <div>
-
-                <p
-                  className="
-                    text-[9px]
-                    font-bold
-                    uppercase
-                    tracking-[3px]
-                    text-black/40
-                  "
-                >
-                  Product
-                </p>
-
-                <p
-                  className="
-                    mt-1
-                    text-[11px]
-                    font-semibold
-                    uppercase
-                    tracking-[2px]
-                    text-black/70
-                  "
-                >
-                  Categories
-                </p>
-
-              </div>
-
-            </div>
-
           </motion.div>
 
         </div>
@@ -796,7 +751,7 @@ export default function Categories() {
             CATEGORIES
         ==================================================== */}
 
-        <div className="mt-8">
+        <div className="mt-6">
 
           {categories.map((category, index) => (
             <CategoryRow
@@ -808,69 +763,6 @@ export default function Categories() {
 
         </div>
 
-
-        {/* ====================================================
-            BOTTOM INFO
-        ==================================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
-          className="
-            mt-10
-            flex
-            flex-col
-            gap-4
-            pt-6
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
-        >
-
-          <p
-            className="
-              text-[10px]
-              uppercase
-              tracking-[2px]
-              text-black/30
-            "
-          >
-            Quality Materials • Reliable Sourcing • Consistent Performance
-          </p>
-
-
-          <div className="flex items-center gap-3">
-
-            <span className="h-[1px] w-10 bg-[#D4A017]" />
-
-            <span
-              className="
-                text-[9px]
-                font-bold
-                uppercase
-                tracking-[3px]
-                text-black/40
-              "
-            >
-              Resol Industries
-            </span>
-
-          </div>
-
-        </motion.div>
 
       </div>
 

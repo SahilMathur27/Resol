@@ -13,6 +13,7 @@ import {
   FaLocationDot,
   FaArrowUp,
   FaArrowRight,
+  FaArrowDown,
 } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
@@ -47,7 +48,6 @@ const offices = [
   },
 ];
 
-
 /* ============================================================
    FOOTER
 ============================================================ */
@@ -55,11 +55,13 @@ const offices = [
 export default function Footer() {
   const [showTop, setShowTop] = useState(false);
 
-  /* ================= BACK TO TOP ================= */
+  /* ============================================================
+     SCROLL
+  ============================================================ */
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowTop(window.scrollY > 400);
+      setShowTop(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -69,8 +71,9 @@ export default function Footer() {
     };
   }, []);
 
-
-  /* ================= SCROLL TO TOP ================= */
+  /* ============================================================
+     BACK TO TOP
+  ============================================================ */
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -79,240 +82,117 @@ export default function Footer() {
     });
   };
 
-
   return (
     <>
-      {/* =====================================================
+      {/* ========================================================
           FOOTER
-      ====================================================== */}
+      ======================================================== */}
 
-      <footer className="relative overflow-hidden bg-[#080705] text-white">
+      <footer className="relative overflow-hidden bg-[#090909] text-white">
 
-
-        {/* =====================================================
-            BACKGROUND DECORATIONS
+        {/* ======================================================
+            BACKGROUND
         ====================================================== */}
 
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-          {/* GOLD GLOW LEFT */}
+          {/* LARGE GOLD GLOW */}
 
           <div
             className="
               absolute
-              -left-40
-              top-20
-              h-[500px]
-              w-[500px]
+              -left-[220px]
+              top-[180px]
+              h-[600px]
+              w-[600px]
               rounded-full
               bg-[#D4A017]/[0.035]
-              blur-[130px]
+              blur-[150px]
             "
           />
-
-
-          {/* GOLD GLOW RIGHT */}
 
           <div
             className="
               absolute
-              -right-40
-              bottom-[-150px]
-              h-[550px]
-              w-[550px]
+              -right-[250px]
+              bottom-[50px]
+              h-[650px]
+              w-[650px]
               rounded-full
-              bg-[#D4A017]/[0.04]
-              blur-[140px]
+              bg-[#D4A017]/[0.025]
+              blur-[160px]
             "
           />
 
-
-          {/* CIRCLE */}
+          {/* LARGE WATERMARK */}
 
           <div
             className="
               absolute
+              bottom-[-80px]
               left-1/2
-              top-1/2
-              h-[550px]
-              w-[550px]
               -translate-x-1/2
-              -translate-y-1/2
-              rounded-full
-              border
-              border-[#D4A017]/[0.025]
+              whitespace-nowrap
+              text-[18vw]
+              font-black
+              leading-none
+              tracking-[-0.08em]
+              text-white/[0.018]
+              select-none
             "
-          />
+          >
+            RESOL
+          </div>
 
-
-          {/* SMALL CIRCLE */}
+          {/* TOP LINE */}
 
           <div
             className="
               absolute
-              right-20
-              top-20
-              h-40
-              w-40
-              rounded-full
-              border
-              border-white/[0.025]
+              left-0
+              top-0
+              h-px
+              w-full
+              bg-gradient-to-r
+              from-transparent
+              via-[#D4A017]/40
+              to-transparent
             "
           />
 
         </div>
 
-        {/* =====================================================
-            MAIN FOOTER
+
+        {/* ======================================================
+            MAIN FOOTER CONTENT
         ====================================================== */}
 
-        <div className="relative mx-auto max-w-7xl px-5 py-13 md:px-8 lg:py-15">
+        <div className="relative mx-auto max-w-[1500px] px-5 py-7 sm:px-8 md:py-8 lg:px-12 xl:px-16">
 
 
-          {/* =================================================
-              BRAND SECTION
-          ================================================= */}
+          {/* ====================================================
+              BRAND + CONTACT HEADER
+          ==================================================== */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
+          <div
             className="
-              mb-14
-              flex
-              flex-col
-              gap-6
+              mb-16
+              grid
+              gap-10
               border-b
-              border-white/10
-              pb-6
-              lg:flex-row
+              border-white/[0.08]
+              pb-12
+              lg:grid-cols-[1fr_auto]
               lg:items-end
-              lg:justify-between
             "
           >
 
             {/* BRAND */}
 
-            <div>
-
-              <Link
-                href="/"
-                className="inline-block"
-              >
-
-                <img
-                  src="/footerlogo.webp"
-                  alt="Resol Industries Ltd."
-                  className="
-                    w-[80px]
-                    object-contain
-                  "
-                />
-
-              </Link>
-
-
-              <p
-                className="
-                  mt-2
-                  max-w-2xl
-                  text-base
-                  leading-5
-                  text-gray-500
-                "
-              >
-                Your trusted partner for polymers, resins, PET resin and
-                industrial raw materials. We focus on dependable sourcing,
-                consistent quality and reliable supply solutions.
-              </p>
-
-            </div>
-
-
-            {/* SOCIAL */}
-
-            <div>
-
-              <p
-                className="
-                  mb-4
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-[0.25em]
-                  text-gray-500
-                "
-              >
-                Connect With Us
-              </p>
-
-
-              <div className="flex gap-2.5">
-
-                <SocialIcon
-                  href="#"
-                  label="Facebook"
-                  icon={<FaFacebookF size={14} />}
-                />
-
-                <SocialIcon
-                  href="#"
-                  label="Instagram"
-                  icon={<FaInstagram size={15} />}
-                />
-
-                <SocialIcon
-                  href="#"
-                  label="YouTube"
-                  icon={<FaYoutube size={15} />}
-                />
-
-                <SocialIcon
-                  href="#"
-                  label="X"
-                  icon={<FaXTwitter size={14} />}
-                />
-
-              </div>
-
-            </div>
-
-          </motion.div>
-
-
-          {/* =================================================
-              CONTENT GRID
-          ================================================= */}
-
-          <div
-            className="
-              grid
-              gap-14
-              lg:grid-cols-[1.45fr_0.8fr]
-              lg:gap-15
-            "
-          >
-
-
-            {/* =================================================
-                OFFICE LOCATIONS
-            ================================================= */}
-
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 20,
               }}
               whileInView={{
                 opacity: 1,
@@ -326,24 +206,150 @@ export default function Footer() {
               }}
             >
 
-              {/* HEADING */}
+              <Link
+                href="/"
+                className="inline-block"
+              >
 
-              <div
+                <img
+                  src="/footerlogo.webp"
+                  alt="Resol Industries Ltd."
+                  className="
+                    h-auto
+                    w-[105px]
+                    object-contain
+                  "
+                />
+
+              </Link>
+
+
+              <p
                 className="
-                  mb-1
-                  flex
-                  items-center
-                  justify-between
+                  mt-5
+                  max-w-[620px]
+                  font-(--font-lexend)
+                  text-[13px]
+                  leading-6
+                  text-white/40
                 "
               >
+                Your trusted partner for polymers, resins, PET resin
+                and industrial raw materials. We focus on dependable
+                sourcing, consistent quality and reliable supply
+                solutions across India.
+              </p>
+
+            </motion.div>
+
+
+            {/* SOCIAL */}
+
+            <div>
+
+              <p
+                className="
+                  mb-4
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.25em]
+                  text-white-50
+                  lg:text-right
+                "
+              >
+                Connect With Us
+              </p>
+
+              <div className="flex gap-2">
+
+                <SocialIcon
+                  href="#"
+                  label="Facebook"
+                  icon={<FaFacebookF size={13} />}
+                />
+
+                <SocialIcon
+                  href="#"
+                  label="Instagram"
+                  icon={<FaInstagram size={14} />}
+                />
+
+                <SocialIcon
+                  href="#"
+                  label="YouTube"
+                  icon={<FaYoutube size={14} />}
+                />
+
+                <SocialIcon
+                  href="#"
+                  label="X"
+                  icon={<FaXTwitter size={13} />}
+                />
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* ====================================================
+              MAIN GRID
+          ==================================================== */}
+
+          <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
+
+
+            {/* ==================================================
+                OFFICES
+            ================================================== */}
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.7,
+              }}
+              className="lg:col-span-8"
+            >
+
+              {/* SECTION TITLE */}
+
+              <div className="mb-3 flex items-end justify-between">
 
                 <div>
 
+                  <p
+                    className="
+                      mb-2
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.3em]
+                      text-[#D4A017]
+                    "
+                  >
+                    Our Presence
+                  </p>
+
                   <h3
                     className="
-                      text-2xl
+                      font-(--font-outfit)
+                      text-3xl
                       font-semibold
+                      tracking-[-0.03em]
                       text-white
+                      md:text-4xl
                     "
                   >
                     Office Locations
@@ -352,39 +358,17 @@ export default function Footer() {
                 </div>
 
 
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#D4A017]/20
-                    bg-[#D4A017]/[0.05]
-                  "
-                >
-
-                  <FaLocationDot
-                    size={18}
-                    className="text-[#D4A017]"
-                  />
-
-                </div>
+                <FaLocationDot
+                  size={19}
+                  className="mb-1 hidden text-[#D4A017] sm:block"
+                />
 
               </div>
 
 
-              {/* LOCATION CARDS */}
+              {/* OFFICE LIST */}
 
-              <div
-                className="
-                  grid
-                  gap-3
-                  sm:grid-cols-2
-                "
-              >
+              <div className="border-t border-white/[0.10]">
 
                 {offices.map((office, index) => (
 
@@ -392,113 +376,111 @@ export default function Footer() {
                     key={office.id}
                     initial={{
                       opacity: 0,
-                      y: 15,
+                      x: -15,
                     }}
                     whileInView={{
                       opacity: 1,
-                      y: 0,
+                      x: 0,
                     }}
                     viewport={{
                       once: true,
                     }}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.5,
                       delay: index * 0.08,
                     }}
                     className="
                       group
                       relative
-                      overflow-hidden
-                      rounded-xl
-                      border
-                      border-white/[0.08]
-                      bg-white/[0.025]
-                      p-5
+                      grid
+                      gap-5
+                      border-b
+                      border-white/[0.07]
+                      py-7
                       transition-all
                       duration-300
-                      hover:border-[#D4A017]/40
-                      hover:bg-[#D4A017]/[0.045]
+                      sm:grid-cols-[55px_160px_1fr]
+                      sm:items-start
                     "
                   >
+
+                    {/* GOLD LINE */}
+
+                    <span
+                      className="
+                        absolute
+                        left-0
+                        top-0
+                        h-full
+                        w-[2px]
+                        origin-top
+                        scale-y-0
+                        bg-[#D4A017]
+                        transition-transform
+                        duration-500
+                        group-hover:scale-y-100
+                      "
+                    />
+
 
                     {/* NUMBER */}
 
                     <div
                       className="
-                        absolute
-                        right-4
-                        top-2
-                        text-4xl
+                        font-(--font-outfit)
+                        text-[11px]
                         font-bold
-                        text-white/[0.035]
+                        tracking-[0.15em]
+                        text-[#D4A017]
                       "
                     >
                       {office.id}
                     </div>
 
 
-                    {/* TITLE */}
+                    {/* CITY */}
 
-                    <div
-                      className="
-                        relative
-                        mb-3
-                        flex
-                        items-center
-                        gap-2
-                      "
-                    >
-
-                      <span
-                        className="
-                          h-1.5
-                          w-1.5
-                          rounded-full
-                          bg-[#D4A017]
-                        "
-                      />
+                    <div>
 
                       <h4
                         className="
-                          text-sm
-                          font-bold
-                          uppercase
-                          tracking-wider
+                          font-(--font-outfit)
+                          text-[15px]
+                          font-semibold
                           text-white
                         "
                       >
                         {office.title}
                       </h4>
 
+                      <p
+                        className="
+                          mt-1
+                          text-[8px]
+                          font-bold
+                          uppercase
+                          tracking-[1.5px]
+                          text-white/30
+                        "
+                      >
+                        {office.type}
+                      </p>
+
                     </div>
-
-
-                    {/* OFFICE TYPE */}
-
-                    <p
-                      className="
-                        mb-2
-                        text-[11px]
-                        font-semibold
-                        uppercase
-                        tracking-wider
-                        text-[#D4A017]/70
-                      "
-                    >
-                      {office.type}
-                    </p>
 
 
                     {/* ADDRESS */}
 
                     <p
                       className="
-                        text-sm
+                        max-w-[500px]
+                        font-(--font-lexend)
+                        text-[12px]
                         leading-6
-                        text-gray-500
+                        text-white/40
                         transition-colors
                         duration-300
-                        group-hover:text-gray-400
+                        group-hover:text-white/65
                       "
                     >
                       {office.text}
@@ -513,14 +495,14 @@ export default function Footer() {
             </motion.div>
 
 
-            {/* =================================================
-                CONTACT INFORMATION
-            ================================================= */}
+            {/* ==================================================
+                CONTACT
+            ================================================== */}
 
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 25,
               }}
               whileInView={{
                 opacity: 1,
@@ -530,205 +512,211 @@ export default function Footer() {
                 once: true,
               }}
               transition={{
-                duration: 0.6,
+                duration: 0.7,
                 delay: 0.15,
               }}
+              className="lg:col-span-4"
             >
 
-              <p
+              <div
                 className="
-                  mb-2
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-[0.25em]
-                  text-[#D4A017]
-                "
-              >
-                Let's Talk
-              </p>
-
-
-              <h3
-                className="
-                  mb-8
-                  text-2xl
-                  font-semibold
-                  text-white
-                "
-              >
-                Contact Information
-              </h3>
-
-
-              {/* PHONE */}
-
-              <ContactBlock
-                icon={<FaPhone size={14} />}
-                title="Phone"
-              >
-
-                <a
-                  href="tel:+911141417725"
-                  className="
-                    block
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  +91-11-41417725
-                </a>
-
-                <a
-                  href="tel:+911141417825"
-                  className="
-                    block
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  +91-11-41417825
-                </a>
-
-              </ContactBlock>
-
-
-              {/* MOBILE */}
-
-              <ContactBlock
-                icon={<FaPhone size={14} />}
-                title="Mobile"
-              >
-
-                <a
-                  href="tel:+919999995255"
-                  className="
-                    block
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  +91-9999995255
-                </a>
-
-                <a
-                  href="tel:+919999997765"
-                  className="
-                    block
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  +91-9999997765
-                </a>
-
-                <a
-                  href="tel:+919810929486"
-                  className="
-                    block
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  +91-9810929486
-                </a>
-
-              </ContactBlock>
-
-
-              {/* EMAIL */}
-
-              <ContactBlock
-                icon={<FaEnvelope size={14} />}
-                title="Email"
-              >
-
-                <a
-                  href="mailto:info@resolvinyls.com"
-                  className="
-                    break-all
-                    transition-colors
-                    hover:text-[#D4A017]
-                  "
-                >
-                  info@resolvinyls.com
-                </a>
-
-              </ContactBlock>
-
-
-              {/* WHATSAPP CARD */}
-
-              <a
-                href="https://wa.me/919810929486"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  group
-                  mt-7
-                  flex
-                  items-center
-                  justify-between
-                  rounded-xl
                   border
-                  border-[#25D366]/20
-                  bg-[#25D366]/[0.04]
-                  px-5
-                  py-4
-                  transition-all
-                  duration-300
-                  hover:border-[#25D366]/50
-                  hover:bg-[#25D366]/10
+                  border-white/[0.08]
+                  bg-white/[0.02]
+                  p-6
+                  md:p-8
                 "
               >
 
-                <div className="flex items-center gap-3">
+                {/* TITLE */}
 
-                  <div
+                <div className="mb-8">
+
+                  <p
                     className="
-                      flex
-                      h-10
-                      w-10
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#25D366]
+                      mb-2
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.3em]
+                      text-[#D4A017]
+                    "
+                  >
+                    Let's Talk
+                  </p>
+
+                  <h3
+                    className="
+                      font-(--font-outfit)
+                      text-3xl
+                      font-semibold
+                      tracking-[-0.03em]
                       text-white
                     "
                   >
-
-                    <FaWhatsapp size={20} />
-
-                  </div>
-
-
-                  <div>
-
-                    <p className="text-xs text-gray-500">
-                      Quick Inquiry
-                    </p>
-
-                    <p className="text-sm font-semibold text-white">
-                      Chat on WhatsApp
-                    </p>
-
-                  </div>
+                    Contact
+                    <br />
+                    Information
+                  </h3>
 
                 </div>
 
 
-                <FaArrowRight
-                  size={13}
+                {/* PHONE */}
+
+                <ContactBlock
+                  icon={<FaPhone size={12} />}
+                  title="Phone"
+                >
+
+                  <a
+                    href="tel:+911141417725"
+                    className="block hover:text-[#D4A017]"
+                  >
+                    +91-11-41417725
+                  </a>
+
+                  <a
+                    href="tel:+911141417825"
+                    className="block hover:text-[#D4A017]"
+                  >
+                    +91-11-41417825
+                  </a>
+
+                </ContactBlock>
+
+
+                {/* MOBILE */}
+
+                <ContactBlock
+                  icon={<FaPhone size={12} />}
+                  title="Mobile"
+                >
+
+                  <a
+                    href="tel:+919999995255"
+                    className="block hover:text-[#D4A017]"
+                  >
+                    +91-9999995255
+                  </a>
+
+                  <a
+                    href="tel:+919999997765"
+                    className="block hover:text-[#D4A017]"
+                  >
+                    +91-9999997765
+                  </a>
+
+                  <a
+                    href="tel:+919810929486"
+                    className="block hover:text-[#D4A017]"
+                  >
+                    +91-9810929486
+                  </a>
+
+                </ContactBlock>
+
+
+                {/* EMAIL */}
+
+                <ContactBlock
+                  icon={<FaEnvelope size={12} />}
+                  title="Email"
+                >
+
+                  <a
+                    href="mailto:info@resolvinyls.com"
+                    className="break-all hover:text-[#D4A017]"
+                  >
+                    info@resolvinyls.com
+                  </a>
+
+                </ContactBlock>
+
+
+                {/* WHATSAPP */}
+
+                <a
+                  href="https://wa.me/919810929486"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
-                    text-gray-500
+                    group
+                    mt-8
+                    flex
+                    items-center
+                    justify-between
+                    border
+                    border-[#D4A017]/25
+                    bg-[#D4A017]/[0.035]
+                    p-4
                     transition-all
                     duration-300
-                    group-hover:translate-x-1
-                    group-hover:text-[#25D366]
+                    hover:border-[#D4A017]/70
+                    hover:bg-[#D4A017]/[0.08]
                   "
-                />
+                >
 
-              </a>
+                  <div className="flex items-center gap-3">
+
+                    <div
+                      className="
+                        flex
+                        h-9
+                        w-9
+                        items-center
+                        justify-center
+                        bg-[#D4A017]
+                        text-[#111111]
+                      "
+                    >
+                      <FaWhatsapp size={18} />
+                    </div>
+
+
+                    <div>
+
+                      <p
+                        className="
+                          text-[8px]
+                          font-bold
+                          uppercase
+                          tracking-[1.5px]
+                          text-white/30
+                        "
+                      >
+                        Quick Inquiry
+                      </p>
+
+                      <p
+                        className="
+                          mt-1
+                          text-[12px]
+                          font-semibold
+                          text-white
+                        "
+                      >
+                        Chat on WhatsApp
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+                  <FaArrowRight
+                    size={12}
+                    className="
+                      text-[#D4A017]
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  />
+
+                </a>
+
+              </div>
 
             </motion.div>
 
@@ -737,43 +725,41 @@ export default function Footer() {
         </div>
 
 
-        {/* =====================================================
+        {/* ======================================================
             BOTTOM BAR
         ====================================================== */}
 
-        <div
-          className="
-            relative
-            border-t
-            border-white/[0.08]
-          "
-        >
+        <div className="relative border-t border-white/[0.08]">
 
           <div
             className="
               mx-auto
               flex
-              max-w-7xl
+              max-w-[1500px]
               flex-col
               gap-4
               px-5
               py-6
-              text-center
+              sm:px-8
               md:flex-row
               md:items-center
               md:justify-between
-              md:px-8
-              md:text-left
+              lg:px-12
+              xl:px-16
             "
           >
 
             {/* COPYRIGHT */}
 
-            <p className="text-xs text-gray-600">
-
+            <p
+              className="
+                text-[10px]
+                leading-5
+                text-white/25
+              "
+            >
               © {new Date().getFullYear()} Resol Industries Ltd.
               All rights reserved.
-
             </p>
 
 
@@ -784,58 +770,45 @@ export default function Footer() {
                 flex
                 flex-wrap
                 items-center
-                justify-center
-                gap-4
-                text-xs
-                text-gray-600
+                gap-x-5
+                gap-y-2
+                text-[13px]
+                text-white-50
               "
             >
 
               <Link
                 href="/privacy-policy"
-                className="
-                  transition-colors
-                  hover:text-[#D4A017]
-                "
+                className="transition-colors hover:text-[#D4A017]"
               >
                 Privacy Policy
               </Link>
 
-
               <span className="h-3 w-px bg-white/10" />
-
 
               <Link
                 href="/terms-and-conditions"
-                className="
-                  transition-colors
-                  hover:text-[#D4A017]
-                "
+                className="transition-colors hover:text-[#D4A017]"
               >
                 Terms & Conditions
               </Link>
 
-
               <span className="h-3 w-px bg-white/10" />
 
-
               <p>
-
                 Website Designed By{" "}
-
                 <Link
                   href="https://inquirybazaar.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    text-gray-400
+                    text-white/45
                     transition-colors
                     hover:text-[#D4A017]
                   "
                 >
                   Inquiry Bazaar Pvt. Ltd.
                 </Link>
-
               </p>
 
             </div>
@@ -846,10 +819,10 @@ export default function Footer() {
 
       </footer>
 
-      
-      {/* =====================================================
+
+      {/* ========================================================
           BACK TO TOP
-      ====================================================== */}
+      ======================================================== */}
 
       <motion.button
         initial={{
@@ -864,7 +837,7 @@ export default function Footer() {
         aria-label="Back to top"
         className={`
           fixed
-          bottom-4
+          bottom-5
           right-5
           z-50
           flex
@@ -872,16 +845,14 @@ export default function Footer() {
           w-12
           items-center
           justify-center
-          rounded-full
           border
-          border-white/10
-          bg-white
-          text-gray-600
-          shadow-lg
+          border-[#D4A017]/30
+          bg-[#D4A017]
+          text-[#111111]
+          shadow-[0_10px_35px_rgba(0,0,0,0.25)]
           transition-all
           duration-300
-          hover:bg-[#D4A017]
-          hover:text-black
+          hover:bg-white
           md:right-7
           ${
             showTop
@@ -891,41 +862,41 @@ export default function Footer() {
         `}
       >
 
-        <FaArrowUp size={15} />
+        <FaArrowUp size={14} />
 
       </motion.button>
-
     </>
   );
 }
 
 
 /* ============================================================
-   SOCIAL ICON COMPONENT
+   SOCIAL ICON
 ============================================================ */
 
-function SocialIcon({ href, label, icon }) {
+function SocialIcon({
+  href,
+  label,
+  icon,
+}) {
   return (
     <a
       href={href}
       aria-label={label}
       className="
         flex
-        h-10
-        w-10
+        h-9
+        w-9
         items-center
         justify-center
-        rounded-full
         border
-        border-white/10
-        bg-white/[0.025]
-        text-gray-500
+        border-white/[0.10]
+        text-white/35
         transition-all
         duration-300
-        hover:-translate-y-1
         hover:border-[#D4A017]
         hover:bg-[#D4A017]
-        hover:text-black
+        hover:text-[#111111]
       "
     >
       {icon}
@@ -935,7 +906,7 @@ function SocialIcon({ href, label, icon }) {
 
 
 /* ============================================================
-   CONTACT BLOCK COMPONENT
+   CONTACT BLOCK
 ============================================================ */
 
 function ContactBlock({
@@ -944,22 +915,29 @@ function ContactBlock({
   children,
 }) {
   return (
-    <div className="mb-6 flex gap-4">
+    <div
+      className="
+        mb-7
+        flex
+        gap-4
+        border-b
+        border-white/[0.06]
+        pb-6
+      "
+    >
 
       {/* ICON */}
 
       <div
         className="
           flex
-          h-9
-          w-9
+          h-8
+          w-8
           flex-shrink-0
           items-center
           justify-center
-          rounded-lg
           border
           border-[#D4A017]/20
-          bg-[#D4A017]/[0.06]
           text-[#D4A017]
         "
       >
@@ -973,12 +951,12 @@ function ContactBlock({
 
         <p
           className="
-            mb-1
-            text-xs
-            font-semibold
+            mb-1.5
+            text-[8px]
+            font-bold
             uppercase
-            tracking-wider
-            text-gray-500
+            tracking-[1.8px]
+            text-white/25
           "
         >
           {title}
@@ -986,10 +964,10 @@ function ContactBlock({
 
         <div
           className="
-            space-y-1
-            text-sm
+            space-y-0.5
+            text-[12px]
             leading-6
-            text-gray-400
+            text-white/55
           "
         >
           {children}
@@ -998,5 +976,49 @@ function ContactBlock({
       </div>
 
     </div>
+  );
+}
+
+
+/* ============================================================
+   FOOTER LINK
+============================================================ */
+
+function FooterLink({
+  href,
+  label,
+}) {
+  return (
+    <Link
+      href={href}
+      className="
+        group
+        flex
+        items-center
+        gap-2
+        text-[11px]
+        font-medium
+        text-white/40
+        transition-colors
+        duration-300
+        hover:text-white
+      "
+    >
+
+      <span
+        className="
+          h-[3px]
+          w-[3px]
+          bg-[#D4A017]
+          opacity-50
+          transition-all
+          duration-300
+          group-hover:w-5
+        "
+      />
+
+      {label}
+
+    </Link>
   );
 }

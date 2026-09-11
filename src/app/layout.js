@@ -2,8 +2,6 @@ import { Outfit, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FlotingAction";
-
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -15,7 +13,6 @@ const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
 });
 
-
 export const metadata = {
   title: "Resol Industries",
   description: "PVC Resin & Calcium Carbonate",
@@ -23,21 +20,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className=""
-    >
+    <html lang="en">
       <body
         className={`${outfit.variable} ${lexendDeca.variable} antialiased`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
-        <FloatingActions/>
-        </body>
-       
+        <Footer />
+      </body>
     </html>
-    
   );
-   
 }

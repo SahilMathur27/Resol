@@ -219,7 +219,7 @@ export default function Navbar() {
                 DESKTOP NAVIGATION
             ==================================================== */}
 
-            <nav className="hidden items-center gap-1 xl:flex">
+            <nav className="hidden items-center gap-1 xl:flex text-2xl">
 
               <NavItem
                 href="/"

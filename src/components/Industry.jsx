@@ -69,7 +69,7 @@ export default function IndustriesAccordion() {
   const activeIndustry = industries[active];
 
   return (
-    <section className="relative overflow-hidden bg-[#f3f3f1] py-10 md:py-12 lg:py-15">
+    <section className="relative overflow-hidden bg-[#f3f3f1] py-10 md:py-12 lg:py-15 mt-10">
 
       {/* =====================================================
           BACKGROUND
@@ -127,7 +127,7 @@ export default function IndustriesAccordion() {
 
           <div className="grid gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
 
-            <h2 className="max-w-5xl overflow-hidden text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-[#171717] md:text-6xl lg:text-[82px]">
+            <h2 className="max-w-5xl overflow-hidden text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-[#171717] md:text-5xl lg:text-[55px]">
 
               <motion.span
                 initial={{ y: "100%" }}

@@ -694,8 +694,8 @@ export default function ProductsSection() {
              {/* REUSABLE TITLE */}
              
                          <AnimatedTitle
-                                       text="OUR"
-                                       highlight="PRODUCTS"
+                                       text="Our"
+                                       highlight="Products"
                                        delay={0.15}
                                        duration={0.8}
                                        letterDelay={0.04}
@@ -704,12 +704,11 @@ export default function ProductsSection() {
                                        className="
                                          text-[40px]
                                          font-black
-                                         uppercase
                                          leading-[0.86]
                                          tracking-[-3px]
-                                         sm:text-[50px]
-                                         md:text-[60px]
-                                         lg:text-[60px]
+                                         sm:text-[45px]
+                                         md:text-[50px]
+                                         lg:text-[55px]
                                        "
                                      />
               </div>

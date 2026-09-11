@@ -259,14 +259,14 @@ function StatItem({ item, index }) {
             ease: [0.16, 1, 0.3, 1],
           }}
           className="
-            text-[58px]
+            text-[40px]
             font-black
             leading-none
             tracking-[-4px]
             text-[#D4A017]
-            sm:text-[68px]
-            lg:text-[72px]
-            xl:text-[80px]
+            sm:text-[45px]
+            lg:text-[50px]
+            xl:text-[55px]
           "
         >
           <CountUp
@@ -468,7 +468,7 @@ export default function Counter() {
             pb-8
             lg:grid-cols-[0.9fr_1.1fr]
             lg:items-end
-            lg:pb-10
+            lg:pb-7
           "
         >
 
@@ -525,8 +525,8 @@ export default function Counter() {
                 text-[11px]
                 uppercase
                 leading-6
-                tracking-[2px]
-                text-white/30
+                tracking-[1px]
+                text-white/50
               "
             >
               Built through experience.
@@ -562,22 +562,21 @@ export default function Counter() {
             {/* REUSABLE TITLE */}
 
             <AnimatedTitle
-              text="NUMBERS THAT"
-              highlight="SPEAK FOR US"
+              text="Numbers That"
+              highlight="Speak for Us"
               delay={0.15}
               duration={0.8}
               letterDelay={0.035}
               color="#FFFFFF"
               highlightColor="#D4A017"
               className="
-                text-[42px]
+                text-[35px]
                 font-black
-                uppercase
                 leading-[0.88]
                 tracking-[-3px]
-                sm:text-[54px]
-                md:text-[64px]
-                lg:text-[76px]
+                sm:text-[45px]
+                md:text-[50px]
+                lg:text-[55px]
               "
             />
 

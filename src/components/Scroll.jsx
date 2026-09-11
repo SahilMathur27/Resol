@@ -246,7 +246,7 @@ export default function Scroll() {
 
                   <div className="mb-5 h-[2px] w-14 bg-[#D4A017]" />
 
-                  <h3 className="max-w-[550px] font-['Manrope'] text-[34px] font-extrabold leading-[1.05] tracking-[-1.5px] text-white md:text-[44px]">
+                  <h3 className="max-w-[550px] font-['Manrope'] text-[34px] font-extrabold leading-[1.05] tracking-[-1.5px] text-white md:text-[35px]">
 
                     {item.title}
 
@@ -286,7 +286,7 @@ export default function Scroll() {
 
               </div>
 
-              <h2 className="mt-8 max-w-[700px] font-['Manrope'] text-[50px] font-extrabold leading-[0.96] tracking-[-3px] text-black md:text-[70px]">
+              <h2 className="mt-8 max-w-[700px] font-['Manrope'] text-[50px] font-extrabold leading-[0.96] tracking-[-3px] text-black md:text-[55px]">
 
                 Quality
 

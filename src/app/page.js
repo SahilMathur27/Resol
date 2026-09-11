@@ -16,6 +16,7 @@ import BlendCursor from "@/components/Curser";
 import AboutUs from "@/components/About";
 import ProductsSection from "@/components/Products";
 import OurTeam from "@/components/OurTeam";
+import HomeCta from "@/components/HomeCta";
 
 
 export default function Home() {
@@ -23,15 +24,16 @@ export default function Home() {
    <>
    <Main/> 
    <AboutUs/> 
-     {/* <Cta/> */}
-      <Scroll/>
+   <Scroll/>
    <Categories/>
+   <Cta/> 
    <Counter/>
    <ProductsSection/>
 <OurTeam/>
    <Industry/>
    <Capability/>
   <OurBrands/>
+  <HomeCta/>
    <Testimonials/>
    <Faq/>
    <Smooth/>
